@@ -10,7 +10,7 @@ public interface TbOrderMapper {
 
     int deleteByExample(TbOrderExample example);
 
-    int deleteByPrimaryKey(Long order_id);
+    int deleteByPrimaryKey(Long orderId);
 
     int insert(TbOrder record);
 
@@ -18,7 +18,7 @@ public interface TbOrderMapper {
 
     List<TbOrder> selectByExample(TbOrderExample example);
 
-    TbOrder selectByPrimaryKey(Long order_id);
+    TbOrder selectByPrimaryKey(Long orderId);
 
     int updateByExampleSelective(@Param("record") TbOrder record, @Param("example") TbOrderExample example);
 

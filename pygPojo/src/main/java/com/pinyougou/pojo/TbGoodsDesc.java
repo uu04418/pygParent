@@ -2,39 +2,39 @@ package com.pinyougou.pojo;
 
 import java.io.Serializable;
 
-public class TbGoodsDesc implements Serializable{
+public class TbGoodsDesc implements Serializable {
     /**
 	 * 
 	 */
-	private static final long serialVersionUID = -5211857386147468416L;
+	private static final long serialVersionUID = 6229901073758845984L;
 
 	/** SPU_ID*/
-    private Long goods_id;
+    private Long goodsId;
 
     /** 描述*/
     private String introduction;
 
     /** 规格结果集，所有规格，包含isSelected*/
-    private String specification_items;
+    private String specificationItems;
 
     /** 自定义属性（参数结果）*/
-    private String custom_attribute_items;
+    private String customAttributeItems;
 
     /** */
-    private String item_images;
+    private String itemImages;
 
     /** 包装列表*/
-    private String package_list;
+    private String packageList;
 
     /** 售后服务*/
-    private String sale_service;
+    private String saleService;
 
-    public Long getGoods_id() {
-        return goods_id;
+    public Long getGoodsId() {
+        return goodsId;
     }
 
-    public void setGoods_id(Long goods_id) {
-        this.goods_id = goods_id;
+    public void setGoodsId(Long goodsId) {
+        this.goodsId = goodsId;
     }
 
     public String getIntroduction() {
@@ -45,43 +45,43 @@ public class TbGoodsDesc implements Serializable{
         this.introduction = introduction == null ? null : introduction.trim();
     }
 
-    public String getSpecification_items() {
-        return specification_items;
+    public String getSpecificationItems() {
+        return specificationItems;
     }
 
-    public void setSpecification_items(String specification_items) {
-        this.specification_items = specification_items == null ? null : specification_items.trim();
+    public void setSpecificationItems(String specificationItems) {
+        this.specificationItems = specificationItems == null ? null : specificationItems.trim();
     }
 
-    public String getCustom_attribute_items() {
-        return custom_attribute_items;
+    public String getCustomAttributeItems() {
+        return customAttributeItems;
     }
 
-    public void setCustom_attribute_items(String custom_attribute_items) {
-        this.custom_attribute_items = custom_attribute_items == null ? null : custom_attribute_items.trim();
+    public void setCustomAttributeItems(String customAttributeItems) {
+        this.customAttributeItems = customAttributeItems == null ? null : customAttributeItems.trim();
     }
 
-    public String getItem_images() {
-        return item_images;
+    public String getItemImages() {
+        return itemImages;
     }
 
-    public void setItem_images(String item_images) {
-        this.item_images = item_images == null ? null : item_images.trim();
+    public void setItemImages(String itemImages) {
+        this.itemImages = itemImages == null ? null : itemImages.trim();
     }
 
-    public String getPackage_list() {
-        return package_list;
+    public String getPackageList() {
+        return packageList;
     }
 
-    public void setPackage_list(String package_list) {
-        this.package_list = package_list == null ? null : package_list.trim();
+    public void setPackageList(String packageList) {
+        this.packageList = packageList == null ? null : packageList.trim();
     }
 
-    public String getSale_service() {
-        return sale_service;
+    public String getSaleService() {
+        return saleService;
     }
 
-    public void setSale_service(String sale_service) {
-        this.sale_service = sale_service == null ? null : sale_service.trim();
+    public void setSaleService(String saleService) {
+        this.saleService = saleService == null ? null : saleService.trim();
     }
 }

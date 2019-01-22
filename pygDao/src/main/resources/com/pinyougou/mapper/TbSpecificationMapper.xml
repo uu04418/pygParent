@@ -3,7 +3,7 @@
 <mapper namespace="com.pinyougou.mapper.TbSpecificationMapper" >
   <resultMap id="BaseResultMap" type="com.pinyougou.pojo.TbSpecification" >
     <id column="id" property="id" jdbcType="BIGINT" />
-    <result column="spec_name" property="spec_name" jdbcType="VARCHAR" />
+    <result column="spec_name" property="specName" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -98,7 +98,7 @@
   </delete>
   <insert id="insert" parameterType="com.pinyougou.pojo.TbSpecification" >
     insert into tb_specification (id, spec_name)
-    values (#{id,jdbcType=BIGINT}, #{spec_name,jdbcType=VARCHAR})
+    values (#{id,jdbcType=BIGINT}, #{specName,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.pinyougou.pojo.TbSpecification" >
     insert into tb_specification
@@ -106,7 +106,7 @@
       <if test="id != null" >
         id,
       </if>
-      <if test="spec_name != null" >
+      <if test="specName != null" >
         spec_name,
       </if>
     </trim>
@@ -114,8 +114,8 @@
       <if test="id != null" >
         #{id,jdbcType=BIGINT},
       </if>
-      <if test="spec_name != null" >
-        #{spec_name,jdbcType=VARCHAR},
+      <if test="specName != null" >
+        #{specName,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -131,8 +131,8 @@
       <if test="record.id != null" >
         id = #{record.id,jdbcType=BIGINT},
       </if>
-      <if test="record.spec_name != null" >
-        spec_name = #{record.spec_name,jdbcType=VARCHAR},
+      <if test="record.specName != null" >
+        spec_name = #{record.specName,jdbcType=VARCHAR},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -142,7 +142,7 @@
   <update id="updateByExample" parameterType="map" >
     update tb_specification
     set id = #{record.id,jdbcType=BIGINT},
-      spec_name = #{record.spec_name,jdbcType=VARCHAR}
+      spec_name = #{record.specName,jdbcType=VARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -150,15 +150,15 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.pinyougou.pojo.TbSpecification" >
     update tb_specification
     <set >
-      <if test="spec_name != null" >
-        spec_name = #{spec_name,jdbcType=VARCHAR},
+      <if test="specName != null" >
+        spec_name = #{specName,jdbcType=VARCHAR},
       </if>
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.pinyougou.pojo.TbSpecification" >
     update tb_specification
-    set spec_name = #{spec_name,jdbcType=VARCHAR}
+    set spec_name = #{specName,jdbcType=VARCHAR}
     where id = #{id,jdbcType=BIGINT}
   </update>
 </mapper>

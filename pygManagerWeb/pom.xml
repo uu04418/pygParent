@@ -10,6 +10,12 @@
   
   
   <dependencies>
+  
+  	<dependency>
+  		 <groupId>com.pyg</groupId>
+   	 	 <artifactId>pygSellerGoodsInterface</artifactId>
+    	 <version>0.0.1-SNAPSHOT</version>
+  	</dependency>
     <!-- Spring -->
 	<dependency>
 		<groupId>org.springframework</groupId>
@@ -90,7 +96,7 @@
 				<version>2.2</version>
 				<configuration>
 					<!-- 指定端口 -->
-					<port>8080</port>
+					<port>8081</port>
 					<!-- 请求路径 -->
 					<path>/</path>
 				</configuration>

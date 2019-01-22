@@ -3,27 +3,26 @@ package com.pinyougou.pojo;
 import java.io.Serializable;
 import java.util.Date;
 
-public class TbAddress implements Serializable {
-
-	/**
+public class TbAddress implements Serializable{
+    /**
 	 * 
 	 */
-	private static final long serialVersionUID = 791575766909895841L;
+	private static final long serialVersionUID = -8088389571629624572L;
 
 	/** */
     private Long id;
 
     /** 用户ID*/
-    private String user_id;
+    private String userId;
 
     /** 省*/
-    private String province_id;
+    private String provinceId;
 
     /** 市*/
-    private String city_id;
+    private String cityId;
 
     /** 县/区*/
-    private String town_id;
+    private String townId;
 
     /** 手机*/
     private String mobile;
@@ -35,13 +34,13 @@ public class TbAddress implements Serializable {
     private String contact;
 
     /** 是否是默认 1默认 0否*/
-    private String is_default;
+    private String isDefault;
 
     /** 备注*/
     private String notes;
 
     /** 创建日期*/
-    private Date create_date;
+    private Date createDate;
 
     /** 别名*/
     private String alias;
@@ -54,36 +53,36 @@ public class TbAddress implements Serializable {
         this.id = id;
     }
 
-    public String getUser_id() {
-        return user_id;
+    public String getUserId() {
+        return userId;
     }
 
-    public void setUser_id(String user_id) {
-        this.user_id = user_id == null ? null : user_id.trim();
+    public void setUserId(String userId) {
+        this.userId = userId == null ? null : userId.trim();
     }
 
-    public String getProvince_id() {
-        return province_id;
+    public String getProvinceId() {
+        return provinceId;
     }
 
-    public void setProvince_id(String province_id) {
-        this.province_id = province_id == null ? null : province_id.trim();
+    public void setProvinceId(String provinceId) {
+        this.provinceId = provinceId == null ? null : provinceId.trim();
     }
 
-    public String getCity_id() {
-        return city_id;
+    public String getCityId() {
+        return cityId;
     }
 
-    public void setCity_id(String city_id) {
-        this.city_id = city_id == null ? null : city_id.trim();
+    public void setCityId(String cityId) {
+        this.cityId = cityId == null ? null : cityId.trim();
     }
 
-    public String getTown_id() {
-        return town_id;
+    public String getTownId() {
+        return townId;
     }
 
-    public void setTown_id(String town_id) {
-        this.town_id = town_id == null ? null : town_id.trim();
+    public void setTownId(String townId) {
+        this.townId = townId == null ? null : townId.trim();
     }
 
     public String getMobile() {
@@ -110,12 +109,12 @@ public class TbAddress implements Serializable {
         this.contact = contact == null ? null : contact.trim();
     }
 
-    public String getIs_default() {
-        return is_default;
+    public String getIsDefault() {
+        return isDefault;
     }
 
-    public void setIs_default(String is_default) {
-        this.is_default = is_default == null ? null : is_default.trim();
+    public void setIsDefault(String isDefault) {
+        this.isDefault = isDefault == null ? null : isDefault.trim();
     }
 
     public String getNotes() {
@@ -126,12 +125,12 @@ public class TbAddress implements Serializable {
         this.notes = notes == null ? null : notes.trim();
     }
 
-    public Date getCreate_date() {
-        return create_date;
+    public Date getCreateDate() {
+        return createDate;
     }
 
-    public void setCreate_date(Date create_date) {
-        this.create_date = create_date;
+    public void setCreateDate(Date createDate) {
+        this.createDate = createDate;
     }
 
     public String getAlias() {

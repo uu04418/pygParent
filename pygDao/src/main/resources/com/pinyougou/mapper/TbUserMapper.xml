@@ -9,21 +9,21 @@
     <result column="email" property="email" jdbcType="VARCHAR" />
     <result column="created" property="created" jdbcType="TIMESTAMP" />
     <result column="updated" property="updated" jdbcType="TIMESTAMP" />
-    <result column="source_type" property="source_type" jdbcType="VARCHAR" />
-    <result column="nick_name" property="nick_name" jdbcType="VARCHAR" />
+    <result column="source_type" property="sourceType" jdbcType="VARCHAR" />
+    <result column="nick_name" property="nickName" jdbcType="VARCHAR" />
     <result column="name" property="name" jdbcType="VARCHAR" />
     <result column="status" property="status" jdbcType="VARCHAR" />
-    <result column="head_pic" property="head_pic" jdbcType="VARCHAR" />
+    <result column="head_pic" property="headPic" jdbcType="VARCHAR" />
     <result column="qq" property="qq" jdbcType="VARCHAR" />
-    <result column="account_balance" property="account_balance" jdbcType="DECIMAL" />
-    <result column="is_mobile_check" property="is_mobile_check" jdbcType="VARCHAR" />
-    <result column="is_email_check" property="is_email_check" jdbcType="VARCHAR" />
+    <result column="account_balance" property="accountBalance" jdbcType="DECIMAL" />
+    <result column="is_mobile_check" property="isMobileCheck" jdbcType="VARCHAR" />
+    <result column="is_email_check" property="isEmailCheck" jdbcType="VARCHAR" />
     <result column="sex" property="sex" jdbcType="VARCHAR" />
-    <result column="user_level" property="user_level" jdbcType="INTEGER" />
+    <result column="user_level" property="userLevel" jdbcType="INTEGER" />
     <result column="points" property="points" jdbcType="INTEGER" />
-    <result column="experience_value" property="experience_value" jdbcType="INTEGER" />
+    <result column="experience_value" property="experienceValue" jdbcType="INTEGER" />
     <result column="birthday" property="birthday" jdbcType="TIMESTAMP" />
-    <result column="last_login_time" property="last_login_time" jdbcType="TIMESTAMP" />
+    <result column="last_login_time" property="lastLoginTime" jdbcType="TIMESTAMP" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -129,12 +129,12 @@
       last_login_time)
     values (#{id,jdbcType=BIGINT}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
       #{phone,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{created,jdbcType=TIMESTAMP}, 
-      #{updated,jdbcType=TIMESTAMP}, #{source_type,jdbcType=VARCHAR}, #{nick_name,jdbcType=VARCHAR}, 
-      #{name,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, #{head_pic,jdbcType=VARCHAR}, 
-      #{qq,jdbcType=VARCHAR}, #{account_balance,jdbcType=DECIMAL}, #{is_mobile_check,jdbcType=VARCHAR}, 
-      #{is_email_check,jdbcType=VARCHAR}, #{sex,jdbcType=VARCHAR}, #{user_level,jdbcType=INTEGER}, 
-      #{points,jdbcType=INTEGER}, #{experience_value,jdbcType=INTEGER}, #{birthday,jdbcType=TIMESTAMP}, 
-      #{last_login_time,jdbcType=TIMESTAMP})
+      #{updated,jdbcType=TIMESTAMP}, #{sourceType,jdbcType=VARCHAR}, #{nickName,jdbcType=VARCHAR}, 
+      #{name,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, #{headPic,jdbcType=VARCHAR}, 
+      #{qq,jdbcType=VARCHAR}, #{accountBalance,jdbcType=DECIMAL}, #{isMobileCheck,jdbcType=VARCHAR}, 
+      #{isEmailCheck,jdbcType=VARCHAR}, #{sex,jdbcType=VARCHAR}, #{userLevel,jdbcType=INTEGER}, 
+      #{points,jdbcType=INTEGER}, #{experienceValue,jdbcType=INTEGER}, #{birthday,jdbcType=TIMESTAMP}, 
+      #{lastLoginTime,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="com.pinyougou.pojo.TbUser" >
     insert into tb_user
@@ -160,10 +160,10 @@
       <if test="updated != null" >
         updated,
       </if>
-      <if test="source_type != null" >
+      <if test="sourceType != null" >
         source_type,
       </if>
-      <if test="nick_name != null" >
+      <if test="nickName != null" >
         nick_name,
       </if>
       <if test="name != null" >
@@ -172,37 +172,37 @@
       <if test="status != null" >
         status,
       </if>
-      <if test="head_pic != null" >
+      <if test="headPic != null" >
         head_pic,
       </if>
       <if test="qq != null" >
         qq,
       </if>
-      <if test="account_balance != null" >
+      <if test="accountBalance != null" >
         account_balance,
       </if>
-      <if test="is_mobile_check != null" >
+      <if test="isMobileCheck != null" >
         is_mobile_check,
       </if>
-      <if test="is_email_check != null" >
+      <if test="isEmailCheck != null" >
         is_email_check,
       </if>
       <if test="sex != null" >
         sex,
       </if>
-      <if test="user_level != null" >
+      <if test="userLevel != null" >
         user_level,
       </if>
       <if test="points != null" >
         points,
       </if>
-      <if test="experience_value != null" >
+      <if test="experienceValue != null" >
         experience_value,
       </if>
       <if test="birthday != null" >
         birthday,
       </if>
-      <if test="last_login_time != null" >
+      <if test="lastLoginTime != null" >
         last_login_time,
       </if>
     </trim>
@@ -228,11 +228,11 @@
       <if test="updated != null" >
         #{updated,jdbcType=TIMESTAMP},
       </if>
-      <if test="source_type != null" >
-        #{source_type,jdbcType=VARCHAR},
+      <if test="sourceType != null" >
+        #{sourceType,jdbcType=VARCHAR},
       </if>
-      <if test="nick_name != null" >
-        #{nick_name,jdbcType=VARCHAR},
+      <if test="nickName != null" >
+        #{nickName,jdbcType=VARCHAR},
       </if>
       <if test="name != null" >
         #{name,jdbcType=VARCHAR},
@@ -240,38 +240,38 @@
       <if test="status != null" >
         #{status,jdbcType=VARCHAR},
       </if>
-      <if test="head_pic != null" >
-        #{head_pic,jdbcType=VARCHAR},
+      <if test="headPic != null" >
+        #{headPic,jdbcType=VARCHAR},
       </if>
       <if test="qq != null" >
         #{qq,jdbcType=VARCHAR},
       </if>
-      <if test="account_balance != null" >
-        #{account_balance,jdbcType=DECIMAL},
+      <if test="accountBalance != null" >
+        #{accountBalance,jdbcType=DECIMAL},
       </if>
-      <if test="is_mobile_check != null" >
-        #{is_mobile_check,jdbcType=VARCHAR},
+      <if test="isMobileCheck != null" >
+        #{isMobileCheck,jdbcType=VARCHAR},
       </if>
-      <if test="is_email_check != null" >
-        #{is_email_check,jdbcType=VARCHAR},
+      <if test="isEmailCheck != null" >
+        #{isEmailCheck,jdbcType=VARCHAR},
       </if>
       <if test="sex != null" >
         #{sex,jdbcType=VARCHAR},
       </if>
-      <if test="user_level != null" >
-        #{user_level,jdbcType=INTEGER},
+      <if test="userLevel != null" >
+        #{userLevel,jdbcType=INTEGER},
       </if>
       <if test="points != null" >
         #{points,jdbcType=INTEGER},
       </if>
-      <if test="experience_value != null" >
-        #{experience_value,jdbcType=INTEGER},
+      <if test="experienceValue != null" >
+        #{experienceValue,jdbcType=INTEGER},
       </if>
       <if test="birthday != null" >
         #{birthday,jdbcType=TIMESTAMP},
       </if>
-      <if test="last_login_time != null" >
-        #{last_login_time,jdbcType=TIMESTAMP},
+      <if test="lastLoginTime != null" >
+        #{lastLoginTime,jdbcType=TIMESTAMP},
       </if>
     </trim>
   </insert>
@@ -305,11 +305,11 @@
       <if test="record.updated != null" >
         updated = #{record.updated,jdbcType=TIMESTAMP},
       </if>
-      <if test="record.source_type != null" >
-        source_type = #{record.source_type,jdbcType=VARCHAR},
+      <if test="record.sourceType != null" >
+        source_type = #{record.sourceType,jdbcType=VARCHAR},
       </if>
-      <if test="record.nick_name != null" >
-        nick_name = #{record.nick_name,jdbcType=VARCHAR},
+      <if test="record.nickName != null" >
+        nick_name = #{record.nickName,jdbcType=VARCHAR},
       </if>
       <if test="record.name != null" >
         name = #{record.name,jdbcType=VARCHAR},
@@ -317,38 +317,38 @@
       <if test="record.status != null" >
         status = #{record.status,jdbcType=VARCHAR},
       </if>
-      <if test="record.head_pic != null" >
-        head_pic = #{record.head_pic,jdbcType=VARCHAR},
+      <if test="record.headPic != null" >
+        head_pic = #{record.headPic,jdbcType=VARCHAR},
       </if>
       <if test="record.qq != null" >
         qq = #{record.qq,jdbcType=VARCHAR},
       </if>
-      <if test="record.account_balance != null" >
-        account_balance = #{record.account_balance,jdbcType=DECIMAL},
+      <if test="record.accountBalance != null" >
+        account_balance = #{record.accountBalance,jdbcType=DECIMAL},
       </if>
-      <if test="record.is_mobile_check != null" >
-        is_mobile_check = #{record.is_mobile_check,jdbcType=VARCHAR},
+      <if test="record.isMobileCheck != null" >
+        is_mobile_check = #{record.isMobileCheck,jdbcType=VARCHAR},
       </if>
-      <if test="record.is_email_check != null" >
-        is_email_check = #{record.is_email_check,jdbcType=VARCHAR},
+      <if test="record.isEmailCheck != null" >
+        is_email_check = #{record.isEmailCheck,jdbcType=VARCHAR},
       </if>
       <if test="record.sex != null" >
         sex = #{record.sex,jdbcType=VARCHAR},
       </if>
-      <if test="record.user_level != null" >
-        user_level = #{record.user_level,jdbcType=INTEGER},
+      <if test="record.userLevel != null" >
+        user_level = #{record.userLevel,jdbcType=INTEGER},
       </if>
       <if test="record.points != null" >
         points = #{record.points,jdbcType=INTEGER},
       </if>
-      <if test="record.experience_value != null" >
-        experience_value = #{record.experience_value,jdbcType=INTEGER},
+      <if test="record.experienceValue != null" >
+        experience_value = #{record.experienceValue,jdbcType=INTEGER},
       </if>
       <if test="record.birthday != null" >
         birthday = #{record.birthday,jdbcType=TIMESTAMP},
       </if>
-      <if test="record.last_login_time != null" >
-        last_login_time = #{record.last_login_time,jdbcType=TIMESTAMP},
+      <if test="record.lastLoginTime != null" >
+        last_login_time = #{record.lastLoginTime,jdbcType=TIMESTAMP},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -364,21 +364,21 @@
       email = #{record.email,jdbcType=VARCHAR},
       created = #{record.created,jdbcType=TIMESTAMP},
       updated = #{record.updated,jdbcType=TIMESTAMP},
-      source_type = #{record.source_type,jdbcType=VARCHAR},
-      nick_name = #{record.nick_name,jdbcType=VARCHAR},
+      source_type = #{record.sourceType,jdbcType=VARCHAR},
+      nick_name = #{record.nickName,jdbcType=VARCHAR},
       name = #{record.name,jdbcType=VARCHAR},
       status = #{record.status,jdbcType=VARCHAR},
-      head_pic = #{record.head_pic,jdbcType=VARCHAR},
+      head_pic = #{record.headPic,jdbcType=VARCHAR},
       qq = #{record.qq,jdbcType=VARCHAR},
-      account_balance = #{record.account_balance,jdbcType=DECIMAL},
-      is_mobile_check = #{record.is_mobile_check,jdbcType=VARCHAR},
-      is_email_check = #{record.is_email_check,jdbcType=VARCHAR},
+      account_balance = #{record.accountBalance,jdbcType=DECIMAL},
+      is_mobile_check = #{record.isMobileCheck,jdbcType=VARCHAR},
+      is_email_check = #{record.isEmailCheck,jdbcType=VARCHAR},
       sex = #{record.sex,jdbcType=VARCHAR},
-      user_level = #{record.user_level,jdbcType=INTEGER},
+      user_level = #{record.userLevel,jdbcType=INTEGER},
       points = #{record.points,jdbcType=INTEGER},
-      experience_value = #{record.experience_value,jdbcType=INTEGER},
+      experience_value = #{record.experienceValue,jdbcType=INTEGER},
       birthday = #{record.birthday,jdbcType=TIMESTAMP},
-      last_login_time = #{record.last_login_time,jdbcType=TIMESTAMP}
+      last_login_time = #{record.lastLoginTime,jdbcType=TIMESTAMP}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -404,11 +404,11 @@
       <if test="updated != null" >
         updated = #{updated,jdbcType=TIMESTAMP},
       </if>
-      <if test="source_type != null" >
-        source_type = #{source_type,jdbcType=VARCHAR},
+      <if test="sourceType != null" >
+        source_type = #{sourceType,jdbcType=VARCHAR},
       </if>
-      <if test="nick_name != null" >
-        nick_name = #{nick_name,jdbcType=VARCHAR},
+      <if test="nickName != null" >
+        nick_name = #{nickName,jdbcType=VARCHAR},
       </if>
       <if test="name != null" >
         name = #{name,jdbcType=VARCHAR},
@@ -416,38 +416,38 @@
       <if test="status != null" >
         status = #{status,jdbcType=VARCHAR},
       </if>
-      <if test="head_pic != null" >
-        head_pic = #{head_pic,jdbcType=VARCHAR},
+      <if test="headPic != null" >
+        head_pic = #{headPic,jdbcType=VARCHAR},
       </if>
       <if test="qq != null" >
         qq = #{qq,jdbcType=VARCHAR},
       </if>
-      <if test="account_balance != null" >
-        account_balance = #{account_balance,jdbcType=DECIMAL},
+      <if test="accountBalance != null" >
+        account_balance = #{accountBalance,jdbcType=DECIMAL},
       </if>
-      <if test="is_mobile_check != null" >
-        is_mobile_check = #{is_mobile_check,jdbcType=VARCHAR},
+      <if test="isMobileCheck != null" >
+        is_mobile_check = #{isMobileCheck,jdbcType=VARCHAR},
       </if>
-      <if test="is_email_check != null" >
-        is_email_check = #{is_email_check,jdbcType=VARCHAR},
+      <if test="isEmailCheck != null" >
+        is_email_check = #{isEmailCheck,jdbcType=VARCHAR},
       </if>
       <if test="sex != null" >
         sex = #{sex,jdbcType=VARCHAR},
       </if>
-      <if test="user_level != null" >
-        user_level = #{user_level,jdbcType=INTEGER},
+      <if test="userLevel != null" >
+        user_level = #{userLevel,jdbcType=INTEGER},
       </if>
       <if test="points != null" >
         points = #{points,jdbcType=INTEGER},
       </if>
-      <if test="experience_value != null" >
-        experience_value = #{experience_value,jdbcType=INTEGER},
+      <if test="experienceValue != null" >
+        experience_value = #{experienceValue,jdbcType=INTEGER},
       </if>
       <if test="birthday != null" >
         birthday = #{birthday,jdbcType=TIMESTAMP},
       </if>
-      <if test="last_login_time != null" >
-        last_login_time = #{last_login_time,jdbcType=TIMESTAMP},
+      <if test="lastLoginTime != null" >
+        last_login_time = #{lastLoginTime,jdbcType=TIMESTAMP},
       </if>
     </set>
     where id = #{id,jdbcType=BIGINT}
@@ -460,21 +460,21 @@
       email = #{email,jdbcType=VARCHAR},
       created = #{created,jdbcType=TIMESTAMP},
       updated = #{updated,jdbcType=TIMESTAMP},
-      source_type = #{source_type,jdbcType=VARCHAR},
-      nick_name = #{nick_name,jdbcType=VARCHAR},
+      source_type = #{sourceType,jdbcType=VARCHAR},
+      nick_name = #{nickName,jdbcType=VARCHAR},
       name = #{name,jdbcType=VARCHAR},
       status = #{status,jdbcType=VARCHAR},
-      head_pic = #{head_pic,jdbcType=VARCHAR},
+      head_pic = #{headPic,jdbcType=VARCHAR},
       qq = #{qq,jdbcType=VARCHAR},
-      account_balance = #{account_balance,jdbcType=DECIMAL},
-      is_mobile_check = #{is_mobile_check,jdbcType=VARCHAR},
-      is_email_check = #{is_email_check,jdbcType=VARCHAR},
+      account_balance = #{accountBalance,jdbcType=DECIMAL},
+      is_mobile_check = #{isMobileCheck,jdbcType=VARCHAR},
+      is_email_check = #{isEmailCheck,jdbcType=VARCHAR},
       sex = #{sex,jdbcType=VARCHAR},
-      user_level = #{user_level,jdbcType=INTEGER},
+      user_level = #{userLevel,jdbcType=INTEGER},
       points = #{points,jdbcType=INTEGER},
-      experience_value = #{experience_value,jdbcType=INTEGER},
+      experience_value = #{experienceValue,jdbcType=INTEGER},
       birthday = #{birthday,jdbcType=TIMESTAMP},
-      last_login_time = #{last_login_time,jdbcType=TIMESTAMP}
+      last_login_time = #{lastLoginTime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=BIGINT}
   </update>
 </mapper>

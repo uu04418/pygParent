@@ -164,73 +164,73 @@ public class TbSpecificationExample {
             return (Criteria) this;
         }
 
-        public Criteria andSpec_nameIsNull() {
+        public Criteria andSpecNameIsNull() {
             addCriterion("spec_name is null");
             return (Criteria) this;
         }
 
-        public Criteria andSpec_nameIsNotNull() {
+        public Criteria andSpecNameIsNotNull() {
             addCriterion("spec_name is not null");
             return (Criteria) this;
         }
 
-        public Criteria andSpec_nameEqualTo(String value) {
-            addCriterion("spec_name =", value, "spec_name");
+        public Criteria andSpecNameEqualTo(String value) {
+            addCriterion("spec_name =", value, "specName");
             return (Criteria) this;
         }
 
-        public Criteria andSpec_nameNotEqualTo(String value) {
-            addCriterion("spec_name <>", value, "spec_name");
+        public Criteria andSpecNameNotEqualTo(String value) {
+            addCriterion("spec_name <>", value, "specName");
             return (Criteria) this;
         }
 
-        public Criteria andSpec_nameGreaterThan(String value) {
-            addCriterion("spec_name >", value, "spec_name");
+        public Criteria andSpecNameGreaterThan(String value) {
+            addCriterion("spec_name >", value, "specName");
             return (Criteria) this;
         }
 
-        public Criteria andSpec_nameGreaterThanOrEqualTo(String value) {
-            addCriterion("spec_name >=", value, "spec_name");
+        public Criteria andSpecNameGreaterThanOrEqualTo(String value) {
+            addCriterion("spec_name >=", value, "specName");
             return (Criteria) this;
         }
 
-        public Criteria andSpec_nameLessThan(String value) {
-            addCriterion("spec_name <", value, "spec_name");
+        public Criteria andSpecNameLessThan(String value) {
+            addCriterion("spec_name <", value, "specName");
             return (Criteria) this;
         }
 
-        public Criteria andSpec_nameLessThanOrEqualTo(String value) {
-            addCriterion("spec_name <=", value, "spec_name");
+        public Criteria andSpecNameLessThanOrEqualTo(String value) {
+            addCriterion("spec_name <=", value, "specName");
             return (Criteria) this;
         }
 
-        public Criteria andSpec_nameLike(String value) {
-            addCriterion("spec_name like", value, "spec_name");
+        public Criteria andSpecNameLike(String value) {
+            addCriterion("spec_name like", value, "specName");
             return (Criteria) this;
         }
 
-        public Criteria andSpec_nameNotLike(String value) {
-            addCriterion("spec_name not like", value, "spec_name");
+        public Criteria andSpecNameNotLike(String value) {
+            addCriterion("spec_name not like", value, "specName");
             return (Criteria) this;
         }
 
-        public Criteria andSpec_nameIn(List<String> values) {
-            addCriterion("spec_name in", values, "spec_name");
+        public Criteria andSpecNameIn(List<String> values) {
+            addCriterion("spec_name in", values, "specName");
             return (Criteria) this;
         }
 
-        public Criteria andSpec_nameNotIn(List<String> values) {
-            addCriterion("spec_name not in", values, "spec_name");
+        public Criteria andSpecNameNotIn(List<String> values) {
+            addCriterion("spec_name not in", values, "specName");
             return (Criteria) this;
         }
 
-        public Criteria andSpec_nameBetween(String value1, String value2) {
-            addCriterion("spec_name between", value1, value2, "spec_name");
+        public Criteria andSpecNameBetween(String value1, String value2) {
+            addCriterion("spec_name between", value1, value2, "specName");
             return (Criteria) this;
         }
 
-        public Criteria andSpec_nameNotBetween(String value1, String value2) {
-            addCriterion("spec_name not between", value1, value2, "spec_name");
+        public Criteria andSpecNameNotBetween(String value1, String value2) {
+            addCriterion("spec_name not between", value1, value2, "specName");
             return (Criteria) this;
         }
     }

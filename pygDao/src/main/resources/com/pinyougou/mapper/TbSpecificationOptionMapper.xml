@@ -3,8 +3,8 @@
 <mapper namespace="com.pinyougou.mapper.TbSpecificationOptionMapper" >
   <resultMap id="BaseResultMap" type="com.pinyougou.pojo.TbSpecificationOption" >
     <id column="id" property="id" jdbcType="BIGINT" />
-    <result column="option_name" property="option_name" jdbcType="VARCHAR" />
-    <result column="spec_id" property="spec_id" jdbcType="BIGINT" />
+    <result column="option_name" property="optionName" jdbcType="VARCHAR" />
+    <result column="spec_id" property="specId" jdbcType="BIGINT" />
     <result column="orders" property="orders" jdbcType="INTEGER" />
   </resultMap>
   <sql id="Example_Where_Clause" >
@@ -101,7 +101,7 @@
   <insert id="insert" parameterType="com.pinyougou.pojo.TbSpecificationOption" >
     insert into tb_specification_option (id, option_name, spec_id, 
       orders)
-    values (#{id,jdbcType=BIGINT}, #{option_name,jdbcType=VARCHAR}, #{spec_id,jdbcType=BIGINT}, 
+    values (#{id,jdbcType=BIGINT}, #{optionName,jdbcType=VARCHAR}, #{specId,jdbcType=BIGINT}, 
       #{orders,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.pinyougou.pojo.TbSpecificationOption" >
@@ -110,10 +110,10 @@
       <if test="id != null" >
         id,
       </if>
-      <if test="option_name != null" >
+      <if test="optionName != null" >
         option_name,
       </if>
-      <if test="spec_id != null" >
+      <if test="specId != null" >
         spec_id,
       </if>
       <if test="orders != null" >
@@ -124,11 +124,11 @@
       <if test="id != null" >
         #{id,jdbcType=BIGINT},
       </if>
-      <if test="option_name != null" >
-        #{option_name,jdbcType=VARCHAR},
+      <if test="optionName != null" >
+        #{optionName,jdbcType=VARCHAR},
       </if>
-      <if test="spec_id != null" >
-        #{spec_id,jdbcType=BIGINT},
+      <if test="specId != null" >
+        #{specId,jdbcType=BIGINT},
       </if>
       <if test="orders != null" >
         #{orders,jdbcType=INTEGER},
@@ -147,11 +147,11 @@
       <if test="record.id != null" >
         id = #{record.id,jdbcType=BIGINT},
       </if>
-      <if test="record.option_name != null" >
-        option_name = #{record.option_name,jdbcType=VARCHAR},
+      <if test="record.optionName != null" >
+        option_name = #{record.optionName,jdbcType=VARCHAR},
       </if>
-      <if test="record.spec_id != null" >
-        spec_id = #{record.spec_id,jdbcType=BIGINT},
+      <if test="record.specId != null" >
+        spec_id = #{record.specId,jdbcType=BIGINT},
       </if>
       <if test="record.orders != null" >
         orders = #{record.orders,jdbcType=INTEGER},
@@ -164,8 +164,8 @@
   <update id="updateByExample" parameterType="map" >
     update tb_specification_option
     set id = #{record.id,jdbcType=BIGINT},
-      option_name = #{record.option_name,jdbcType=VARCHAR},
-      spec_id = #{record.spec_id,jdbcType=BIGINT},
+      option_name = #{record.optionName,jdbcType=VARCHAR},
+      spec_id = #{record.specId,jdbcType=BIGINT},
       orders = #{record.orders,jdbcType=INTEGER}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -174,11 +174,11 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.pinyougou.pojo.TbSpecificationOption" >
     update tb_specification_option
     <set >
-      <if test="option_name != null" >
-        option_name = #{option_name,jdbcType=VARCHAR},
+      <if test="optionName != null" >
+        option_name = #{optionName,jdbcType=VARCHAR},
       </if>
-      <if test="spec_id != null" >
-        spec_id = #{spec_id,jdbcType=BIGINT},
+      <if test="specId != null" >
+        spec_id = #{specId,jdbcType=BIGINT},
       </if>
       <if test="orders != null" >
         orders = #{orders,jdbcType=INTEGER},
@@ -188,8 +188,8 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="com.pinyougou.pojo.TbSpecificationOption" >
     update tb_specification_option
-    set option_name = #{option_name,jdbcType=VARCHAR},
-      spec_id = #{spec_id,jdbcType=BIGINT},
+    set option_name = #{optionName,jdbcType=VARCHAR},
+      spec_id = #{specId,jdbcType=BIGINT},
       orders = #{orders,jdbcType=INTEGER}
     where id = #{id,jdbcType=BIGINT}
   </update>

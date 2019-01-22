@@ -7,7 +7,7 @@ public class TbUser implements Serializable{
     /**
 	 * 
 	 */
-	private static final long serialVersionUID = 1418897021655036855L;
+	private static final long serialVersionUID = 7309788684534237560L;
 
 	/** */
     private Long id;
@@ -31,10 +31,10 @@ public class TbUser implements Serializable{
     private Date updated;
 
     /** 会员来源：1:PC，2：H5，3：Android，4：IOS，5：WeChat*/
-    private String source_type;
+    private String sourceType;
 
     /** 昵称*/
-    private String nick_name;
+    private String nickName;
 
     /** 真实姓名*/
     private String name;
@@ -43,37 +43,37 @@ public class TbUser implements Serializable{
     private String status;
 
     /** 头像地址*/
-    private String head_pic;
+    private String headPic;
 
     /** QQ号码*/
     private String qq;
 
     /** 账户余额*/
-    private Long account_balance;
+    private Long accountBalance;
 
     /** 手机是否验证 （0否  1是）*/
-    private String is_mobile_check;
+    private String isMobileCheck;
 
     /** 邮箱是否检测（0否  1是）*/
-    private String is_email_check;
+    private String isEmailCheck;
 
     /** 性别，1男，2女*/
     private String sex;
 
     /** 会员等级*/
-    private Integer user_level;
+    private Integer userLevel;
 
     /** 积分*/
     private Integer points;
 
     /** 经验值*/
-    private Integer experience_value;
+    private Integer experienceValue;
 
     /** 生日*/
     private Date birthday;
 
     /** 最后登录时间*/
-    private Date last_login_time;
+    private Date lastLoginTime;
 
     public Long getId() {
         return id;
@@ -131,20 +131,20 @@ public class TbUser implements Serializable{
         this.updated = updated;
     }
 
-    public String getSource_type() {
-        return source_type;
+    public String getSourceType() {
+        return sourceType;
     }
 
-    public void setSource_type(String source_type) {
-        this.source_type = source_type == null ? null : source_type.trim();
+    public void setSourceType(String sourceType) {
+        this.sourceType = sourceType == null ? null : sourceType.trim();
     }
 
-    public String getNick_name() {
-        return nick_name;
+    public String getNickName() {
+        return nickName;
     }
 
-    public void setNick_name(String nick_name) {
-        this.nick_name = nick_name == null ? null : nick_name.trim();
+    public void setNickName(String nickName) {
+        this.nickName = nickName == null ? null : nickName.trim();
     }
 
     public String getName() {
@@ -163,12 +163,12 @@ public class TbUser implements Serializable{
         this.status = status == null ? null : status.trim();
     }
 
-    public String getHead_pic() {
-        return head_pic;
+    public String getHeadPic() {
+        return headPic;
     }
 
-    public void setHead_pic(String head_pic) {
-        this.head_pic = head_pic == null ? null : head_pic.trim();
+    public void setHeadPic(String headPic) {
+        this.headPic = headPic == null ? null : headPic.trim();
     }
 
     public String getQq() {
@@ -179,28 +179,28 @@ public class TbUser implements Serializable{
         this.qq = qq == null ? null : qq.trim();
     }
 
-    public Long getAccount_balance() {
-        return account_balance;
+    public Long getAccountBalance() {
+        return accountBalance;
     }
 
-    public void setAccount_balance(Long account_balance) {
-        this.account_balance = account_balance;
+    public void setAccountBalance(Long accountBalance) {
+        this.accountBalance = accountBalance;
     }
 
-    public String getIs_mobile_check() {
-        return is_mobile_check;
+    public String getIsMobileCheck() {
+        return isMobileCheck;
     }
 
-    public void setIs_mobile_check(String is_mobile_check) {
-        this.is_mobile_check = is_mobile_check == null ? null : is_mobile_check.trim();
+    public void setIsMobileCheck(String isMobileCheck) {
+        this.isMobileCheck = isMobileCheck == null ? null : isMobileCheck.trim();
     }
 
-    public String getIs_email_check() {
-        return is_email_check;
+    public String getIsEmailCheck() {
+        return isEmailCheck;
     }
 
-    public void setIs_email_check(String is_email_check) {
-        this.is_email_check = is_email_check == null ? null : is_email_check.trim();
+    public void setIsEmailCheck(String isEmailCheck) {
+        this.isEmailCheck = isEmailCheck == null ? null : isEmailCheck.trim();
     }
 
     public String getSex() {
@@ -211,12 +211,12 @@ public class TbUser implements Serializable{
         this.sex = sex == null ? null : sex.trim();
     }
 
-    public Integer getUser_level() {
-        return user_level;
+    public Integer getUserLevel() {
+        return userLevel;
     }
 
-    public void setUser_level(Integer user_level) {
-        this.user_level = user_level;
+    public void setUserLevel(Integer userLevel) {
+        this.userLevel = userLevel;
     }
 
     public Integer getPoints() {
@@ -227,12 +227,12 @@ public class TbUser implements Serializable{
         this.points = points;
     }
 
-    public Integer getExperience_value() {
-        return experience_value;
+    public Integer getExperienceValue() {
+        return experienceValue;
     }
 
-    public void setExperience_value(Integer experience_value) {
-        this.experience_value = experience_value;
+    public void setExperienceValue(Integer experienceValue) {
+        this.experienceValue = experienceValue;
     }
 
     public Date getBirthday() {
@@ -243,11 +243,11 @@ public class TbUser implements Serializable{
         this.birthday = birthday;
     }
 
-    public Date getLast_login_time() {
-        return last_login_time;
+    public Date getLastLoginTime() {
+        return lastLoginTime;
     }
 
-    public void setLast_login_time(Date last_login_time) {
-        this.last_login_time = last_login_time;
+    public void setLastLoginTime(Date lastLoginTime) {
+        this.lastLoginTime = lastLoginTime;
     }
 }

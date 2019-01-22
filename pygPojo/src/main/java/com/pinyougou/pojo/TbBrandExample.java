@@ -234,73 +234,73 @@ public class TbBrandExample {
             return (Criteria) this;
         }
 
-        public Criteria andFirst_charIsNull() {
+        public Criteria andFirstCharIsNull() {
             addCriterion("first_char is null");
             return (Criteria) this;
         }
 
-        public Criteria andFirst_charIsNotNull() {
+        public Criteria andFirstCharIsNotNull() {
             addCriterion("first_char is not null");
             return (Criteria) this;
         }
 
-        public Criteria andFirst_charEqualTo(String value) {
-            addCriterion("first_char =", value, "first_char");
+        public Criteria andFirstCharEqualTo(String value) {
+            addCriterion("first_char =", value, "firstChar");
             return (Criteria) this;
         }
 
-        public Criteria andFirst_charNotEqualTo(String value) {
-            addCriterion("first_char <>", value, "first_char");
+        public Criteria andFirstCharNotEqualTo(String value) {
+            addCriterion("first_char <>", value, "firstChar");
             return (Criteria) this;
         }
 
-        public Criteria andFirst_charGreaterThan(String value) {
-            addCriterion("first_char >", value, "first_char");
+        public Criteria andFirstCharGreaterThan(String value) {
+            addCriterion("first_char >", value, "firstChar");
             return (Criteria) this;
         }
 
-        public Criteria andFirst_charGreaterThanOrEqualTo(String value) {
-            addCriterion("first_char >=", value, "first_char");
+        public Criteria andFirstCharGreaterThanOrEqualTo(String value) {
+            addCriterion("first_char >=", value, "firstChar");
             return (Criteria) this;
         }
 
-        public Criteria andFirst_charLessThan(String value) {
-            addCriterion("first_char <", value, "first_char");
+        public Criteria andFirstCharLessThan(String value) {
+            addCriterion("first_char <", value, "firstChar");
             return (Criteria) this;
         }
 
-        public Criteria andFirst_charLessThanOrEqualTo(String value) {
-            addCriterion("first_char <=", value, "first_char");
+        public Criteria andFirstCharLessThanOrEqualTo(String value) {
+            addCriterion("first_char <=", value, "firstChar");
             return (Criteria) this;
         }
 
-        public Criteria andFirst_charLike(String value) {
-            addCriterion("first_char like", value, "first_char");
+        public Criteria andFirstCharLike(String value) {
+            addCriterion("first_char like", value, "firstChar");
             return (Criteria) this;
         }
 
-        public Criteria andFirst_charNotLike(String value) {
-            addCriterion("first_char not like", value, "first_char");
+        public Criteria andFirstCharNotLike(String value) {
+            addCriterion("first_char not like", value, "firstChar");
             return (Criteria) this;
         }
 
-        public Criteria andFirst_charIn(List<String> values) {
-            addCriterion("first_char in", values, "first_char");
+        public Criteria andFirstCharIn(List<String> values) {
+            addCriterion("first_char in", values, "firstChar");
             return (Criteria) this;
         }
 
-        public Criteria andFirst_charNotIn(List<String> values) {
-            addCriterion("first_char not in", values, "first_char");
+        public Criteria andFirstCharNotIn(List<String> values) {
+            addCriterion("first_char not in", values, "firstChar");
             return (Criteria) this;
         }
 
-        public Criteria andFirst_charBetween(String value1, String value2) {
-            addCriterion("first_char between", value1, value2, "first_char");
+        public Criteria andFirstCharBetween(String value1, String value2) {
+            addCriterion("first_char between", value1, value2, "firstChar");
             return (Criteria) this;
         }
 
-        public Criteria andFirst_charNotBetween(String value1, String value2) {
-            addCriterion("first_char not between", value1, value2, "first_char");
+        public Criteria andFirstCharNotBetween(String value1, String value2) {
+            addCriterion("first_char not between", value1, value2, "firstChar");
             return (Criteria) this;
         }
     }

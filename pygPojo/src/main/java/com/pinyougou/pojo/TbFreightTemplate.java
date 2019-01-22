@@ -1,28 +1,34 @@
 package com.pinyougou.pojo;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class TbFreightTemplate {
-    /** */
+public class TbFreightTemplate  implements Serializable{
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 3577990800376142136L;
+
+	/** */
     private Long id;
 
     /** 商家ID*/
-    private String seller_id;
+    private String sellerId;
 
     /** 是否默认   （‘Y’是   'N'否）*/
-    private String is_default;
+    private String isDefault;
 
     /** 模版名称*/
     private String name;
 
     /** 发货时间（1:12h  2:24h  3:48h  4:72h  5:7d 6:15d ）*/
-    private String send_time_type;
+    private String sendTimeType;
 
     /** 统一价格*/
     private Long price;
 
     /** 创建时间*/
-    private Date create_time;
+    private Date createTime;
 
     public Long getId() {
         return id;
@@ -32,20 +38,20 @@ public class TbFreightTemplate {
         this.id = id;
     }
 
-    public String getSeller_id() {
-        return seller_id;
+    public String getSellerId() {
+        return sellerId;
     }
 
-    public void setSeller_id(String seller_id) {
-        this.seller_id = seller_id == null ? null : seller_id.trim();
+    public void setSellerId(String sellerId) {
+        this.sellerId = sellerId == null ? null : sellerId.trim();
     }
 
-    public String getIs_default() {
-        return is_default;
+    public String getIsDefault() {
+        return isDefault;
     }
 
-    public void setIs_default(String is_default) {
-        this.is_default = is_default == null ? null : is_default.trim();
+    public void setIsDefault(String isDefault) {
+        this.isDefault = isDefault == null ? null : isDefault.trim();
     }
 
     public String getName() {
@@ -56,12 +62,12 @@ public class TbFreightTemplate {
         this.name = name == null ? null : name.trim();
     }
 
-    public String getSend_time_type() {
-        return send_time_type;
+    public String getSendTimeType() {
+        return sendTimeType;
     }
 
-    public void setSend_time_type(String send_time_type) {
-        this.send_time_type = send_time_type == null ? null : send_time_type.trim();
+    public void setSendTimeType(String sendTimeType) {
+        this.sendTimeType = sendTimeType == null ? null : sendTimeType.trim();
     }
 
     public Long getPrice() {
@@ -72,11 +78,11 @@ public class TbFreightTemplate {
         this.price = price;
     }
 
-    public Date getCreate_time() {
-        return create_time;
+    public Date getCreateTime() {
+        return createTime;
     }
 
-    public void setCreate_time(Date create_time) {
-        this.create_time = create_time;
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
     }
 }

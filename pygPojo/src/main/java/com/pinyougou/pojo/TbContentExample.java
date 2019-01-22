@@ -164,63 +164,63 @@ public class TbContentExample {
             return (Criteria) this;
         }
 
-        public Criteria andCategory_idIsNull() {
+        public Criteria andCategoryIdIsNull() {
             addCriterion("category_id is null");
             return (Criteria) this;
         }
 
-        public Criteria andCategory_idIsNotNull() {
+        public Criteria andCategoryIdIsNotNull() {
             addCriterion("category_id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andCategory_idEqualTo(Long value) {
-            addCriterion("category_id =", value, "category_id");
+        public Criteria andCategoryIdEqualTo(Long value) {
+            addCriterion("category_id =", value, "categoryId");
             return (Criteria) this;
         }
 
-        public Criteria andCategory_idNotEqualTo(Long value) {
-            addCriterion("category_id <>", value, "category_id");
+        public Criteria andCategoryIdNotEqualTo(Long value) {
+            addCriterion("category_id <>", value, "categoryId");
             return (Criteria) this;
         }
 
-        public Criteria andCategory_idGreaterThan(Long value) {
-            addCriterion("category_id >", value, "category_id");
+        public Criteria andCategoryIdGreaterThan(Long value) {
+            addCriterion("category_id >", value, "categoryId");
             return (Criteria) this;
         }
 
-        public Criteria andCategory_idGreaterThanOrEqualTo(Long value) {
-            addCriterion("category_id >=", value, "category_id");
+        public Criteria andCategoryIdGreaterThanOrEqualTo(Long value) {
+            addCriterion("category_id >=", value, "categoryId");
             return (Criteria) this;
         }
 
-        public Criteria andCategory_idLessThan(Long value) {
-            addCriterion("category_id <", value, "category_id");
+        public Criteria andCategoryIdLessThan(Long value) {
+            addCriterion("category_id <", value, "categoryId");
             return (Criteria) this;
         }
 
-        public Criteria andCategory_idLessThanOrEqualTo(Long value) {
-            addCriterion("category_id <=", value, "category_id");
+        public Criteria andCategoryIdLessThanOrEqualTo(Long value) {
+            addCriterion("category_id <=", value, "categoryId");
             return (Criteria) this;
         }
 
-        public Criteria andCategory_idIn(List<Long> values) {
-            addCriterion("category_id in", values, "category_id");
+        public Criteria andCategoryIdIn(List<Long> values) {
+            addCriterion("category_id in", values, "categoryId");
             return (Criteria) this;
         }
 
-        public Criteria andCategory_idNotIn(List<Long> values) {
-            addCriterion("category_id not in", values, "category_id");
+        public Criteria andCategoryIdNotIn(List<Long> values) {
+            addCriterion("category_id not in", values, "categoryId");
             return (Criteria) this;
         }
 
-        public Criteria andCategory_idBetween(Long value1, Long value2) {
-            addCriterion("category_id between", value1, value2, "category_id");
+        public Criteria andCategoryIdBetween(Long value1, Long value2) {
+            addCriterion("category_id between", value1, value2, "categoryId");
             return (Criteria) this;
         }
 
-        public Criteria andCategory_idNotBetween(Long value1, Long value2) {
-            addCriterion("category_id not between", value1, value2, "category_id");
+        public Criteria andCategoryIdNotBetween(Long value1, Long value2) {
+            addCriterion("category_id not between", value1, value2, "categoryId");
             return (Criteria) this;
         }
 
@@ -504,63 +504,63 @@ public class TbContentExample {
             return (Criteria) this;
         }
 
-        public Criteria andSort_orderIsNull() {
+        public Criteria andSortOrderIsNull() {
             addCriterion("sort_order is null");
             return (Criteria) this;
         }
 
-        public Criteria andSort_orderIsNotNull() {
+        public Criteria andSortOrderIsNotNull() {
             addCriterion("sort_order is not null");
             return (Criteria) this;
         }
 
-        public Criteria andSort_orderEqualTo(Integer value) {
-            addCriterion("sort_order =", value, "sort_order");
+        public Criteria andSortOrderEqualTo(Integer value) {
+            addCriterion("sort_order =", value, "sortOrder");
             return (Criteria) this;
         }
 
-        public Criteria andSort_orderNotEqualTo(Integer value) {
-            addCriterion("sort_order <>", value, "sort_order");
+        public Criteria andSortOrderNotEqualTo(Integer value) {
+            addCriterion("sort_order <>", value, "sortOrder");
             return (Criteria) this;
         }
 
-        public Criteria andSort_orderGreaterThan(Integer value) {
-            addCriterion("sort_order >", value, "sort_order");
+        public Criteria andSortOrderGreaterThan(Integer value) {
+            addCriterion("sort_order >", value, "sortOrder");
             return (Criteria) this;
         }
 
-        public Criteria andSort_orderGreaterThanOrEqualTo(Integer value) {
-            addCriterion("sort_order >=", value, "sort_order");
+        public Criteria andSortOrderGreaterThanOrEqualTo(Integer value) {
+            addCriterion("sort_order >=", value, "sortOrder");
             return (Criteria) this;
         }
 
-        public Criteria andSort_orderLessThan(Integer value) {
-            addCriterion("sort_order <", value, "sort_order");
+        public Criteria andSortOrderLessThan(Integer value) {
+            addCriterion("sort_order <", value, "sortOrder");
             return (Criteria) this;
         }
 
-        public Criteria andSort_orderLessThanOrEqualTo(Integer value) {
-            addCriterion("sort_order <=", value, "sort_order");
+        public Criteria andSortOrderLessThanOrEqualTo(Integer value) {
+            addCriterion("sort_order <=", value, "sortOrder");
             return (Criteria) this;
         }
 
-        public Criteria andSort_orderIn(List<Integer> values) {
-            addCriterion("sort_order in", values, "sort_order");
+        public Criteria andSortOrderIn(List<Integer> values) {
+            addCriterion("sort_order in", values, "sortOrder");
             return (Criteria) this;
         }
 
-        public Criteria andSort_orderNotIn(List<Integer> values) {
-            addCriterion("sort_order not in", values, "sort_order");
+        public Criteria andSortOrderNotIn(List<Integer> values) {
+            addCriterion("sort_order not in", values, "sortOrder");
             return (Criteria) this;
         }
 
-        public Criteria andSort_orderBetween(Integer value1, Integer value2) {
-            addCriterion("sort_order between", value1, value2, "sort_order");
+        public Criteria andSortOrderBetween(Integer value1, Integer value2) {
+            addCriterion("sort_order between", value1, value2, "sortOrder");
             return (Criteria) this;
         }
 
-        public Criteria andSort_orderNotBetween(Integer value1, Integer value2) {
-            addCriterion("sort_order not between", value1, value2, "sort_order");
+        public Criteria andSortOrderNotBetween(Integer value1, Integer value2) {
+            addCriterion("sort_order not between", value1, value2, "sortOrder");
             return (Criteria) this;
         }
     }

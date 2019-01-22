@@ -6,7 +6,7 @@ public class TbBrand implements Serializable {
     /**
 	 * 
 	 */
-	private static final long serialVersionUID = -5517952829968493987L;
+	private static final long serialVersionUID = 1688071031543855087L;
 
 	/** */
     private Long id;
@@ -15,7 +15,7 @@ public class TbBrand implements Serializable {
     private String name;
 
     /** 品牌首字母*/
-    private String first_char;
+    private String firstChar;
 
     public Long getId() {
         return id;
@@ -33,11 +33,11 @@ public class TbBrand implements Serializable {
         this.name = name == null ? null : name.trim();
     }
 
-    public String getFirst_char() {
-        return first_char;
+    public String getFirstChar() {
+        return firstChar;
     }
 
-    public void setFirst_char(String first_char) {
-        this.first_char = first_char == null ? null : first_char.trim();
+    public void setFirstChar(String firstChar) {
+        this.firstChar = firstChar == null ? null : firstChar.trim();
     }
 }

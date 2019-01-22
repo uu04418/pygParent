@@ -4,7 +4,7 @@
   <resultMap id="BaseResultMap" type="com.pinyougou.pojo.TbBrand" >
     <id column="id" property="id" jdbcType="BIGINT" />
     <result column="name" property="name" jdbcType="VARCHAR" />
-    <result column="first_char" property="first_char" jdbcType="VARCHAR" />
+    <result column="first_char" property="firstChar" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -100,7 +100,7 @@
   <insert id="insert" parameterType="com.pinyougou.pojo.TbBrand" >
     insert into tb_brand (id, name, first_char
       )
-    values (#{id,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, #{first_char,jdbcType=VARCHAR}
+    values (#{id,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, #{firstChar,jdbcType=VARCHAR}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.pinyougou.pojo.TbBrand" >
@@ -112,7 +112,7 @@
       <if test="name != null" >
         name,
       </if>
-      <if test="first_char != null" >
+      <if test="firstChar != null" >
         first_char,
       </if>
     </trim>
@@ -123,8 +123,8 @@
       <if test="name != null" >
         #{name,jdbcType=VARCHAR},
       </if>
-      <if test="first_char != null" >
-        #{first_char,jdbcType=VARCHAR},
+      <if test="firstChar != null" >
+        #{firstChar,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -143,8 +143,8 @@
       <if test="record.name != null" >
         name = #{record.name,jdbcType=VARCHAR},
       </if>
-      <if test="record.first_char != null" >
-        first_char = #{record.first_char,jdbcType=VARCHAR},
+      <if test="record.firstChar != null" >
+        first_char = #{record.firstChar,jdbcType=VARCHAR},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -155,7 +155,7 @@
     update tb_brand
     set id = #{record.id,jdbcType=BIGINT},
       name = #{record.name,jdbcType=VARCHAR},
-      first_char = #{record.first_char,jdbcType=VARCHAR}
+      first_char = #{record.firstChar,jdbcType=VARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -166,8 +166,8 @@
       <if test="name != null" >
         name = #{name,jdbcType=VARCHAR},
       </if>
-      <if test="first_char != null" >
-        first_char = #{first_char,jdbcType=VARCHAR},
+      <if test="firstChar != null" >
+        first_char = #{firstChar,jdbcType=VARCHAR},
       </if>
     </set>
     where id = #{id,jdbcType=BIGINT}
@@ -175,7 +175,7 @@
   <update id="updateByPrimaryKey" parameterType="com.pinyougou.pojo.TbBrand" >
     update tb_brand
     set name = #{name,jdbcType=VARCHAR},
-      first_char = #{first_char,jdbcType=VARCHAR}
+      first_char = #{firstChar,jdbcType=VARCHAR}
     where id = #{id,jdbcType=BIGINT}
   </update>
 </mapper>

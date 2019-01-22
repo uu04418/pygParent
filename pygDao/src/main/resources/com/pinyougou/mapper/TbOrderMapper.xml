@@ -2,31 +2,31 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.pinyougou.mapper.TbOrderMapper" >
   <resultMap id="BaseResultMap" type="com.pinyougou.pojo.TbOrder" >
-    <id column="order_id" property="order_id" jdbcType="BIGINT" />
+    <id column="order_id" property="orderId" jdbcType="BIGINT" />
     <result column="payment" property="payment" jdbcType="DECIMAL" />
-    <result column="payment_type" property="payment_type" jdbcType="VARCHAR" />
-    <result column="post_fee" property="post_fee" jdbcType="VARCHAR" />
+    <result column="payment_type" property="paymentType" jdbcType="VARCHAR" />
+    <result column="post_fee" property="postFee" jdbcType="VARCHAR" />
     <result column="status" property="status" jdbcType="VARCHAR" />
-    <result column="create_time" property="create_time" jdbcType="TIMESTAMP" />
-    <result column="update_time" property="update_time" jdbcType="TIMESTAMP" />
-    <result column="payment_time" property="payment_time" jdbcType="TIMESTAMP" />
-    <result column="consign_time" property="consign_time" jdbcType="TIMESTAMP" />
-    <result column="end_time" property="end_time" jdbcType="TIMESTAMP" />
-    <result column="close_time" property="close_time" jdbcType="TIMESTAMP" />
-    <result column="shipping_name" property="shipping_name" jdbcType="VARCHAR" />
-    <result column="shipping_code" property="shipping_code" jdbcType="VARCHAR" />
-    <result column="user_id" property="user_id" jdbcType="VARCHAR" />
-    <result column="buyer_message" property="buyer_message" jdbcType="VARCHAR" />
-    <result column="buyer_nick" property="buyer_nick" jdbcType="VARCHAR" />
-    <result column="buyer_rate" property="buyer_rate" jdbcType="VARCHAR" />
-    <result column="receiver_area_name" property="receiver_area_name" jdbcType="VARCHAR" />
-    <result column="receiver_mobile" property="receiver_mobile" jdbcType="VARCHAR" />
-    <result column="receiver_zip_code" property="receiver_zip_code" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="payment_time" property="paymentTime" jdbcType="TIMESTAMP" />
+    <result column="consign_time" property="consignTime" jdbcType="TIMESTAMP" />
+    <result column="end_time" property="endTime" jdbcType="TIMESTAMP" />
+    <result column="close_time" property="closeTime" jdbcType="TIMESTAMP" />
+    <result column="shipping_name" property="shippingName" jdbcType="VARCHAR" />
+    <result column="shipping_code" property="shippingCode" jdbcType="VARCHAR" />
+    <result column="user_id" property="userId" jdbcType="VARCHAR" />
+    <result column="buyer_message" property="buyerMessage" jdbcType="VARCHAR" />
+    <result column="buyer_nick" property="buyerNick" jdbcType="VARCHAR" />
+    <result column="buyer_rate" property="buyerRate" jdbcType="VARCHAR" />
+    <result column="receiver_area_name" property="receiverAreaName" jdbcType="VARCHAR" />
+    <result column="receiver_mobile" property="receiverMobile" jdbcType="VARCHAR" />
+    <result column="receiver_zip_code" property="receiverZipCode" jdbcType="VARCHAR" />
     <result column="receiver" property="receiver" jdbcType="VARCHAR" />
     <result column="expire" property="expire" jdbcType="TIMESTAMP" />
-    <result column="invoice_type" property="invoice_type" jdbcType="VARCHAR" />
-    <result column="source_type" property="source_type" jdbcType="VARCHAR" />
-    <result column="seller_id" property="seller_id" jdbcType="VARCHAR" />
+    <result column="invoice_type" property="invoiceType" jdbcType="VARCHAR" />
+    <result column="source_type" property="sourceType" jdbcType="VARCHAR" />
+    <result column="seller_id" property="sellerId" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -110,11 +110,11 @@
     select 
     <include refid="Base_Column_List" />
     from tb_order
-    where order_id = #{order_id,jdbcType=BIGINT}
+    where order_id = #{orderId,jdbcType=BIGINT}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
     delete from tb_order
-    where order_id = #{order_id,jdbcType=BIGINT}
+    where order_id = #{orderId,jdbcType=BIGINT}
   </delete>
   <delete id="deleteByExample" parameterType="com.pinyougou.pojo.TbOrderExample" >
     delete from tb_order
@@ -132,77 +132,77 @@
       receiver_mobile, receiver_zip_code, receiver, 
       expire, invoice_type, source_type, 
       seller_id)
-    values (#{order_id,jdbcType=BIGINT}, #{payment,jdbcType=DECIMAL}, #{payment_type,jdbcType=VARCHAR}, 
-      #{post_fee,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, #{create_time,jdbcType=TIMESTAMP}, 
-      #{update_time,jdbcType=TIMESTAMP}, #{payment_time,jdbcType=TIMESTAMP}, #{consign_time,jdbcType=TIMESTAMP}, 
-      #{end_time,jdbcType=TIMESTAMP}, #{close_time,jdbcType=TIMESTAMP}, #{shipping_name,jdbcType=VARCHAR}, 
-      #{shipping_code,jdbcType=VARCHAR}, #{user_id,jdbcType=VARCHAR}, #{buyer_message,jdbcType=VARCHAR}, 
-      #{buyer_nick,jdbcType=VARCHAR}, #{buyer_rate,jdbcType=VARCHAR}, #{receiver_area_name,jdbcType=VARCHAR}, 
-      #{receiver_mobile,jdbcType=VARCHAR}, #{receiver_zip_code,jdbcType=VARCHAR}, #{receiver,jdbcType=VARCHAR}, 
-      #{expire,jdbcType=TIMESTAMP}, #{invoice_type,jdbcType=VARCHAR}, #{source_type,jdbcType=VARCHAR}, 
-      #{seller_id,jdbcType=VARCHAR})
+    values (#{orderId,jdbcType=BIGINT}, #{payment,jdbcType=DECIMAL}, #{paymentType,jdbcType=VARCHAR}, 
+      #{postFee,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{paymentTime,jdbcType=TIMESTAMP}, #{consignTime,jdbcType=TIMESTAMP}, 
+      #{endTime,jdbcType=TIMESTAMP}, #{closeTime,jdbcType=TIMESTAMP}, #{shippingName,jdbcType=VARCHAR}, 
+      #{shippingCode,jdbcType=VARCHAR}, #{userId,jdbcType=VARCHAR}, #{buyerMessage,jdbcType=VARCHAR}, 
+      #{buyerNick,jdbcType=VARCHAR}, #{buyerRate,jdbcType=VARCHAR}, #{receiverAreaName,jdbcType=VARCHAR}, 
+      #{receiverMobile,jdbcType=VARCHAR}, #{receiverZipCode,jdbcType=VARCHAR}, #{receiver,jdbcType=VARCHAR}, 
+      #{expire,jdbcType=TIMESTAMP}, #{invoiceType,jdbcType=VARCHAR}, #{sourceType,jdbcType=VARCHAR}, 
+      #{sellerId,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.pinyougou.pojo.TbOrder" >
     insert into tb_order
     <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="order_id != null" >
+      <if test="orderId != null" >
         order_id,
       </if>
       <if test="payment != null" >
         payment,
       </if>
-      <if test="payment_type != null" >
+      <if test="paymentType != null" >
         payment_type,
       </if>
-      <if test="post_fee != null" >
+      <if test="postFee != null" >
         post_fee,
       </if>
       <if test="status != null" >
         status,
       </if>
-      <if test="create_time != null" >
+      <if test="createTime != null" >
         create_time,
       </if>
-      <if test="update_time != null" >
+      <if test="updateTime != null" >
         update_time,
       </if>
-      <if test="payment_time != null" >
+      <if test="paymentTime != null" >
         payment_time,
       </if>
-      <if test="consign_time != null" >
+      <if test="consignTime != null" >
         consign_time,
       </if>
-      <if test="end_time != null" >
+      <if test="endTime != null" >
         end_time,
       </if>
-      <if test="close_time != null" >
+      <if test="closeTime != null" >
         close_time,
       </if>
-      <if test="shipping_name != null" >
+      <if test="shippingName != null" >
         shipping_name,
       </if>
-      <if test="shipping_code != null" >
+      <if test="shippingCode != null" >
         shipping_code,
       </if>
-      <if test="user_id != null" >
+      <if test="userId != null" >
         user_id,
       </if>
-      <if test="buyer_message != null" >
+      <if test="buyerMessage != null" >
         buyer_message,
       </if>
-      <if test="buyer_nick != null" >
+      <if test="buyerNick != null" >
         buyer_nick,
       </if>
-      <if test="buyer_rate != null" >
+      <if test="buyerRate != null" >
         buyer_rate,
       </if>
-      <if test="receiver_area_name != null" >
+      <if test="receiverAreaName != null" >
         receiver_area_name,
       </if>
-      <if test="receiver_mobile != null" >
+      <if test="receiverMobile != null" >
         receiver_mobile,
       </if>
-      <if test="receiver_zip_code != null" >
+      <if test="receiverZipCode != null" >
         receiver_zip_code,
       </if>
       <if test="receiver != null" >
@@ -211,76 +211,76 @@
       <if test="expire != null" >
         expire,
       </if>
-      <if test="invoice_type != null" >
+      <if test="invoiceType != null" >
         invoice_type,
       </if>
-      <if test="source_type != null" >
+      <if test="sourceType != null" >
         source_type,
       </if>
-      <if test="seller_id != null" >
+      <if test="sellerId != null" >
         seller_id,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="order_id != null" >
-        #{order_id,jdbcType=BIGINT},
+      <if test="orderId != null" >
+        #{orderId,jdbcType=BIGINT},
       </if>
       <if test="payment != null" >
         #{payment,jdbcType=DECIMAL},
       </if>
-      <if test="payment_type != null" >
-        #{payment_type,jdbcType=VARCHAR},
+      <if test="paymentType != null" >
+        #{paymentType,jdbcType=VARCHAR},
       </if>
-      <if test="post_fee != null" >
-        #{post_fee,jdbcType=VARCHAR},
+      <if test="postFee != null" >
+        #{postFee,jdbcType=VARCHAR},
       </if>
       <if test="status != null" >
         #{status,jdbcType=VARCHAR},
       </if>
-      <if test="create_time != null" >
-        #{create_time,jdbcType=TIMESTAMP},
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="update_time != null" >
-        #{update_time,jdbcType=TIMESTAMP},
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="payment_time != null" >
-        #{payment_time,jdbcType=TIMESTAMP},
+      <if test="paymentTime != null" >
+        #{paymentTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="consign_time != null" >
-        #{consign_time,jdbcType=TIMESTAMP},
+      <if test="consignTime != null" >
+        #{consignTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="end_time != null" >
-        #{end_time,jdbcType=TIMESTAMP},
+      <if test="endTime != null" >
+        #{endTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="close_time != null" >
-        #{close_time,jdbcType=TIMESTAMP},
+      <if test="closeTime != null" >
+        #{closeTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="shipping_name != null" >
-        #{shipping_name,jdbcType=VARCHAR},
+      <if test="shippingName != null" >
+        #{shippingName,jdbcType=VARCHAR},
       </if>
-      <if test="shipping_code != null" >
-        #{shipping_code,jdbcType=VARCHAR},
+      <if test="shippingCode != null" >
+        #{shippingCode,jdbcType=VARCHAR},
       </if>
-      <if test="user_id != null" >
-        #{user_id,jdbcType=VARCHAR},
+      <if test="userId != null" >
+        #{userId,jdbcType=VARCHAR},
       </if>
-      <if test="buyer_message != null" >
-        #{buyer_message,jdbcType=VARCHAR},
+      <if test="buyerMessage != null" >
+        #{buyerMessage,jdbcType=VARCHAR},
       </if>
-      <if test="buyer_nick != null" >
-        #{buyer_nick,jdbcType=VARCHAR},
+      <if test="buyerNick != null" >
+        #{buyerNick,jdbcType=VARCHAR},
       </if>
-      <if test="buyer_rate != null" >
-        #{buyer_rate,jdbcType=VARCHAR},
+      <if test="buyerRate != null" >
+        #{buyerRate,jdbcType=VARCHAR},
       </if>
-      <if test="receiver_area_name != null" >
-        #{receiver_area_name,jdbcType=VARCHAR},
+      <if test="receiverAreaName != null" >
+        #{receiverAreaName,jdbcType=VARCHAR},
       </if>
-      <if test="receiver_mobile != null" >
-        #{receiver_mobile,jdbcType=VARCHAR},
+      <if test="receiverMobile != null" >
+        #{receiverMobile,jdbcType=VARCHAR},
       </if>
-      <if test="receiver_zip_code != null" >
-        #{receiver_zip_code,jdbcType=VARCHAR},
+      <if test="receiverZipCode != null" >
+        #{receiverZipCode,jdbcType=VARCHAR},
       </if>
       <if test="receiver != null" >
         #{receiver,jdbcType=VARCHAR},
@@ -288,14 +288,14 @@
       <if test="expire != null" >
         #{expire,jdbcType=TIMESTAMP},
       </if>
-      <if test="invoice_type != null" >
-        #{invoice_type,jdbcType=VARCHAR},
+      <if test="invoiceType != null" >
+        #{invoiceType,jdbcType=VARCHAR},
       </if>
-      <if test="source_type != null" >
-        #{source_type,jdbcType=VARCHAR},
+      <if test="sourceType != null" >
+        #{sourceType,jdbcType=VARCHAR},
       </if>
-      <if test="seller_id != null" >
-        #{seller_id,jdbcType=VARCHAR},
+      <if test="sellerId != null" >
+        #{sellerId,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -308,65 +308,65 @@
   <update id="updateByExampleSelective" parameterType="map" >
     update tb_order
     <set >
-      <if test="record.order_id != null" >
-        order_id = #{record.order_id,jdbcType=BIGINT},
+      <if test="record.orderId != null" >
+        order_id = #{record.orderId,jdbcType=BIGINT},
       </if>
       <if test="record.payment != null" >
         payment = #{record.payment,jdbcType=DECIMAL},
       </if>
-      <if test="record.payment_type != null" >
-        payment_type = #{record.payment_type,jdbcType=VARCHAR},
+      <if test="record.paymentType != null" >
+        payment_type = #{record.paymentType,jdbcType=VARCHAR},
       </if>
-      <if test="record.post_fee != null" >
-        post_fee = #{record.post_fee,jdbcType=VARCHAR},
+      <if test="record.postFee != null" >
+        post_fee = #{record.postFee,jdbcType=VARCHAR},
       </if>
       <if test="record.status != null" >
         status = #{record.status,jdbcType=VARCHAR},
       </if>
-      <if test="record.create_time != null" >
-        create_time = #{record.create_time,jdbcType=TIMESTAMP},
+      <if test="record.createTime != null" >
+        create_time = #{record.createTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="record.update_time != null" >
-        update_time = #{record.update_time,jdbcType=TIMESTAMP},
+      <if test="record.updateTime != null" >
+        update_time = #{record.updateTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="record.payment_time != null" >
-        payment_time = #{record.payment_time,jdbcType=TIMESTAMP},
+      <if test="record.paymentTime != null" >
+        payment_time = #{record.paymentTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="record.consign_time != null" >
-        consign_time = #{record.consign_time,jdbcType=TIMESTAMP},
+      <if test="record.consignTime != null" >
+        consign_time = #{record.consignTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="record.end_time != null" >
-        end_time = #{record.end_time,jdbcType=TIMESTAMP},
+      <if test="record.endTime != null" >
+        end_time = #{record.endTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="record.close_time != null" >
-        close_time = #{record.close_time,jdbcType=TIMESTAMP},
+      <if test="record.closeTime != null" >
+        close_time = #{record.closeTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="record.shipping_name != null" >
-        shipping_name = #{record.shipping_name,jdbcType=VARCHAR},
+      <if test="record.shippingName != null" >
+        shipping_name = #{record.shippingName,jdbcType=VARCHAR},
       </if>
-      <if test="record.shipping_code != null" >
-        shipping_code = #{record.shipping_code,jdbcType=VARCHAR},
+      <if test="record.shippingCode != null" >
+        shipping_code = #{record.shippingCode,jdbcType=VARCHAR},
       </if>
-      <if test="record.user_id != null" >
-        user_id = #{record.user_id,jdbcType=VARCHAR},
+      <if test="record.userId != null" >
+        user_id = #{record.userId,jdbcType=VARCHAR},
       </if>
-      <if test="record.buyer_message != null" >
-        buyer_message = #{record.buyer_message,jdbcType=VARCHAR},
+      <if test="record.buyerMessage != null" >
+        buyer_message = #{record.buyerMessage,jdbcType=VARCHAR},
       </if>
-      <if test="record.buyer_nick != null" >
-        buyer_nick = #{record.buyer_nick,jdbcType=VARCHAR},
+      <if test="record.buyerNick != null" >
+        buyer_nick = #{record.buyerNick,jdbcType=VARCHAR},
       </if>
-      <if test="record.buyer_rate != null" >
-        buyer_rate = #{record.buyer_rate,jdbcType=VARCHAR},
+      <if test="record.buyerRate != null" >
+        buyer_rate = #{record.buyerRate,jdbcType=VARCHAR},
       </if>
-      <if test="record.receiver_area_name != null" >
-        receiver_area_name = #{record.receiver_area_name,jdbcType=VARCHAR},
+      <if test="record.receiverAreaName != null" >
+        receiver_area_name = #{record.receiverAreaName,jdbcType=VARCHAR},
       </if>
-      <if test="record.receiver_mobile != null" >
-        receiver_mobile = #{record.receiver_mobile,jdbcType=VARCHAR},
+      <if test="record.receiverMobile != null" >
+        receiver_mobile = #{record.receiverMobile,jdbcType=VARCHAR},
       </if>
-      <if test="record.receiver_zip_code != null" >
-        receiver_zip_code = #{record.receiver_zip_code,jdbcType=VARCHAR},
+      <if test="record.receiverZipCode != null" >
+        receiver_zip_code = #{record.receiverZipCode,jdbcType=VARCHAR},
       </if>
       <if test="record.receiver != null" >
         receiver = #{record.receiver,jdbcType=VARCHAR},
@@ -374,14 +374,14 @@
       <if test="record.expire != null" >
         expire = #{record.expire,jdbcType=TIMESTAMP},
       </if>
-      <if test="record.invoice_type != null" >
-        invoice_type = #{record.invoice_type,jdbcType=VARCHAR},
+      <if test="record.invoiceType != null" >
+        invoice_type = #{record.invoiceType,jdbcType=VARCHAR},
       </if>
-      <if test="record.source_type != null" >
-        source_type = #{record.source_type,jdbcType=VARCHAR},
+      <if test="record.sourceType != null" >
+        source_type = #{record.sourceType,jdbcType=VARCHAR},
       </if>
-      <if test="record.seller_id != null" >
-        seller_id = #{record.seller_id,jdbcType=VARCHAR},
+      <if test="record.sellerId != null" >
+        seller_id = #{record.sellerId,jdbcType=VARCHAR},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -390,31 +390,31 @@
   </update>
   <update id="updateByExample" parameterType="map" >
     update tb_order
-    set order_id = #{record.order_id,jdbcType=BIGINT},
+    set order_id = #{record.orderId,jdbcType=BIGINT},
       payment = #{record.payment,jdbcType=DECIMAL},
-      payment_type = #{record.payment_type,jdbcType=VARCHAR},
-      post_fee = #{record.post_fee,jdbcType=VARCHAR},
+      payment_type = #{record.paymentType,jdbcType=VARCHAR},
+      post_fee = #{record.postFee,jdbcType=VARCHAR},
       status = #{record.status,jdbcType=VARCHAR},
-      create_time = #{record.create_time,jdbcType=TIMESTAMP},
-      update_time = #{record.update_time,jdbcType=TIMESTAMP},
-      payment_time = #{record.payment_time,jdbcType=TIMESTAMP},
-      consign_time = #{record.consign_time,jdbcType=TIMESTAMP},
-      end_time = #{record.end_time,jdbcType=TIMESTAMP},
-      close_time = #{record.close_time,jdbcType=TIMESTAMP},
-      shipping_name = #{record.shipping_name,jdbcType=VARCHAR},
-      shipping_code = #{record.shipping_code,jdbcType=VARCHAR},
-      user_id = #{record.user_id,jdbcType=VARCHAR},
-      buyer_message = #{record.buyer_message,jdbcType=VARCHAR},
-      buyer_nick = #{record.buyer_nick,jdbcType=VARCHAR},
-      buyer_rate = #{record.buyer_rate,jdbcType=VARCHAR},
-      receiver_area_name = #{record.receiver_area_name,jdbcType=VARCHAR},
-      receiver_mobile = #{record.receiver_mobile,jdbcType=VARCHAR},
-      receiver_zip_code = #{record.receiver_zip_code,jdbcType=VARCHAR},
+      create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      payment_time = #{record.paymentTime,jdbcType=TIMESTAMP},
+      consign_time = #{record.consignTime,jdbcType=TIMESTAMP},
+      end_time = #{record.endTime,jdbcType=TIMESTAMP},
+      close_time = #{record.closeTime,jdbcType=TIMESTAMP},
+      shipping_name = #{record.shippingName,jdbcType=VARCHAR},
+      shipping_code = #{record.shippingCode,jdbcType=VARCHAR},
+      user_id = #{record.userId,jdbcType=VARCHAR},
+      buyer_message = #{record.buyerMessage,jdbcType=VARCHAR},
+      buyer_nick = #{record.buyerNick,jdbcType=VARCHAR},
+      buyer_rate = #{record.buyerRate,jdbcType=VARCHAR},
+      receiver_area_name = #{record.receiverAreaName,jdbcType=VARCHAR},
+      receiver_mobile = #{record.receiverMobile,jdbcType=VARCHAR},
+      receiver_zip_code = #{record.receiverZipCode,jdbcType=VARCHAR},
       receiver = #{record.receiver,jdbcType=VARCHAR},
       expire = #{record.expire,jdbcType=TIMESTAMP},
-      invoice_type = #{record.invoice_type,jdbcType=VARCHAR},
-      source_type = #{record.source_type,jdbcType=VARCHAR},
-      seller_id = #{record.seller_id,jdbcType=VARCHAR}
+      invoice_type = #{record.invoiceType,jdbcType=VARCHAR},
+      source_type = #{record.sourceType,jdbcType=VARCHAR},
+      seller_id = #{record.sellerId,jdbcType=VARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -425,59 +425,59 @@
       <if test="payment != null" >
         payment = #{payment,jdbcType=DECIMAL},
       </if>
-      <if test="payment_type != null" >
-        payment_type = #{payment_type,jdbcType=VARCHAR},
+      <if test="paymentType != null" >
+        payment_type = #{paymentType,jdbcType=VARCHAR},
       </if>
-      <if test="post_fee != null" >
-        post_fee = #{post_fee,jdbcType=VARCHAR},
+      <if test="postFee != null" >
+        post_fee = #{postFee,jdbcType=VARCHAR},
       </if>
       <if test="status != null" >
         status = #{status,jdbcType=VARCHAR},
       </if>
-      <if test="create_time != null" >
-        create_time = #{create_time,jdbcType=TIMESTAMP},
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="update_time != null" >
-        update_time = #{update_time,jdbcType=TIMESTAMP},
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="payment_time != null" >
-        payment_time = #{payment_time,jdbcType=TIMESTAMP},
+      <if test="paymentTime != null" >
+        payment_time = #{paymentTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="consign_time != null" >
-        consign_time = #{consign_time,jdbcType=TIMESTAMP},
+      <if test="consignTime != null" >
+        consign_time = #{consignTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="end_time != null" >
-        end_time = #{end_time,jdbcType=TIMESTAMP},
+      <if test="endTime != null" >
+        end_time = #{endTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="close_time != null" >
-        close_time = #{close_time,jdbcType=TIMESTAMP},
+      <if test="closeTime != null" >
+        close_time = #{closeTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="shipping_name != null" >
-        shipping_name = #{shipping_name,jdbcType=VARCHAR},
+      <if test="shippingName != null" >
+        shipping_name = #{shippingName,jdbcType=VARCHAR},
       </if>
-      <if test="shipping_code != null" >
-        shipping_code = #{shipping_code,jdbcType=VARCHAR},
+      <if test="shippingCode != null" >
+        shipping_code = #{shippingCode,jdbcType=VARCHAR},
       </if>
-      <if test="user_id != null" >
-        user_id = #{user_id,jdbcType=VARCHAR},
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=VARCHAR},
       </if>
-      <if test="buyer_message != null" >
-        buyer_message = #{buyer_message,jdbcType=VARCHAR},
+      <if test="buyerMessage != null" >
+        buyer_message = #{buyerMessage,jdbcType=VARCHAR},
       </if>
-      <if test="buyer_nick != null" >
-        buyer_nick = #{buyer_nick,jdbcType=VARCHAR},
+      <if test="buyerNick != null" >
+        buyer_nick = #{buyerNick,jdbcType=VARCHAR},
       </if>
-      <if test="buyer_rate != null" >
-        buyer_rate = #{buyer_rate,jdbcType=VARCHAR},
+      <if test="buyerRate != null" >
+        buyer_rate = #{buyerRate,jdbcType=VARCHAR},
       </if>
-      <if test="receiver_area_name != null" >
-        receiver_area_name = #{receiver_area_name,jdbcType=VARCHAR},
+      <if test="receiverAreaName != null" >
+        receiver_area_name = #{receiverAreaName,jdbcType=VARCHAR},
       </if>
-      <if test="receiver_mobile != null" >
-        receiver_mobile = #{receiver_mobile,jdbcType=VARCHAR},
+      <if test="receiverMobile != null" >
+        receiver_mobile = #{receiverMobile,jdbcType=VARCHAR},
       </if>
-      <if test="receiver_zip_code != null" >
-        receiver_zip_code = #{receiver_zip_code,jdbcType=VARCHAR},
+      <if test="receiverZipCode != null" >
+        receiver_zip_code = #{receiverZipCode,jdbcType=VARCHAR},
       </if>
       <if test="receiver != null" >
         receiver = #{receiver,jdbcType=VARCHAR},
@@ -485,44 +485,44 @@
       <if test="expire != null" >
         expire = #{expire,jdbcType=TIMESTAMP},
       </if>
-      <if test="invoice_type != null" >
-        invoice_type = #{invoice_type,jdbcType=VARCHAR},
+      <if test="invoiceType != null" >
+        invoice_type = #{invoiceType,jdbcType=VARCHAR},
       </if>
-      <if test="source_type != null" >
-        source_type = #{source_type,jdbcType=VARCHAR},
+      <if test="sourceType != null" >
+        source_type = #{sourceType,jdbcType=VARCHAR},
       </if>
-      <if test="seller_id != null" >
-        seller_id = #{seller_id,jdbcType=VARCHAR},
+      <if test="sellerId != null" >
+        seller_id = #{sellerId,jdbcType=VARCHAR},
       </if>
     </set>
-    where order_id = #{order_id,jdbcType=BIGINT}
+    where order_id = #{orderId,jdbcType=BIGINT}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.pinyougou.pojo.TbOrder" >
     update tb_order
     set payment = #{payment,jdbcType=DECIMAL},
-      payment_type = #{payment_type,jdbcType=VARCHAR},
-      post_fee = #{post_fee,jdbcType=VARCHAR},
+      payment_type = #{paymentType,jdbcType=VARCHAR},
+      post_fee = #{postFee,jdbcType=VARCHAR},
       status = #{status,jdbcType=VARCHAR},
-      create_time = #{create_time,jdbcType=TIMESTAMP},
-      update_time = #{update_time,jdbcType=TIMESTAMP},
-      payment_time = #{payment_time,jdbcType=TIMESTAMP},
-      consign_time = #{consign_time,jdbcType=TIMESTAMP},
-      end_time = #{end_time,jdbcType=TIMESTAMP},
-      close_time = #{close_time,jdbcType=TIMESTAMP},
-      shipping_name = #{shipping_name,jdbcType=VARCHAR},
-      shipping_code = #{shipping_code,jdbcType=VARCHAR},
-      user_id = #{user_id,jdbcType=VARCHAR},
-      buyer_message = #{buyer_message,jdbcType=VARCHAR},
-      buyer_nick = #{buyer_nick,jdbcType=VARCHAR},
-      buyer_rate = #{buyer_rate,jdbcType=VARCHAR},
-      receiver_area_name = #{receiver_area_name,jdbcType=VARCHAR},
-      receiver_mobile = #{receiver_mobile,jdbcType=VARCHAR},
-      receiver_zip_code = #{receiver_zip_code,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      payment_time = #{paymentTime,jdbcType=TIMESTAMP},
+      consign_time = #{consignTime,jdbcType=TIMESTAMP},
+      end_time = #{endTime,jdbcType=TIMESTAMP},
+      close_time = #{closeTime,jdbcType=TIMESTAMP},
+      shipping_name = #{shippingName,jdbcType=VARCHAR},
+      shipping_code = #{shippingCode,jdbcType=VARCHAR},
+      user_id = #{userId,jdbcType=VARCHAR},
+      buyer_message = #{buyerMessage,jdbcType=VARCHAR},
+      buyer_nick = #{buyerNick,jdbcType=VARCHAR},
+      buyer_rate = #{buyerRate,jdbcType=VARCHAR},
+      receiver_area_name = #{receiverAreaName,jdbcType=VARCHAR},
+      receiver_mobile = #{receiverMobile,jdbcType=VARCHAR},
+      receiver_zip_code = #{receiverZipCode,jdbcType=VARCHAR},
       receiver = #{receiver,jdbcType=VARCHAR},
       expire = #{expire,jdbcType=TIMESTAMP},
-      invoice_type = #{invoice_type,jdbcType=VARCHAR},
-      source_type = #{source_type,jdbcType=VARCHAR},
-      seller_id = #{seller_id,jdbcType=VARCHAR}
-    where order_id = #{order_id,jdbcType=BIGINT}
+      invoice_type = #{invoiceType,jdbcType=VARCHAR},
+      source_type = #{sourceType,jdbcType=VARCHAR},
+      seller_id = #{sellerId,jdbcType=VARCHAR}
+    where order_id = #{orderId,jdbcType=BIGINT}
   </update>
 </mapper>

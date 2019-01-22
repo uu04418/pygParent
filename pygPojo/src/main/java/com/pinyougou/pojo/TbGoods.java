@@ -3,59 +3,59 @@ package com.pinyougou.pojo;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
-public class TbGoods implements Serializable{
+public class TbGoods implements Serializable {
     /**
 	 * 
 	 */
-	private static final long serialVersionUID = -5607360902312476773L;
+	private static final long serialVersionUID = 179464890179610858L;
 
 	/** 主键*/
     private Long id;
 
     /** 商家ID*/
-    private String seller_id;
+    private String sellerId;
 
     /** SPU名*/
-    private String goods_name;
+    private String goodsName;
 
     /** 默认SKU*/
-    private Long default_item_id;
+    private Long defaultItemId;
 
     /** 状态*/
-    private String audit_status;
+    private String auditStatus;
 
     /** 是否上架*/
-    private String is_marketable;
+    private String isMarketable;
 
     /** 品牌*/
-    private Long brand_id;
+    private Long brandId;
 
     /** 副标题*/
     private String caption;
 
     /** 一级类目*/
-    private Long category1_id;
+    private Long category1Id;
 
     /** 二级类目*/
-    private Long category2_id;
+    private Long category2Id;
 
     /** 三级类目*/
-    private Long category3_id;
+    private Long category3Id;
 
     /** 小图*/
-    private String small_pic;
+    private String smallPic;
 
     /** 商城价*/
     private BigDecimal price;
 
     /** 分类模板ID*/
-    private Long type_template_id;
+    private Long typeTemplateId;
 
     /** 是否启用规格*/
-    private String is_enable_spec;
+    private String isEnableSpec;
 
     /** 是否删除*/
-    private String is_delete;
+    private String isDelete;
 
     public Long getId() {
         return id;
@@ -65,52 +65,52 @@ public class TbGoods implements Serializable{
         this.id = id;
     }
 
-    public String getSeller_id() {
-        return seller_id;
+    public String getSellerId() {
+        return sellerId;
     }
 
-    public void setSeller_id(String seller_id) {
-        this.seller_id = seller_id == null ? null : seller_id.trim();
+    public void setSellerId(String sellerId) {
+        this.sellerId = sellerId == null ? null : sellerId.trim();
     }
 
-    public String getGoods_name() {
-        return goods_name;
+    public String getGoodsName() {
+        return goodsName;
     }
 
-    public void setGoods_name(String goods_name) {
-        this.goods_name = goods_name == null ? null : goods_name.trim();
+    public void setGoodsName(String goodsName) {
+        this.goodsName = goodsName == null ? null : goodsName.trim();
     }
 
-    public Long getDefault_item_id() {
-        return default_item_id;
+    public Long getDefaultItemId() {
+        return defaultItemId;
     }
 
-    public void setDefault_item_id(Long default_item_id) {
-        this.default_item_id = default_item_id;
+    public void setDefaultItemId(Long defaultItemId) {
+        this.defaultItemId = defaultItemId;
     }
 
-    public String getAudit_status() {
-        return audit_status;
+    public String getAuditStatus() {
+        return auditStatus;
     }
 
-    public void setAudit_status(String audit_status) {
-        this.audit_status = audit_status == null ? null : audit_status.trim();
+    public void setAuditStatus(String auditStatus) {
+        this.auditStatus = auditStatus == null ? null : auditStatus.trim();
     }
 
-    public String getIs_marketable() {
-        return is_marketable;
+    public String getIsMarketable() {
+        return isMarketable;
     }
 
-    public void setIs_marketable(String is_marketable) {
-        this.is_marketable = is_marketable == null ? null : is_marketable.trim();
+    public void setIsMarketable(String isMarketable) {
+        this.isMarketable = isMarketable == null ? null : isMarketable.trim();
     }
 
-    public Long getBrand_id() {
-        return brand_id;
+    public Long getBrandId() {
+        return brandId;
     }
 
-    public void setBrand_id(Long brand_id) {
-        this.brand_id = brand_id;
+    public void setBrandId(Long brandId) {
+        this.brandId = brandId;
     }
 
     public String getCaption() {
@@ -121,36 +121,36 @@ public class TbGoods implements Serializable{
         this.caption = caption == null ? null : caption.trim();
     }
 
-    public Long getCategory1_id() {
-        return category1_id;
+    public Long getCategory1Id() {
+        return category1Id;
     }
 
-    public void setCategory1_id(Long category1_id) {
-        this.category1_id = category1_id;
+    public void setCategory1Id(Long category1Id) {
+        this.category1Id = category1Id;
     }
 
-    public Long getCategory2_id() {
-        return category2_id;
+    public Long getCategory2Id() {
+        return category2Id;
     }
 
-    public void setCategory2_id(Long category2_id) {
-        this.category2_id = category2_id;
+    public void setCategory2Id(Long category2Id) {
+        this.category2Id = category2Id;
     }
 
-    public Long getCategory3_id() {
-        return category3_id;
+    public Long getCategory3Id() {
+        return category3Id;
     }
 
-    public void setCategory3_id(Long category3_id) {
-        this.category3_id = category3_id;
+    public void setCategory3Id(Long category3Id) {
+        this.category3Id = category3Id;
     }
 
-    public String getSmall_pic() {
-        return small_pic;
+    public String getSmallPic() {
+        return smallPic;
     }
 
-    public void setSmall_pic(String small_pic) {
-        this.small_pic = small_pic == null ? null : small_pic.trim();
+    public void setSmallPic(String smallPic) {
+        this.smallPic = smallPic == null ? null : smallPic.trim();
     }
 
     public BigDecimal getPrice() {
@@ -161,27 +161,27 @@ public class TbGoods implements Serializable{
         this.price = price;
     }
 
-    public Long getType_template_id() {
-        return type_template_id;
+    public Long getTypeTemplateId() {
+        return typeTemplateId;
     }
 
-    public void setType_template_id(Long type_template_id) {
-        this.type_template_id = type_template_id;
+    public void setTypeTemplateId(Long typeTemplateId) {
+        this.typeTemplateId = typeTemplateId;
     }
 
-    public String getIs_enable_spec() {
-        return is_enable_spec;
+    public String getIsEnableSpec() {
+        return isEnableSpec;
     }
 
-    public void setIs_enable_spec(String is_enable_spec) {
-        this.is_enable_spec = is_enable_spec == null ? null : is_enable_spec.trim();
+    public void setIsEnableSpec(String isEnableSpec) {
+        this.isEnableSpec = isEnableSpec == null ? null : isEnableSpec.trim();
     }
 
-    public String getIs_delete() {
-        return is_delete;
+    public String getIsDelete() {
+        return isDelete;
     }
 
-    public void setIs_delete(String is_delete) {
-        this.is_delete = is_delete == null ? null : is_delete.trim();
+    public void setIsDelete(String isDelete) {
+        this.isDelete = isDelete == null ? null : isDelete.trim();
     }
 }

@@ -8,67 +8,67 @@ public class TbOrder implements Serializable{
     /**
 	 * 
 	 */
-	private static final long serialVersionUID = 3310001245470868412L;
+	private static final long serialVersionUID = -4015413896784561481L;
 
 	/** 订单id*/
-    private Long order_id;
+    private Long orderId;
 
     /** 实付金额。精确到2位小数;单位:元。如:200.07，表示:200元7分*/
     private BigDecimal payment;
 
     /** 支付类型，1、在线支付，2、货到付款*/
-    private String payment_type;
+    private String paymentType;
 
     /** 邮费。精确到2位小数;单位:元。如:200.07，表示:200元7分*/
-    private String post_fee;
+    private String postFee;
 
     /** 状态：1、未付款，2、已付款，3、未发货，4、已发货，5、交易成功，6、交易关闭,7、待评价*/
     private String status;
 
     /** 订单创建时间*/
-    private Date create_time;
+    private Date createTime;
 
     /** 订单更新时间*/
-    private Date update_time;
+    private Date updateTime;
 
     /** 付款时间*/
-    private Date payment_time;
+    private Date paymentTime;
 
     /** 发货时间*/
-    private Date consign_time;
+    private Date consignTime;
 
     /** 交易完成时间*/
-    private Date end_time;
+    private Date endTime;
 
     /** 交易关闭时间*/
-    private Date close_time;
+    private Date closeTime;
 
     /** 物流名称*/
-    private String shipping_name;
+    private String shippingName;
 
     /** 物流单号*/
-    private String shipping_code;
+    private String shippingCode;
 
     /** 用户id*/
-    private String user_id;
+    private String userId;
 
     /** 买家留言*/
-    private String buyer_message;
+    private String buyerMessage;
 
     /** 买家昵称*/
-    private String buyer_nick;
+    private String buyerNick;
 
     /** 买家是否已经评价*/
-    private String buyer_rate;
+    private String buyerRate;
 
     /** 收货人地区名称(省，市，县)街道*/
-    private String receiver_area_name;
+    private String receiverAreaName;
 
     /** 收货人手机*/
-    private String receiver_mobile;
+    private String receiverMobile;
 
     /** 收货人邮编*/
-    private String receiver_zip_code;
+    private String receiverZipCode;
 
     /** 收货人*/
     private String receiver;
@@ -77,20 +77,20 @@ public class TbOrder implements Serializable{
     private Date expire;
 
     /** 发票类型(普通发票，电子发票，增值税发票)*/
-    private String invoice_type;
+    private String invoiceType;
 
     /** 订单来源：1:app端，2：pc端，3：M端，4：微信端，5：手机qq端*/
-    private String source_type;
+    private String sourceType;
 
     /** 商家ID*/
-    private String seller_id;
+    private String sellerId;
 
-    public Long getOrder_id() {
-        return order_id;
+    public Long getOrderId() {
+        return orderId;
     }
 
-    public void setOrder_id(Long order_id) {
-        this.order_id = order_id;
+    public void setOrderId(Long orderId) {
+        this.orderId = orderId;
     }
 
     public BigDecimal getPayment() {
@@ -101,20 +101,20 @@ public class TbOrder implements Serializable{
         this.payment = payment;
     }
 
-    public String getPayment_type() {
-        return payment_type;
+    public String getPaymentType() {
+        return paymentType;
     }
 
-    public void setPayment_type(String payment_type) {
-        this.payment_type = payment_type == null ? null : payment_type.trim();
+    public void setPaymentType(String paymentType) {
+        this.paymentType = paymentType == null ? null : paymentType.trim();
     }
 
-    public String getPost_fee() {
-        return post_fee;
+    public String getPostFee() {
+        return postFee;
     }
 
-    public void setPost_fee(String post_fee) {
-        this.post_fee = post_fee == null ? null : post_fee.trim();
+    public void setPostFee(String postFee) {
+        this.postFee = postFee == null ? null : postFee.trim();
     }
 
     public String getStatus() {
@@ -125,124 +125,124 @@ public class TbOrder implements Serializable{
         this.status = status == null ? null : status.trim();
     }
 
-    public Date getCreate_time() {
-        return create_time;
+    public Date getCreateTime() {
+        return createTime;
     }
 
-    public void setCreate_time(Date create_time) {
-        this.create_time = create_time;
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
     }
 
-    public Date getUpdate_time() {
-        return update_time;
+    public Date getUpdateTime() {
+        return updateTime;
     }
 
-    public void setUpdate_time(Date update_time) {
-        this.update_time = update_time;
+    public void setUpdateTime(Date updateTime) {
+        this.updateTime = updateTime;
     }
 
-    public Date getPayment_time() {
-        return payment_time;
+    public Date getPaymentTime() {
+        return paymentTime;
     }
 
-    public void setPayment_time(Date payment_time) {
-        this.payment_time = payment_time;
+    public void setPaymentTime(Date paymentTime) {
+        this.paymentTime = paymentTime;
     }
 
-    public Date getConsign_time() {
-        return consign_time;
+    public Date getConsignTime() {
+        return consignTime;
     }
 
-    public void setConsign_time(Date consign_time) {
-        this.consign_time = consign_time;
+    public void setConsignTime(Date consignTime) {
+        this.consignTime = consignTime;
     }
 
-    public Date getEnd_time() {
-        return end_time;
+    public Date getEndTime() {
+        return endTime;
     }
 
-    public void setEnd_time(Date end_time) {
-        this.end_time = end_time;
+    public void setEndTime(Date endTime) {
+        this.endTime = endTime;
     }
 
-    public Date getClose_time() {
-        return close_time;
+    public Date getCloseTime() {
+        return closeTime;
     }
 
-    public void setClose_time(Date close_time) {
-        this.close_time = close_time;
+    public void setCloseTime(Date closeTime) {
+        this.closeTime = closeTime;
     }
 
-    public String getShipping_name() {
-        return shipping_name;
+    public String getShippingName() {
+        return shippingName;
     }
 
-    public void setShipping_name(String shipping_name) {
-        this.shipping_name = shipping_name == null ? null : shipping_name.trim();
+    public void setShippingName(String shippingName) {
+        this.shippingName = shippingName == null ? null : shippingName.trim();
     }
 
-    public String getShipping_code() {
-        return shipping_code;
+    public String getShippingCode() {
+        return shippingCode;
     }
 
-    public void setShipping_code(String shipping_code) {
-        this.shipping_code = shipping_code == null ? null : shipping_code.trim();
+    public void setShippingCode(String shippingCode) {
+        this.shippingCode = shippingCode == null ? null : shippingCode.trim();
     }
 
-    public String getUser_id() {
-        return user_id;
+    public String getUserId() {
+        return userId;
     }
 
-    public void setUser_id(String user_id) {
-        this.user_id = user_id == null ? null : user_id.trim();
+    public void setUserId(String userId) {
+        this.userId = userId == null ? null : userId.trim();
     }
 
-    public String getBuyer_message() {
-        return buyer_message;
+    public String getBuyerMessage() {
+        return buyerMessage;
     }
 
-    public void setBuyer_message(String buyer_message) {
-        this.buyer_message = buyer_message == null ? null : buyer_message.trim();
+    public void setBuyerMessage(String buyerMessage) {
+        this.buyerMessage = buyerMessage == null ? null : buyerMessage.trim();
     }
 
-    public String getBuyer_nick() {
-        return buyer_nick;
+    public String getBuyerNick() {
+        return buyerNick;
     }
 
-    public void setBuyer_nick(String buyer_nick) {
-        this.buyer_nick = buyer_nick == null ? null : buyer_nick.trim();
+    public void setBuyerNick(String buyerNick) {
+        this.buyerNick = buyerNick == null ? null : buyerNick.trim();
     }
 
-    public String getBuyer_rate() {
-        return buyer_rate;
+    public String getBuyerRate() {
+        return buyerRate;
     }
 
-    public void setBuyer_rate(String buyer_rate) {
-        this.buyer_rate = buyer_rate == null ? null : buyer_rate.trim();
+    public void setBuyerRate(String buyerRate) {
+        this.buyerRate = buyerRate == null ? null : buyerRate.trim();
     }
 
-    public String getReceiver_area_name() {
-        return receiver_area_name;
+    public String getReceiverAreaName() {
+        return receiverAreaName;
     }
 
-    public void setReceiver_area_name(String receiver_area_name) {
-        this.receiver_area_name = receiver_area_name == null ? null : receiver_area_name.trim();
+    public void setReceiverAreaName(String receiverAreaName) {
+        this.receiverAreaName = receiverAreaName == null ? null : receiverAreaName.trim();
     }
 
-    public String getReceiver_mobile() {
-        return receiver_mobile;
+    public String getReceiverMobile() {
+        return receiverMobile;
     }
 
-    public void setReceiver_mobile(String receiver_mobile) {
-        this.receiver_mobile = receiver_mobile == null ? null : receiver_mobile.trim();
+    public void setReceiverMobile(String receiverMobile) {
+        this.receiverMobile = receiverMobile == null ? null : receiverMobile.trim();
     }
 
-    public String getReceiver_zip_code() {
-        return receiver_zip_code;
+    public String getReceiverZipCode() {
+        return receiverZipCode;
     }
 
-    public void setReceiver_zip_code(String receiver_zip_code) {
-        this.receiver_zip_code = receiver_zip_code == null ? null : receiver_zip_code.trim();
+    public void setReceiverZipCode(String receiverZipCode) {
+        this.receiverZipCode = receiverZipCode == null ? null : receiverZipCode.trim();
     }
 
     public String getReceiver() {
@@ -261,27 +261,27 @@ public class TbOrder implements Serializable{
         this.expire = expire;
     }
 
-    public String getInvoice_type() {
-        return invoice_type;
+    public String getInvoiceType() {
+        return invoiceType;
     }
 
-    public void setInvoice_type(String invoice_type) {
-        this.invoice_type = invoice_type == null ? null : invoice_type.trim();
+    public void setInvoiceType(String invoiceType) {
+        this.invoiceType = invoiceType == null ? null : invoiceType.trim();
     }
 
-    public String getSource_type() {
-        return source_type;
+    public String getSourceType() {
+        return sourceType;
     }
 
-    public void setSource_type(String source_type) {
-        this.source_type = source_type == null ? null : source_type.trim();
+    public void setSourceType(String sourceType) {
+        this.sourceType = sourceType == null ? null : sourceType.trim();
     }
 
-    public String getSeller_id() {
-        return seller_id;
+    public String getSellerId() {
+        return sellerId;
     }
 
-    public void setSeller_id(String seller_id) {
-        this.seller_id = seller_id == null ? null : seller_id.trim();
+    public void setSellerId(String sellerId) {
+        this.sellerId = sellerId == null ? null : sellerId.trim();
     }
 }

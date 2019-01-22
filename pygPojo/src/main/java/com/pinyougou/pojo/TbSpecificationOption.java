@@ -6,16 +6,16 @@ public class TbSpecificationOption implements Serializable{
     /**
 	 * 
 	 */
-	private static final long serialVersionUID = 5560956802807011532L;
+	private static final long serialVersionUID = -4457562384872124956L;
 
 	/** 规格项ID*/
     private Long id;
 
     /** 规格项名称*/
-    private String option_name;
+    private String optionName;
 
     /** 规格ID*/
-    private Long spec_id;
+    private Long specId;
 
     /** 排序值*/
     private Integer orders;
@@ -28,20 +28,20 @@ public class TbSpecificationOption implements Serializable{
         this.id = id;
     }
 
-    public String getOption_name() {
-        return option_name;
+    public String getOptionName() {
+        return optionName;
     }
 
-    public void setOption_name(String option_name) {
-        this.option_name = option_name == null ? null : option_name.trim();
+    public void setOptionName(String optionName) {
+        this.optionName = optionName == null ? null : optionName.trim();
     }
 
-    public Long getSpec_id() {
-        return spec_id;
+    public Long getSpecId() {
+        return specId;
     }
 
-    public void setSpec_id(Long spec_id) {
-        this.spec_id = spec_id;
+    public void setSpecId(Long specId) {
+        this.specId = specId;
     }
 
     public Integer getOrders() {

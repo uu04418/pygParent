@@ -3,12 +3,12 @@
 <mapper namespace="com.pinyougou.mapper.TbFreightTemplateMapper" >
   <resultMap id="BaseResultMap" type="com.pinyougou.pojo.TbFreightTemplate" >
     <id column="id" property="id" jdbcType="BIGINT" />
-    <result column="seller_id" property="seller_id" jdbcType="VARCHAR" />
-    <result column="is_default" property="is_default" jdbcType="VARCHAR" />
+    <result column="seller_id" property="sellerId" jdbcType="VARCHAR" />
+    <result column="is_default" property="isDefault" jdbcType="VARCHAR" />
     <result column="name" property="name" jdbcType="VARCHAR" />
-    <result column="send_time_type" property="send_time_type" jdbcType="VARCHAR" />
+    <result column="send_time_type" property="sendTimeType" jdbcType="VARCHAR" />
     <result column="price" property="price" jdbcType="DECIMAL" />
-    <result column="create_time" property="create_time" jdbcType="TIMESTAMP" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -105,9 +105,9 @@
     insert into tb_freight_template (id, seller_id, is_default, 
       name, send_time_type, price, 
       create_time)
-    values (#{id,jdbcType=BIGINT}, #{seller_id,jdbcType=VARCHAR}, #{is_default,jdbcType=VARCHAR}, 
-      #{name,jdbcType=VARCHAR}, #{send_time_type,jdbcType=VARCHAR}, #{price,jdbcType=DECIMAL}, 
-      #{create_time,jdbcType=TIMESTAMP})
+    values (#{id,jdbcType=BIGINT}, #{sellerId,jdbcType=VARCHAR}, #{isDefault,jdbcType=VARCHAR}, 
+      #{name,jdbcType=VARCHAR}, #{sendTimeType,jdbcType=VARCHAR}, #{price,jdbcType=DECIMAL}, 
+      #{createTime,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="com.pinyougou.pojo.TbFreightTemplate" >
     insert into tb_freight_template
@@ -115,22 +115,22 @@
       <if test="id != null" >
         id,
       </if>
-      <if test="seller_id != null" >
+      <if test="sellerId != null" >
         seller_id,
       </if>
-      <if test="is_default != null" >
+      <if test="isDefault != null" >
         is_default,
       </if>
       <if test="name != null" >
         name,
       </if>
-      <if test="send_time_type != null" >
+      <if test="sendTimeType != null" >
         send_time_type,
       </if>
       <if test="price != null" >
         price,
       </if>
-      <if test="create_time != null" >
+      <if test="createTime != null" >
         create_time,
       </if>
     </trim>
@@ -138,23 +138,23 @@
       <if test="id != null" >
         #{id,jdbcType=BIGINT},
       </if>
-      <if test="seller_id != null" >
-        #{seller_id,jdbcType=VARCHAR},
+      <if test="sellerId != null" >
+        #{sellerId,jdbcType=VARCHAR},
       </if>
-      <if test="is_default != null" >
-        #{is_default,jdbcType=VARCHAR},
+      <if test="isDefault != null" >
+        #{isDefault,jdbcType=VARCHAR},
       </if>
       <if test="name != null" >
         #{name,jdbcType=VARCHAR},
       </if>
-      <if test="send_time_type != null" >
-        #{send_time_type,jdbcType=VARCHAR},
+      <if test="sendTimeType != null" >
+        #{sendTimeType,jdbcType=VARCHAR},
       </if>
       <if test="price != null" >
         #{price,jdbcType=DECIMAL},
       </if>
-      <if test="create_time != null" >
-        #{create_time,jdbcType=TIMESTAMP},
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
       </if>
     </trim>
   </insert>
@@ -170,23 +170,23 @@
       <if test="record.id != null" >
         id = #{record.id,jdbcType=BIGINT},
       </if>
-      <if test="record.seller_id != null" >
-        seller_id = #{record.seller_id,jdbcType=VARCHAR},
+      <if test="record.sellerId != null" >
+        seller_id = #{record.sellerId,jdbcType=VARCHAR},
       </if>
-      <if test="record.is_default != null" >
-        is_default = #{record.is_default,jdbcType=VARCHAR},
+      <if test="record.isDefault != null" >
+        is_default = #{record.isDefault,jdbcType=VARCHAR},
       </if>
       <if test="record.name != null" >
         name = #{record.name,jdbcType=VARCHAR},
       </if>
-      <if test="record.send_time_type != null" >
-        send_time_type = #{record.send_time_type,jdbcType=VARCHAR},
+      <if test="record.sendTimeType != null" >
+        send_time_type = #{record.sendTimeType,jdbcType=VARCHAR},
       </if>
       <if test="record.price != null" >
         price = #{record.price,jdbcType=DECIMAL},
       </if>
-      <if test="record.create_time != null" >
-        create_time = #{record.create_time,jdbcType=TIMESTAMP},
+      <if test="record.createTime != null" >
+        create_time = #{record.createTime,jdbcType=TIMESTAMP},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -196,12 +196,12 @@
   <update id="updateByExample" parameterType="map" >
     update tb_freight_template
     set id = #{record.id,jdbcType=BIGINT},
-      seller_id = #{record.seller_id,jdbcType=VARCHAR},
-      is_default = #{record.is_default,jdbcType=VARCHAR},
+      seller_id = #{record.sellerId,jdbcType=VARCHAR},
+      is_default = #{record.isDefault,jdbcType=VARCHAR},
       name = #{record.name,jdbcType=VARCHAR},
-      send_time_type = #{record.send_time_type,jdbcType=VARCHAR},
+      send_time_type = #{record.sendTimeType,jdbcType=VARCHAR},
       price = #{record.price,jdbcType=DECIMAL},
-      create_time = #{record.create_time,jdbcType=TIMESTAMP}
+      create_time = #{record.createTime,jdbcType=TIMESTAMP}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -209,35 +209,35 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.pinyougou.pojo.TbFreightTemplate" >
     update tb_freight_template
     <set >
-      <if test="seller_id != null" >
-        seller_id = #{seller_id,jdbcType=VARCHAR},
+      <if test="sellerId != null" >
+        seller_id = #{sellerId,jdbcType=VARCHAR},
       </if>
-      <if test="is_default != null" >
-        is_default = #{is_default,jdbcType=VARCHAR},
+      <if test="isDefault != null" >
+        is_default = #{isDefault,jdbcType=VARCHAR},
       </if>
       <if test="name != null" >
         name = #{name,jdbcType=VARCHAR},
       </if>
-      <if test="send_time_type != null" >
-        send_time_type = #{send_time_type,jdbcType=VARCHAR},
+      <if test="sendTimeType != null" >
+        send_time_type = #{sendTimeType,jdbcType=VARCHAR},
       </if>
       <if test="price != null" >
         price = #{price,jdbcType=DECIMAL},
       </if>
-      <if test="create_time != null" >
-        create_time = #{create_time,jdbcType=TIMESTAMP},
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
       </if>
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.pinyougou.pojo.TbFreightTemplate" >
     update tb_freight_template
-    set seller_id = #{seller_id,jdbcType=VARCHAR},
-      is_default = #{is_default,jdbcType=VARCHAR},
+    set seller_id = #{sellerId,jdbcType=VARCHAR},
+      is_default = #{isDefault,jdbcType=VARCHAR},
       name = #{name,jdbcType=VARCHAR},
-      send_time_type = #{send_time_type,jdbcType=VARCHAR},
+      send_time_type = #{sendTimeType,jdbcType=VARCHAR},
       price = #{price,jdbcType=DECIMAL},
-      create_time = #{create_time,jdbcType=TIMESTAMP}
+      create_time = #{createTime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=BIGINT}
   </update>
 </mapper>

@@ -3,9 +3,9 @@
 <mapper namespace="com.pinyougou.mapper.TbItemCatMapper" >
   <resultMap id="BaseResultMap" type="com.pinyougou.pojo.TbItemCat" >
     <id column="id" property="id" jdbcType="BIGINT" />
-    <result column="parent_id" property="parent_id" jdbcType="BIGINT" />
+    <result column="parent_id" property="parentId" jdbcType="BIGINT" />
     <result column="name" property="name" jdbcType="VARCHAR" />
-    <result column="type_id" property="type_id" jdbcType="BIGINT" />
+    <result column="type_id" property="typeId" jdbcType="BIGINT" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -101,8 +101,8 @@
   <insert id="insert" parameterType="com.pinyougou.pojo.TbItemCat" >
     insert into tb_item_cat (id, parent_id, name, 
       type_id)
-    values (#{id,jdbcType=BIGINT}, #{parent_id,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, 
-      #{type_id,jdbcType=BIGINT})
+    values (#{id,jdbcType=BIGINT}, #{parentId,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, 
+      #{typeId,jdbcType=BIGINT})
   </insert>
   <insert id="insertSelective" parameterType="com.pinyougou.pojo.TbItemCat" >
     insert into tb_item_cat
@@ -110,13 +110,13 @@
       <if test="id != null" >
         id,
       </if>
-      <if test="parent_id != null" >
+      <if test="parentId != null" >
         parent_id,
       </if>
       <if test="name != null" >
         name,
       </if>
-      <if test="type_id != null" >
+      <if test="typeId != null" >
         type_id,
       </if>
     </trim>
@@ -124,14 +124,14 @@
       <if test="id != null" >
         #{id,jdbcType=BIGINT},
       </if>
-      <if test="parent_id != null" >
-        #{parent_id,jdbcType=BIGINT},
+      <if test="parentId != null" >
+        #{parentId,jdbcType=BIGINT},
       </if>
       <if test="name != null" >
         #{name,jdbcType=VARCHAR},
       </if>
-      <if test="type_id != null" >
-        #{type_id,jdbcType=BIGINT},
+      <if test="typeId != null" >
+        #{typeId,jdbcType=BIGINT},
       </if>
     </trim>
   </insert>
@@ -147,14 +147,14 @@
       <if test="record.id != null" >
         id = #{record.id,jdbcType=BIGINT},
       </if>
-      <if test="record.parent_id != null" >
-        parent_id = #{record.parent_id,jdbcType=BIGINT},
+      <if test="record.parentId != null" >
+        parent_id = #{record.parentId,jdbcType=BIGINT},
       </if>
       <if test="record.name != null" >
         name = #{record.name,jdbcType=VARCHAR},
       </if>
-      <if test="record.type_id != null" >
-        type_id = #{record.type_id,jdbcType=BIGINT},
+      <if test="record.typeId != null" >
+        type_id = #{record.typeId,jdbcType=BIGINT},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -164,9 +164,9 @@
   <update id="updateByExample" parameterType="map" >
     update tb_item_cat
     set id = #{record.id,jdbcType=BIGINT},
-      parent_id = #{record.parent_id,jdbcType=BIGINT},
+      parent_id = #{record.parentId,jdbcType=BIGINT},
       name = #{record.name,jdbcType=VARCHAR},
-      type_id = #{record.type_id,jdbcType=BIGINT}
+      type_id = #{record.typeId,jdbcType=BIGINT}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -174,23 +174,23 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.pinyougou.pojo.TbItemCat" >
     update tb_item_cat
     <set >
-      <if test="parent_id != null" >
-        parent_id = #{parent_id,jdbcType=BIGINT},
+      <if test="parentId != null" >
+        parent_id = #{parentId,jdbcType=BIGINT},
       </if>
       <if test="name != null" >
         name = #{name,jdbcType=VARCHAR},
       </if>
-      <if test="type_id != null" >
-        type_id = #{type_id,jdbcType=BIGINT},
+      <if test="typeId != null" >
+        type_id = #{typeId,jdbcType=BIGINT},
       </if>
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.pinyougou.pojo.TbItemCat" >
     update tb_item_cat
-    set parent_id = #{parent_id,jdbcType=BIGINT},
+    set parent_id = #{parentId,jdbcType=BIGINT},
       name = #{name,jdbcType=VARCHAR},
-      type_id = #{type_id,jdbcType=BIGINT}
+      type_id = #{typeId,jdbcType=BIGINT}
     where id = #{id,jdbcType=BIGINT}
   </update>
 </mapper>

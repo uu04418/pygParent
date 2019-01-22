@@ -6,13 +6,13 @@ public class TbContent implements Serializable {
     /**
 	 * 
 	 */
-	private static final long serialVersionUID = 1498302999316542939L;
+	private static final long serialVersionUID = 5030938068543748718L;
 
 	/** */
     private Long id;
 
     /** 内容类目ID*/
-    private Long category_id;
+    private Long categoryId;
 
     /** 内容标题*/
     private String title;
@@ -27,7 +27,7 @@ public class TbContent implements Serializable {
     private String status;
 
     /** 排序*/
-    private Integer sort_order;
+    private Integer sortOrder;
 
     public Long getId() {
         return id;
@@ -37,12 +37,12 @@ public class TbContent implements Serializable {
         this.id = id;
     }
 
-    public Long getCategory_id() {
-        return category_id;
+    public Long getCategoryId() {
+        return categoryId;
     }
 
-    public void setCategory_id(Long category_id) {
-        this.category_id = category_id;
+    public void setCategoryId(Long categoryId) {
+        this.categoryId = categoryId;
     }
 
     public String getTitle() {
@@ -77,11 +77,11 @@ public class TbContent implements Serializable {
         this.status = status == null ? null : status.trim();
     }
 
-    public Integer getSort_order() {
-        return sort_order;
+    public Integer getSortOrder() {
+        return sortOrder;
     }
 
-    public void setSort_order(Integer sort_order) {
-        this.sort_order = sort_order;
+    public void setSortOrder(Integer sortOrder) {
+        this.sortOrder = sortOrder;
     }
 }

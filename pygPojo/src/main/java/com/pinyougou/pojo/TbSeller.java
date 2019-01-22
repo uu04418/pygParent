@@ -3,20 +3,20 @@ package com.pinyougou.pojo;
 import java.io.Serializable;
 import java.util.Date;
 
-public class TbSeller implements Serializable{
+public class TbSeller  implements Serializable{
     /**
 	 * 
 	 */
-	private static final long serialVersionUID = -8958261281208596163L;
+	private static final long serialVersionUID = -1086486536306311654L;
 
 	/** 用户ID*/
-    private String seller_id;
+    private String sellerId;
 
     /** 公司名*/
     private String name;
 
     /** 店铺名称*/
-    private String nick_name;
+    private String nickName;
 
     /** 密码*/
     private String password;
@@ -34,59 +34,59 @@ public class TbSeller implements Serializable{
     private String status;
 
     /** 详细地址*/
-    private String address_detail;
+    private String addressDetail;
 
     /** 联系人姓名*/
-    private String linkman_name;
+    private String linkmanName;
 
     /** 联系人QQ*/
-    private String linkman_qq;
+    private String linkmanQq;
 
     /** 联系人电话*/
-    private String linkman_mobile;
+    private String linkmanMobile;
 
     /** 联系人EMAIL*/
-    private String linkman_email;
+    private String linkmanEmail;
 
     /** 营业执照号*/
-    private String license_number;
+    private String licenseNumber;
 
     /** 税务登记证号*/
-    private String tax_number;
+    private String taxNumber;
 
     /** 组织机构代码*/
-    private String org_number;
+    private String orgNumber;
 
     /** 公司地址*/
     private Long address;
 
     /** 公司LOGO图*/
-    private String logo_pic;
+    private String logoPic;
 
     /** 简介*/
     private String brief;
 
     /** 创建日期*/
-    private Date create_time;
+    private Date createTime;
 
     /** 法定代表人*/
-    private String legal_person;
+    private String legalPerson;
 
     /** 法定代表人身份证*/
-    private String legal_person_card_id;
+    private String legalPersonCardId;
 
     /** 开户行账号名称*/
-    private String bank_user;
+    private String bankUser;
 
     /** 开户行*/
-    private String bank_name;
+    private String bankName;
 
-    public String getSeller_id() {
-        return seller_id;
+    public String getSellerId() {
+        return sellerId;
     }
 
-    public void setSeller_id(String seller_id) {
-        this.seller_id = seller_id == null ? null : seller_id.trim();
+    public void setSellerId(String sellerId) {
+        this.sellerId = sellerId == null ? null : sellerId.trim();
     }
 
     public String getName() {
@@ -97,12 +97,12 @@ public class TbSeller implements Serializable{
         this.name = name == null ? null : name.trim();
     }
 
-    public String getNick_name() {
-        return nick_name;
+    public String getNickName() {
+        return nickName;
     }
 
-    public void setNick_name(String nick_name) {
-        this.nick_name = nick_name == null ? null : nick_name.trim();
+    public void setNickName(String nickName) {
+        this.nickName = nickName == null ? null : nickName.trim();
     }
 
     public String getPassword() {
@@ -145,68 +145,68 @@ public class TbSeller implements Serializable{
         this.status = status == null ? null : status.trim();
     }
 
-    public String getAddress_detail() {
-        return address_detail;
+    public String getAddressDetail() {
+        return addressDetail;
     }
 
-    public void setAddress_detail(String address_detail) {
-        this.address_detail = address_detail == null ? null : address_detail.trim();
+    public void setAddressDetail(String addressDetail) {
+        this.addressDetail = addressDetail == null ? null : addressDetail.trim();
     }
 
-    public String getLinkman_name() {
-        return linkman_name;
+    public String getLinkmanName() {
+        return linkmanName;
     }
 
-    public void setLinkman_name(String linkman_name) {
-        this.linkman_name = linkman_name == null ? null : linkman_name.trim();
+    public void setLinkmanName(String linkmanName) {
+        this.linkmanName = linkmanName == null ? null : linkmanName.trim();
     }
 
-    public String getLinkman_qq() {
-        return linkman_qq;
+    public String getLinkmanQq() {
+        return linkmanQq;
     }
 
-    public void setLinkman_qq(String linkman_qq) {
-        this.linkman_qq = linkman_qq == null ? null : linkman_qq.trim();
+    public void setLinkmanQq(String linkmanQq) {
+        this.linkmanQq = linkmanQq == null ? null : linkmanQq.trim();
     }
 
-    public String getLinkman_mobile() {
-        return linkman_mobile;
+    public String getLinkmanMobile() {
+        return linkmanMobile;
     }
 
-    public void setLinkman_mobile(String linkman_mobile) {
-        this.linkman_mobile = linkman_mobile == null ? null : linkman_mobile.trim();
+    public void setLinkmanMobile(String linkmanMobile) {
+        this.linkmanMobile = linkmanMobile == null ? null : linkmanMobile.trim();
     }
 
-    public String getLinkman_email() {
-        return linkman_email;
+    public String getLinkmanEmail() {
+        return linkmanEmail;
     }
 
-    public void setLinkman_email(String linkman_email) {
-        this.linkman_email = linkman_email == null ? null : linkman_email.trim();
+    public void setLinkmanEmail(String linkmanEmail) {
+        this.linkmanEmail = linkmanEmail == null ? null : linkmanEmail.trim();
     }
 
-    public String getLicense_number() {
-        return license_number;
+    public String getLicenseNumber() {
+        return licenseNumber;
     }
 
-    public void setLicense_number(String license_number) {
-        this.license_number = license_number == null ? null : license_number.trim();
+    public void setLicenseNumber(String licenseNumber) {
+        this.licenseNumber = licenseNumber == null ? null : licenseNumber.trim();
     }
 
-    public String getTax_number() {
-        return tax_number;
+    public String getTaxNumber() {
+        return taxNumber;
     }
 
-    public void setTax_number(String tax_number) {
-        this.tax_number = tax_number == null ? null : tax_number.trim();
+    public void setTaxNumber(String taxNumber) {
+        this.taxNumber = taxNumber == null ? null : taxNumber.trim();
     }
 
-    public String getOrg_number() {
-        return org_number;
+    public String getOrgNumber() {
+        return orgNumber;
     }
 
-    public void setOrg_number(String org_number) {
-        this.org_number = org_number == null ? null : org_number.trim();
+    public void setOrgNumber(String orgNumber) {
+        this.orgNumber = orgNumber == null ? null : orgNumber.trim();
     }
 
     public Long getAddress() {
@@ -217,12 +217,12 @@ public class TbSeller implements Serializable{
         this.address = address;
     }
 
-    public String getLogo_pic() {
-        return logo_pic;
+    public String getLogoPic() {
+        return logoPic;
     }
 
-    public void setLogo_pic(String logo_pic) {
-        this.logo_pic = logo_pic == null ? null : logo_pic.trim();
+    public void setLogoPic(String logoPic) {
+        this.logoPic = logoPic == null ? null : logoPic.trim();
     }
 
     public String getBrief() {
@@ -233,43 +233,43 @@ public class TbSeller implements Serializable{
         this.brief = brief == null ? null : brief.trim();
     }
 
-    public Date getCreate_time() {
-        return create_time;
+    public Date getCreateTime() {
+        return createTime;
     }
 
-    public void setCreate_time(Date create_time) {
-        this.create_time = create_time;
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
     }
 
-    public String getLegal_person() {
-        return legal_person;
+    public String getLegalPerson() {
+        return legalPerson;
     }
 
-    public void setLegal_person(String legal_person) {
-        this.legal_person = legal_person == null ? null : legal_person.trim();
+    public void setLegalPerson(String legalPerson) {
+        this.legalPerson = legalPerson == null ? null : legalPerson.trim();
     }
 
-    public String getLegal_person_card_id() {
-        return legal_person_card_id;
+    public String getLegalPersonCardId() {
+        return legalPersonCardId;
     }
 
-    public void setLegal_person_card_id(String legal_person_card_id) {
-        this.legal_person_card_id = legal_person_card_id == null ? null : legal_person_card_id.trim();
+    public void setLegalPersonCardId(String legalPersonCardId) {
+        this.legalPersonCardId = legalPersonCardId == null ? null : legalPersonCardId.trim();
     }
 
-    public String getBank_user() {
-        return bank_user;
+    public String getBankUser() {
+        return bankUser;
     }
 
-    public void setBank_user(String bank_user) {
-        this.bank_user = bank_user == null ? null : bank_user.trim();
+    public void setBankUser(String bankUser) {
+        this.bankUser = bankUser == null ? null : bankUser.trim();
     }
 
-    public String getBank_name() {
-        return bank_name;
+    public String getBankName() {
+        return bankName;
     }
 
-    public void setBank_name(String bank_name) {
-        this.bank_name = bank_name == null ? null : bank_name.trim();
+    public void setBankName(String bankName) {
+        this.bankName = bankName == null ? null : bankName.trim();
     }
 }

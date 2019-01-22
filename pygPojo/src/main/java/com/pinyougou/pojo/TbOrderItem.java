@@ -7,19 +7,19 @@ public class TbOrderItem implements Serializable{
     /**
 	 * 
 	 */
-	private static final long serialVersionUID = -5842623796447218902L;
+	private static final long serialVersionUID = 3699869704248972972L;
 
 	/** */
     private Long id;
 
     /** 商品id*/
-    private Long item_id;
+    private Long itemId;
 
     /** SPU_ID*/
-    private Long goods_id;
+    private Long goodsId;
 
     /** 订单id*/
-    private Long order_id;
+    private Long orderId;
 
     /** 商品标题*/
     private String title;
@@ -31,13 +31,13 @@ public class TbOrderItem implements Serializable{
     private Integer num;
 
     /** 商品总金额*/
-    private BigDecimal total_fee;
+    private BigDecimal totalFee;
 
     /** 商品图片地址*/
-    private String pic_path;
+    private String picPath;
 
     /** */
-    private String seller_id;
+    private String sellerId;
 
     public Long getId() {
         return id;
@@ -47,28 +47,28 @@ public class TbOrderItem implements Serializable{
         this.id = id;
     }
 
-    public Long getItem_id() {
-        return item_id;
+    public Long getItemId() {
+        return itemId;
     }
 
-    public void setItem_id(Long item_id) {
-        this.item_id = item_id;
+    public void setItemId(Long itemId) {
+        this.itemId = itemId;
     }
 
-    public Long getGoods_id() {
-        return goods_id;
+    public Long getGoodsId() {
+        return goodsId;
     }
 
-    public void setGoods_id(Long goods_id) {
-        this.goods_id = goods_id;
+    public void setGoodsId(Long goodsId) {
+        this.goodsId = goodsId;
     }
 
-    public Long getOrder_id() {
-        return order_id;
+    public Long getOrderId() {
+        return orderId;
     }
 
-    public void setOrder_id(Long order_id) {
-        this.order_id = order_id;
+    public void setOrderId(Long orderId) {
+        this.orderId = orderId;
     }
 
     public String getTitle() {
@@ -95,27 +95,27 @@ public class TbOrderItem implements Serializable{
         this.num = num;
     }
 
-    public BigDecimal getTotal_fee() {
-        return total_fee;
+    public BigDecimal getTotalFee() {
+        return totalFee;
     }
 
-    public void setTotal_fee(BigDecimal total_fee) {
-        this.total_fee = total_fee;
+    public void setTotalFee(BigDecimal totalFee) {
+        this.totalFee = totalFee;
     }
 
-    public String getPic_path() {
-        return pic_path;
+    public String getPicPath() {
+        return picPath;
     }
 
-    public void setPic_path(String pic_path) {
-        this.pic_path = pic_path == null ? null : pic_path.trim();
+    public void setPicPath(String picPath) {
+        this.picPath = picPath == null ? null : picPath.trim();
     }
 
-    public String getSeller_id() {
-        return seller_id;
+    public String getSellerId() {
+        return sellerId;
     }
 
-    public void setSeller_id(String seller_id) {
-        this.seller_id = seller_id == null ? null : seller_id.trim();
+    public void setSellerId(String sellerId) {
+        this.sellerId = sellerId == null ? null : sellerId.trim();
     }
 }

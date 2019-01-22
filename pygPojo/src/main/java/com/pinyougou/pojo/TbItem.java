@@ -4,11 +4,11 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 
-public class TbItem implements Serializable{
+public class TbItem implements Serializable {
     /**
 	 * 
 	 */
-	private static final long serialVersionUID = 7863241393170312573L;
+	private static final long serialVersionUID = 8148374149256456954L;
 
 	/** 商品id，同时也是商品编号*/
     private Long id;
@@ -17,13 +17,13 @@ public class TbItem implements Serializable{
     private String title;
 
     /** 商品卖点*/
-    private String sell_point;
+    private String sellPoint;
 
     /** 商品价格，单位为：元*/
     private BigDecimal price;
 
     /** */
-    private Integer stock_count;
+    private Integer stockCount;
 
     /** 库存数量*/
     private Integer num;
@@ -35,37 +35,37 @@ public class TbItem implements Serializable{
     private String image;
 
     /** 所属类目，叶子类目*/
-    private Long categoryId;
+    private Long categoryid;
 
     /** 商品状态，1-正常，2-下架，3-删除*/
     private String status;
 
     /** 创建时间*/
-    private Date create_time;
+    private Date createTime;
 
     /** 更新时间*/
-    private Date update_time;
+    private Date updateTime;
 
     /** */
-    private String item_sn;
+    private String itemSn;
 
     /** */
-    private BigDecimal cost_pirce;
+    private BigDecimal costPirce;
 
     /** */
-    private BigDecimal market_price;
+    private BigDecimal marketPrice;
 
     /** */
-    private String is_default;
+    private String isDefault;
 
     /** */
-    private Long goods_id;
+    private Long goodsId;
 
     /** */
-    private String seller_id;
+    private String sellerId;
 
     /** */
-    private String cart_thumbnail;
+    private String cartThumbnail;
 
     /** */
     private String category;
@@ -95,12 +95,12 @@ public class TbItem implements Serializable{
         this.title = title == null ? null : title.trim();
     }
 
-    public String getSell_point() {
-        return sell_point;
+    public String getSellPoint() {
+        return sellPoint;
     }
 
-    public void setSell_point(String sell_point) {
-        this.sell_point = sell_point == null ? null : sell_point.trim();
+    public void setSellPoint(String sellPoint) {
+        this.sellPoint = sellPoint == null ? null : sellPoint.trim();
     }
 
     public BigDecimal getPrice() {
@@ -111,12 +111,12 @@ public class TbItem implements Serializable{
         this.price = price;
     }
 
-    public Integer getStock_count() {
-        return stock_count;
+    public Integer getStockCount() {
+        return stockCount;
     }
 
-    public void setStock_count(Integer stock_count) {
-        this.stock_count = stock_count;
+    public void setStockCount(Integer stockCount) {
+        this.stockCount = stockCount;
     }
 
     public Integer getNum() {
@@ -143,12 +143,12 @@ public class TbItem implements Serializable{
         this.image = image == null ? null : image.trim();
     }
 
-    public Long getCategoryId() {
-        return categoryId;
+    public Long getCategoryid() {
+        return categoryid;
     }
 
-    public void setCategoryId(Long categoryId) {
-        this.categoryId = categoryId;
+    public void setCategoryid(Long categoryid) {
+        this.categoryid = categoryid;
     }
 
     public String getStatus() {
@@ -159,76 +159,76 @@ public class TbItem implements Serializable{
         this.status = status == null ? null : status.trim();
     }
 
-    public Date getCreate_time() {
-        return create_time;
+    public Date getCreateTime() {
+        return createTime;
     }
 
-    public void setCreate_time(Date create_time) {
-        this.create_time = create_time;
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
     }
 
-    public Date getUpdate_time() {
-        return update_time;
+    public Date getUpdateTime() {
+        return updateTime;
     }
 
-    public void setUpdate_time(Date update_time) {
-        this.update_time = update_time;
+    public void setUpdateTime(Date updateTime) {
+        this.updateTime = updateTime;
     }
 
-    public String getItem_sn() {
-        return item_sn;
+    public String getItemSn() {
+        return itemSn;
     }
 
-    public void setItem_sn(String item_sn) {
-        this.item_sn = item_sn == null ? null : item_sn.trim();
+    public void setItemSn(String itemSn) {
+        this.itemSn = itemSn == null ? null : itemSn.trim();
     }
 
-    public BigDecimal getCost_pirce() {
-        return cost_pirce;
+    public BigDecimal getCostPirce() {
+        return costPirce;
     }
 
-    public void setCost_pirce(BigDecimal cost_pirce) {
-        this.cost_pirce = cost_pirce;
+    public void setCostPirce(BigDecimal costPirce) {
+        this.costPirce = costPirce;
     }
 
-    public BigDecimal getMarket_price() {
-        return market_price;
+    public BigDecimal getMarketPrice() {
+        return marketPrice;
     }
 
-    public void setMarket_price(BigDecimal market_price) {
-        this.market_price = market_price;
+    public void setMarketPrice(BigDecimal marketPrice) {
+        this.marketPrice = marketPrice;
     }
 
-    public String getIs_default() {
-        return is_default;
+    public String getIsDefault() {
+        return isDefault;
     }
 
-    public void setIs_default(String is_default) {
-        this.is_default = is_default == null ? null : is_default.trim();
+    public void setIsDefault(String isDefault) {
+        this.isDefault = isDefault == null ? null : isDefault.trim();
     }
 
-    public Long getGoods_id() {
-        return goods_id;
+    public Long getGoodsId() {
+        return goodsId;
     }
 
-    public void setGoods_id(Long goods_id) {
-        this.goods_id = goods_id;
+    public void setGoodsId(Long goodsId) {
+        this.goodsId = goodsId;
     }
 
-    public String getSeller_id() {
-        return seller_id;
+    public String getSellerId() {
+        return sellerId;
     }
 
-    public void setSeller_id(String seller_id) {
-        this.seller_id = seller_id == null ? null : seller_id.trim();
+    public void setSellerId(String sellerId) {
+        this.sellerId = sellerId == null ? null : sellerId.trim();
     }
 
-    public String getCart_thumbnail() {
-        return cart_thumbnail;
+    public String getCartThumbnail() {
+        return cartThumbnail;
     }
 
-    public void setCart_thumbnail(String cart_thumbnail) {
-        this.cart_thumbnail = cart_thumbnail == null ? null : cart_thumbnail.trim();
+    public void setCartThumbnail(String cartThumbnail) {
+        this.cartThumbnail = cartThumbnail == null ? null : cartThumbnail.trim();
     }
 
     public String getCategory() {

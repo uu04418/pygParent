@@ -6,13 +6,13 @@ public class TbSpecification implements Serializable{
     /**
 	 * 
 	 */
-	private static final long serialVersionUID = -6438842771705733814L;
+	private static final long serialVersionUID = -5963544798517861298L;
 
 	/** 主键*/
     private Long id;
 
     /** 名称*/
-    private String spec_name;
+    private String specName;
 
     public Long getId() {
         return id;
@@ -22,11 +22,11 @@ public class TbSpecification implements Serializable{
         this.id = id;
     }
 
-    public String getSpec_name() {
-        return spec_name;
+    public String getSpecName() {
+        return specName;
     }
 
-    public void setSpec_name(String spec_name) {
-        this.spec_name = spec_name == null ? null : spec_name.trim();
+    public void setSpecName(String specName) {
+        this.specName = specName == null ? null : specName.trim();
     }
 }

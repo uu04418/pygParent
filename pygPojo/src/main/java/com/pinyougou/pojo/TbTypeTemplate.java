@@ -6,7 +6,7 @@ public class TbTypeTemplate implements Serializable{
     /**
 	 * 
 	 */
-	private static final long serialVersionUID = 1046702516774608983L;
+	private static final long serialVersionUID = 8718482776875892570L;
 
 	/** */
     private Long id;
@@ -15,13 +15,13 @@ public class TbTypeTemplate implements Serializable{
     private String name;
 
     /** 关联规格*/
-    private String spec_ids;
+    private String specIds;
 
     /** 关联品牌*/
-    private String brand_ids;
+    private String brandIds;
 
     /** 自定义属性*/
-    private String custom_attribute_items;
+    private String customAttributeItems;
 
     public Long getId() {
         return id;
@@ -39,27 +39,27 @@ public class TbTypeTemplate implements Serializable{
         this.name = name == null ? null : name.trim();
     }
 
-    public String getSpec_ids() {
-        return spec_ids;
+    public String getSpecIds() {
+        return specIds;
     }
 
-    public void setSpec_ids(String spec_ids) {
-        this.spec_ids = spec_ids == null ? null : spec_ids.trim();
+    public void setSpecIds(String specIds) {
+        this.specIds = specIds == null ? null : specIds.trim();
     }
 
-    public String getBrand_ids() {
-        return brand_ids;
+    public String getBrandIds() {
+        return brandIds;
     }
 
-    public void setBrand_ids(String brand_ids) {
-        this.brand_ids = brand_ids == null ? null : brand_ids.trim();
+    public void setBrandIds(String brandIds) {
+        this.brandIds = brandIds == null ? null : brandIds.trim();
     }
 
-    public String getCustom_attribute_items() {
-        return custom_attribute_items;
+    public String getCustomAttributeItems() {
+        return customAttributeItems;
     }
 
-    public void setCustom_attribute_items(String custom_attribute_items) {
-        this.custom_attribute_items = custom_attribute_items == null ? null : custom_attribute_items.trim();
+    public void setCustomAttributeItems(String customAttributeItems) {
+        this.customAttributeItems = customAttributeItems == null ? null : customAttributeItems.trim();
     }
 }
