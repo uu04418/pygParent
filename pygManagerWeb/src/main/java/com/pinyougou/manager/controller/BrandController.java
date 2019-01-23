@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.alibaba.dubbo.config.annotation.Reference;
+import com.pinyougou.common.PageResult;
 import com.pinyougou.pojo.TbBrand;
 import com.pinyougou.sellergoods.service.BrandService;
 
@@ -20,9 +21,17 @@ public class BrandController {
 	@ResponseBody
 	@RequestMapping("/getAll")
 	public List<TbBrand> getAll(){
-		System.out.println("================================");
 		return brandService.getAll();
 	}
+	
+	
+	@ResponseBody
+	@RequestMapping("/findPage")
+	public PageResult getAll(int page ,int size){
+		return brandService.findPage(page, size);
+	}
+	
+	
 
 	
 }
