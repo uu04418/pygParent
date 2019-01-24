@@ -3,11 +3,13 @@ package com.pinyougou.manager.controller;
 import java.util.List;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.alibaba.dubbo.config.annotation.Reference;
 import com.pinyougou.common.PageResult;
+import com.pinyougou.common.Result;
 import com.pinyougou.pojo.TbBrand;
 import com.pinyougou.sellergoods.service.BrandService;
 
@@ -24,13 +26,25 @@ public class BrandController {
 		return brandService.getAll();
 	}
 	
-	
+	// 分页查询品牌
 	@ResponseBody
 	@RequestMapping("/findPage")
 	public PageResult getAll(int page ,int size){
 		return brandService.findPage(page, size);
 	}
 	
+	// 新增品牌
+	@RequestMapping("/add")
+	@ResponseBody
+	public Result add (@RequestBody TbBrand brand) {
+		try {
+			brandService.add(brand);
+			return new Result(true, "新增成功");
+		} catch (Exception e) {
+			return new Result(false, "操作失败");
+		}
+		
+	}
 	
 
 	

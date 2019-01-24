@@ -3,6 +3,7 @@ package com.pinyougou.sellergoods.service;
 import java.util.List;
 
 import com.pinyougou.common.PageResult;
+import com.pinyougou.common.Result;
 import com.pinyougou.pojo.TbBrand;
 
 /**
@@ -20,5 +21,10 @@ public interface BrandService {
 	 * @param pageSize : 每页数量
 	 * **/
 	public PageResult findPage(int pageNub ,int pageSize);
+	
+	/**
+	 * 新增品牌
+	 * **/
+	public void add (TbBrand brand);
 
 }
