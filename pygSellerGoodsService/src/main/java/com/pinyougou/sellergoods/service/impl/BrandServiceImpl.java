@@ -1,14 +1,11 @@
 package com.pinyougou.sellergoods.service.impl;
 
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
-
 import com.alibaba.dubbo.config.annotation.Service;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.pinyougou.common.PageResult;
-import com.pinyougou.common.Result;
 import com.pinyougou.mapper.TbBrandMapper;
 import com.pinyougou.pojo.TbBrand;
 import com.pinyougou.sellergoods.service.BrandService;
@@ -33,6 +30,16 @@ public class BrandServiceImpl implements BrandService{
 	@Override
 	public void add(TbBrand brand) {
 		 brandMapper.insertSelective(brand);
+	}
+
+	@Override
+	public TbBrand findOne(Long id) {
+		return brandMapper.selectByPrimaryKey(id);
+	}
+
+	@Override
+	public void update(TbBrand brand) {
+		brandMapper.updateByPrimaryKeySelective(brand);
 	}
 
 }

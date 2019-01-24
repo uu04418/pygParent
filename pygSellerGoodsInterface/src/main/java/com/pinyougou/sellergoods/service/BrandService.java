@@ -3,7 +3,6 @@ package com.pinyougou.sellergoods.service;
 import java.util.List;
 
 import com.pinyougou.common.PageResult;
-import com.pinyougou.common.Result;
 import com.pinyougou.pojo.TbBrand;
 
 /**
@@ -26,5 +25,14 @@ public interface BrandService {
 	 * 新增品牌
 	 * **/
 	public void add (TbBrand brand);
-
+	
+	/**
+	 * 查询一个品牌
+	 * **/
+	public TbBrand findOne (Long id);
+	
+	/**
+	 * 编辑品牌
+	 * **/
+	public void update (TbBrand brand);
 }
