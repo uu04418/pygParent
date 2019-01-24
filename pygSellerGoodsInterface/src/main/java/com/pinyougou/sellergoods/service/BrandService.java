@@ -21,6 +21,14 @@ public interface BrandService {
 	 * **/
 	public PageResult findPage(int pageNub ,int pageSize);
 	
+	
+	/**分页查询品牌带条件
+	 * @param pageNub : 当前页码
+	 * @param pageSize : 每页数量
+	 * **/
+	public PageResult findPage(TbBrand brand,int pageNub ,int pageSize);
+	
+	
 	/**
 	 * 新增品牌
 	 * **/
@@ -35,4 +43,7 @@ public interface BrandService {
 	 * 编辑品牌
 	 * **/
 	public void update (TbBrand brand);
+	
+	/**删除品牌**/
+	public void delete (Long [] ids);
 }

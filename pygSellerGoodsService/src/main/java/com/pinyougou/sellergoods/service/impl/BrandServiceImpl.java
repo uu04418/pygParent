@@ -8,6 +8,7 @@ import com.github.pagehelper.PageHelper;
 import com.pinyougou.common.PageResult;
 import com.pinyougou.mapper.TbBrandMapper;
 import com.pinyougou.pojo.TbBrand;
+import com.pinyougou.pojo.TbBrandExample;
 import com.pinyougou.sellergoods.service.BrandService;
 
 @Service
@@ -40,6 +41,28 @@ public class BrandServiceImpl implements BrandService{
 	@Override
 	public void update(TbBrand brand) {
 		brandMapper.updateByPrimaryKeySelective(brand);
+	}
+
+	@Override
+	public void delete(Long[] ids) {
+		for (Long id : ids) {
+			brandMapper.deleteByPrimaryKey(id);
+		}
+	}
+
+	@Override
+	public PageResult findPage(TbBrand brand, int pageNub, int pageSize) {
+		PageHelper.startPage(pageNub, pageSize);
+		TbBrandExample example = new TbBrandExample();
+		TbBrandExample.Criteria criteria = example.createCriteria();
+		if (brand !=null) {
+			if (brand.getName() !=null && brand.getName().length() > 0) 
+				criteria.andNameLike("%"+brand.getName()+"%");
+			if (brand.getFirstChar() !=null && brand.getFirstChar().length()> 0) 
+				criteria.andFirstCharLike("%"+brand.getFirstChar()+"%");
+		}
+		Page<TbBrand> brandList =(Page<TbBrand>) brandMapper.selectByExample(example);
+		return new PageResult(brandList.getTotal(), brandList.getResult());
 	}
 
 }
