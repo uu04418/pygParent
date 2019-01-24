@@ -67,6 +67,18 @@ public class BrandController {
 		
 	}
 	
+	// 删除品牌
+	@RequestMapping("/delete")
+	@ResponseBody
+	public Result deleteBrand (Long [] ids) {
+		try {
+			brandService.delete(ids);
+			return new Result(true, "新增成功");
+		} catch (Exception e) {
+			return new Result(false, "操作失败");
+		}
+	}
+	
 
 	
 }
