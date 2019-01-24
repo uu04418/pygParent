@@ -37,7 +37,7 @@
 			}
 			
 			$scope.reloadPage = function () {
-				$scope.findPage($scope.paginationConf.currentPage ,$scope.paginationConf.itemsPerPage );
+				$scope.search($scope.paginationConf.currentPage ,$scope.paginationConf.itemsPerPage );
 			}
 			
 			// 分页查询数据
@@ -48,6 +48,18 @@
 						$scope.list = response.rows;
 					}		
 				);
+			}
+			
+			$scope.searchEntity = {};
+			// 分页查询品牌
+			$scope.search = function (page,size) {
+				$http.post('../brand/search.do?page='+page+'&size='+size+'' , $scope.searchEntity).success(
+						function (response) {
+							$scope.paginationConf.totalItems = response.total ;
+							$scope.list = response.rows;
+						}		
+					);
+				
 			}
 			
 			// 新增品牌
@@ -129,9 +141,11 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="box-tools pull-right">
+                            <div class="box-tools pull-right" style="margin-right: 400px;">
                                 <div class="has-feedback">
-							                                         
+							        品牌名称：<input ng-model="searchEntity.name" />
+							    首字母 :<input ng-model="searchEntity.firstChar"/>
+							    <button class="btn btn-default" ng-click="reloadPage()"> 查询</button>                                
                                 </div>
                             </div>
                             <!--工具栏/-->
