@@ -1,7 +1,9 @@
 
 
-app.controller('brandController' , function ($scope,$http,brandService) {
+app.controller('brandController' , function ($scope,$controller,brandService) {
 			
+	$controller('baseController',{$scope:$scope});
+	
 	$scope.findall = function () {
 		brandService.findall().success(
 			function (response) {
@@ -10,30 +12,17 @@ app.controller('brandController' , function ($scope,$http,brandService) {
 		);
 	}
 	
-	// 定义分页对象点信息
-	$scope.paginationConf = {
-			currentPage : 1 ,
-			totalItems :  10 ,
-			itemsPerPage: 10,
-			perPageOptions : [10 ,20 ,30],
-			onChange :function () {
-				$scope.reloadPage();
-			}
-	}
 	
-	$scope.reloadPage = function () {
-		$scope.search($scope.paginationConf.currentPage ,$scope.paginationConf.itemsPerPage );
-	}
 	
 	// 分页查询数据
-	$scope.findPage = function (page,size) {
+	/*$scope.findPage = function (page,size) {
 		$http.get('../brand/findPage.do?page='+page+'&size='+size+'').success(
 			function (response) {
 				$scope.paginationConf.totalItems = response.total ;
 				$scope.list = response.rows;
 			}		
 		);
-	}
+	}*/
 	
 	$scope.searchEntity = {};
 	// 分页查询品牌
@@ -77,18 +66,7 @@ app.controller('brandController' , function ($scope,$http,brandService) {
 		
 	}
 	
-	// 定义一个集合
-	$scope.selectOptions = [];
 	
-	// 调用方法
-	$scope.changeSelect = function ($event , id) {
-		if ($event.target.checked) {
-			$scope.selectOptions.push(id);
-		}else {
-			var index = $scope.selectOptions.indexOf();
-			$scope.selectOptions.splice(index,1);
-		}
-	}
 	
 	// 删除品牌
 	$scope.deletebrand = function () {
