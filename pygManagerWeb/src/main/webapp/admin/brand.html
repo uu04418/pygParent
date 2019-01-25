@@ -16,9 +16,37 @@
     <script src="../plugins/angularjs/pagination.js"></script>
 	<script type="text/javascript">
 		var app = angular.module('pinyougou' ,['pagination']);
-		app.controller('brandController' , function ($scope,$http) {
+		
+		app.service("brandService",function ($http) {
+			this.findall = function () {
+				return $http.get('../brand/getAll.do');
+			}
+			
+			this.search = function (page,size,search) {
+				return $http.post('../brand/search.do?page='+page+'&size='+size,search);
+			}
+			
+			this.findOne = function (id) {
+				return $http.get('../brand/findOne.do?id=' +id);
+			}
+			
+			this.deletebrand = function (ids) {
+				return $http.get('../brand/delete.do?ids=' +ids);
+			}
+			
+			this.add = function (entity) {
+				return $http.post('../brand/add.do' , entity);
+			}
+			this.update = function (entity) {
+				return $http.post('../brand/update.do' , entity);
+			}
+			
+		});
+		
+		app.controller('brandController' , function ($scope,$http,brandService) {
+			
 			$scope.findall = function () {
-				$http.get('../brand/getAll.do').success(
+				brandService.findall().success(
 					function (response) {
 						$scope.list = response;
 					}		
@@ -53,7 +81,7 @@
 			$scope.searchEntity = {};
 			// 分页查询品牌
 			$scope.search = function (page,size) {
-				$http.post('../brand/search.do?page='+page+'&size='+size+'' , $scope.searchEntity).success(
+				brandService.search(page,size,$scope.searchEntity).success(
 						function (response) {
 							$scope.paginationConf.totalItems = response.total ;
 							$scope.list = response.rows;
@@ -64,8 +92,14 @@
 			
 			// 新增品牌
 			$scope.save = function () {
-				var methName =  $scope.brand.id == null ? 'add' : 'update'
-				$http.post('../brand/'+methName+'.do' , $scope.brand).success(
+				var obj = null;
+				if ($scope.brand.id == null){
+					obj = brandService.add($scope.brand);
+				}else {
+					obj = brandService.update($scope.brand);
+				}
+				//var methName =  $scope.brand.id == null ? 'add' : 'update'
+				obj.success(
 					function (response) {
 						if (response.success) {
 							$scope.reloadPage();
@@ -78,7 +112,7 @@
 			
 			// 查询一个品牌
 			$scope.findOne = function (id) {
-				$http.get('../brand/findOne.do?id=' +id).success (
+				brandService.findOne(id).success (
 					function (response) {
 						$scope.brand = response ;
 					}
@@ -101,7 +135,7 @@
 			
 			// 删除品牌
 			$scope.deletebrand = function () {
-				$http.get('../brand/delete.do?ids=' +$scope.selectOptions).success (
+				brandService.deletebrand($scope.selectOptions).success (
 						function (response) {
 							if (response.success) {
 								$scope.reloadPage();
