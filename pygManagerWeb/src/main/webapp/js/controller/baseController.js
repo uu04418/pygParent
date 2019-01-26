@@ -7,25 +7,25 @@ app.controller('baseController' , function ($scope) {
 			itemsPerPage: 10,
 			perPageOptions : [10 ,20 ,30],
 			onChange :function () {
-				$scope.reloadPage();
+				$scope.reloadList();
 			}
 	}
 	
-	$scope.reloadPage = function () {
+	$scope.reloadList = function () {
 		$scope.search($scope.paginationConf.currentPage ,$scope.paginationConf.itemsPerPage );
 	}
 	
 	
 	// 定义一个集合
-	$scope.selectOptions = [];
+	$scope.selectIds = [];
 	
 	// 调用方法
 	$scope.changeSelect = function ($event , id) {
 		if ($event.target.checked) {
-			$scope.selectOptions.push(id);
+			$scope.selectIds.push(id);
 		}else {
-			var index = $scope.selectOptions.indexOf();
-			$scope.selectOptions.splice(index,1);
+			var index = $scope.selectIds.indexOf();
+			$scope.selectIds.splice(index,1);
 		}
 	}
 	
