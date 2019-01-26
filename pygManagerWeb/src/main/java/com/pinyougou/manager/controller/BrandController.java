@@ -1,6 +1,7 @@
 package com.pinyougou.manager.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -29,8 +30,8 @@ public class BrandController {
 	// 分页查询品牌
 	@ResponseBody
 	@RequestMapping("/findPage")
-	public PageResult getAll(int page ,int size){
-		return brandService.findPage(page, size);
+	public PageResult getAll(int page ,int rows){
+		return brandService.findPage(page, rows);
 	}
 	
 	// 新增品牌
@@ -83,9 +84,17 @@ public class BrandController {
 	@ResponseBody
 	@RequestMapping("/search")
 	public PageResult search (@RequestBody TbBrand brand ,
-			int page ,int size	) {
-		return brandService.findPage(brand, page, size);
+			int page ,int rows	) {
+		return brandService.findPage(brand, page, rows);
 	}
+	
+	
+	@ResponseBody
+	@RequestMapping("/selectOptionList")
+	public List<Map<String, Object>>  selectOptionList () {
+		return brandService.selectOptionList();
+	}
+	
 	
 
 	

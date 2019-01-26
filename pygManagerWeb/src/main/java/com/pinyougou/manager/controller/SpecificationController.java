@@ -1,5 +1,6 @@
 package com.pinyougou.manager.controller;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -9,6 +10,7 @@ import com.pinyougou.common.PageResult;
 import com.pinyougou.common.Result;
 import com.pinyougou.datapojo.Specification;
 import com.pinyougou.pojo.TbSpecification;
+import com.pinyougou.sellergoods.service.BrandService;
 import com.pinyougou.sellergoods.service.SpecificationService;
 /**
  * controller
@@ -21,6 +23,8 @@ public class SpecificationController {
 
 	@Reference
 	private SpecificationService specificationService;
+	@Reference
+	private BrandService brandService;
 	
 	/**
 	 * 返回全部列表
@@ -109,6 +113,11 @@ public class SpecificationController {
 	@RequestMapping("/search")
 	public PageResult search(@RequestBody TbSpecification specification, int page, int rows  ){
 		return specificationService.findPage(specification, page, rows);		
+	}
+	
+	@RequestMapping("/selectOptionList")
+	public List<Map<String, Object>>  selectOptionList () {
+		return specificationService.selectOptionList();
 	}
 	
 }

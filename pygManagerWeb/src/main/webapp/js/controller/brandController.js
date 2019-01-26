@@ -1,87 +1,80 @@
-
-
-app.controller('brandController' , function ($scope,$controller,brandService) {
-			
-	$controller('baseController',{$scope:$scope});
+ //控制层 
+app.controller('brandController' ,function($scope,$controller   ,brandService){	
 	
-	$scope.findall = function () {
-		brandService.findall().success(
-			function (response) {
-				$scope.list = response;
-			}		
+	$controller('baseController',{$scope:$scope});//继承
+	
+    //读取列表数据绑定到表单中  
+	$scope.findAll=function(){
+		brandService.findAll().success(
+			function(response){
+				$scope.list=response;
+			}			
+		);
+	}    
+	
+	//分页
+	$scope.findPage=function(page,rows){			
+		brandService.findPage(page,rows).success(
+			function(response){
+				$scope.list=response.rows;	
+				$scope.paginationConf.totalItems=response.total;//更新总记录数
+			}			
 		);
 	}
 	
-	
-	
-	// 分页查询数据
-	/*$scope.findPage = function (page,size) {
-		$http.get('../brand/findPage.do?page='+page+'&size='+size+'').success(
-			function (response) {
-				$scope.paginationConf.totalItems = response.total ;
-				$scope.list = response.rows;
-			}		
-		);
-	}*/
-	
-	$scope.searchEntity = {};
-	// 分页查询品牌
-	$scope.search = function (page,size) {
-		brandService.search(page,size,$scope.searchEntity).success(
-				function (response) {
-					$scope.paginationConf.totalItems = response.total ;
-					$scope.list = response.rows;
-				}		
-			);
-		
+	//查询实体 
+	$scope.findOne=function(id){				
+		brandService.findOne(id).success(
+			function(response){
+				$scope.entity= response;					
+			}
+		);				
 	}
 	
-	// 新增品牌
-	$scope.save = function () {
-		var obj = null;
-		if ($scope.brand.id == null){
-			obj = brandService.add($scope.brand);
-		}else {
-			obj = brandService.update($scope.brand);
-		}
-		//var methName =  $scope.brand.id == null ? 'add' : 'update'
-		obj.success(
-			function (response) {
-				if (response.success) {
-					$scope.reloadPage();
-				}else {
+	//保存 
+	$scope.save=function(){				
+		var serviceObject;//服务层对象  				
+		if($scope.entity.id!=null){//如果有ID
+			serviceObject=brandService.update( $scope.entity ); //修改  
+		}else{
+			serviceObject=brandService.add( $scope.entity  );//增加 
+		}				
+		serviceObject.success(
+			function(response){
+				if(response.success){
+					//重新查询 
+		        	$scope.reloadList();//重新加载
+				}else{
 					alert(response.message);
 				}
 			}		
+		);				
+	}
+	
+	 
+	//批量删除 
+	$scope.dele=function(){			
+		//获取选中的复选框			
+		brandService.dele( $scope.selectIds ).success(
+			function(response){
+				if(response.success){
+					$scope.reloadList();//刷新列表
+					$scope.selectIds=[];
+				}						
+			}		
+		);				
+	}
+	
+	$scope.searchEntity={};//定义搜索对象 
+	
+	//搜索
+	$scope.search=function(page,rows){			
+		brandService.search(page,rows,$scope.searchEntity).success(
+			function(response){
+				$scope.list=response.rows;	
+				$scope.paginationConf.totalItems=response.total;//更新总记录数
+			}			
 		);
 	}
-	
-	// 查询一个品牌
-	$scope.findOne = function (id) {
-		brandService.findOne(id).success (
-			function (response) {
-				$scope.brand = response ;
-			}
-		);
-		
-	}
-	
-	
-	
-	// 删除品牌
-	$scope.deletebrand = function () {
-		brandService.deletebrand($scope.selectOptions).success (
-				function (response) {
-					if (response.success) {
-						$scope.reloadPage();
-						$scope.selectOptions = [];
-					}else {
-						alert(response.message);
-					}
-					
-				}
-			);
-	}
-			
-			
-});
+    
+});	

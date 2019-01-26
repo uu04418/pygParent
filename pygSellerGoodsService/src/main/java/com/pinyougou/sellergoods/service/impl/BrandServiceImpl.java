@@ -1,6 +1,8 @@
 package com.pinyougou.sellergoods.service.impl;
 
 import java.util.List;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import com.alibaba.dubbo.config.annotation.Service;
 import com.github.pagehelper.Page;
@@ -63,6 +65,12 @@ public class BrandServiceImpl implements BrandService{
 		}
 		Page<TbBrand> brandList =(Page<TbBrand>) brandMapper.selectByExample(example);
 		return new PageResult(brandList.getTotal(), brandList.getResult());
+	}
+
+	@Override
+	public List<Map<String, Object>> selectOptionList() {
+		// TODO Auto-generated method stub
+		return brandMapper.selectOptionList();
 	}
 
 }
