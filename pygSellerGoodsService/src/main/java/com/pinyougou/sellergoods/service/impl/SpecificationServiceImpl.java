@@ -12,6 +12,7 @@ import com.pinyougou.pojo.TbSpecification;
 import com.pinyougou.pojo.TbSpecificationExample;
 import com.pinyougou.pojo.TbSpecificationExample.Criteria;
 import com.pinyougou.pojo.TbSpecificationOption;
+import com.pinyougou.pojo.TbSpecificationOptionExample;
 import com.pinyougou.sellergoods.service.SpecificationService;
 
 /**
@@ -65,8 +66,21 @@ public class SpecificationServiceImpl implements SpecificationService {
 	 * 修改
 	 */
 	@Override
-	public void update(TbSpecification specification){
-		specificationMapper.updateByPrimaryKey(specification);
+	public void update(Specification specification){
+		TbSpecification tbSpecification = specification.getSpecification();
+		specificationMapper.updateByPrimaryKey(tbSpecification);
+		TbSpecificationOptionExample example = new TbSpecificationOptionExample();
+		TbSpecificationOptionExample.Criteria criteria = example.createCriteria();
+		criteria.andSpecIdEqualTo(tbSpecification.getId());
+		specificationOptionMapper.deleteByExample(example);
+		List<TbSpecificationOption> list = specification.getSpecificationOptionList();
+		for (TbSpecificationOption option : list) {
+			option.setSpecId(tbSpecification.getId());
+			specificationOptionMapper.insertSelective(option);
+		}
+		
+		
+		
 	}	
 	
 	/**
@@ -75,8 +89,16 @@ public class SpecificationServiceImpl implements SpecificationService {
 	 * @return
 	 */
 	@Override
-	public TbSpecification findOne(Long id){
-		return specificationMapper.selectByPrimaryKey(id);
+	public Specification findOne(Long id){
+		Specification specification = new Specification();
+		TbSpecification selectByPrimaryKey = specificationMapper.selectByPrimaryKey(id);
+		specification.setSpecification(selectByPrimaryKey);	
+		TbSpecificationOptionExample example = new TbSpecificationOptionExample();
+		TbSpecificationOptionExample.Criteria criteria = example.createCriteria();
+		criteria.andSpecIdEqualTo(id);
+		List<TbSpecificationOption> selectByExample = specificationOptionMapper.selectByExample(example);
+		specification.setSpecificationOptionList(selectByExample);
+		return specification; 
 	}
 
 	/**
