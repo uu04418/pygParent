@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.alibaba.dubbo.config.annotation.Reference;
 import com.pinyougou.common.PageResult;
 import com.pinyougou.common.Result;
+import com.pinyougou.datapojo.Specification;
 import com.pinyougou.pojo.TbSpecification;
 import com.pinyougou.sellergoods.service.SpecificationService;
 /**
@@ -46,7 +47,7 @@ public class SpecificationController {
 	 * @return
 	 */
 	@RequestMapping("/add")
-	public Result add(@RequestBody TbSpecification specification){
+	public Result add(@RequestBody Specification specification){
 		try {
 			specificationService.add(specification);
 			return new Result(true, "增加成功");

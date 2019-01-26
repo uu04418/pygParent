@@ -2,6 +2,7 @@ package com.pinyougou.sellergoods.service;
 import java.util.List;
 
 import com.pinyougou.common.PageResult;
+import com.pinyougou.datapojo.Specification;
 import com.pinyougou.pojo.TbSpecification;
 
 /**
@@ -28,7 +29,7 @@ public interface SpecificationService {
 	/**
 	 * 增加
 	*/
-	public void add(TbSpecification specification);
+	public void add(Specification specification);
 	
 	
 	/**

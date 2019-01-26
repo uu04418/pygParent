@@ -5,10 +5,13 @@ import com.alibaba.dubbo.config.annotation.Service;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.pinyougou.common.PageResult;
+import com.pinyougou.datapojo.Specification;
 import com.pinyougou.mapper.TbSpecificationMapper;
+import com.pinyougou.mapper.TbSpecificationOptionMapper;
 import com.pinyougou.pojo.TbSpecification;
 import com.pinyougou.pojo.TbSpecificationExample;
 import com.pinyougou.pojo.TbSpecificationExample.Criteria;
+import com.pinyougou.pojo.TbSpecificationOption;
 import com.pinyougou.sellergoods.service.SpecificationService;
 
 /**
@@ -21,6 +24,9 @@ public class SpecificationServiceImpl implements SpecificationService {
 
 	@Autowired
 	private TbSpecificationMapper specificationMapper;
+	
+	@Autowired
+	private TbSpecificationOptionMapper specificationOptionMapper;
 	
 	/**
 	 * 查询全部
@@ -44,8 +50,14 @@ public class SpecificationServiceImpl implements SpecificationService {
 	 * 增加
 	 */
 	@Override
-	public void add(TbSpecification specification) {
-		specificationMapper.insert(specification);		
+	public void add(Specification specification) {
+		TbSpecification tbSpecification = specification.getSpecification();
+		List<TbSpecificationOption> list = specification.getSpecificationOptionList();
+		specificationMapper.insert(tbSpecification);
+		for (TbSpecificationOption option : list) {
+			option.setSpecId(tbSpecification.getId());
+			specificationOptionMapper.insertSelective(option);
+		}
 	}
 
 	
