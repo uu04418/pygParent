@@ -76,5 +76,13 @@ app.controller('specificationController' ,function($scope,$controller   ,specifi
 			}			
 		);
 	}
+	
+	
+	$scope.entity = {speification:{} ,speificationList :[]}
+	
+	$scope.addTabName = function () {
+		
+		$scope.entity.speificationList.push({});
+	}
     
 });	
