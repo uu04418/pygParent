@@ -1,6 +1,10 @@
 package com.pinyougou.shop.controller;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -47,6 +51,10 @@ public class SellerController {
 	 */
 	@RequestMapping("/add")
 	public Result add(@RequestBody TbSeller seller){
+		
+		BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
+		String password = bCryptPasswordEncoder.encode(seller.getPassword());
+		seller.setPassword(password);
 		try {
 			sellerService.add(seller);
 			return new Result(true, "增加成功");
@@ -109,5 +117,7 @@ public class SellerController {
 	public PageResult search(@RequestBody TbSeller seller, int page, int rows  ){
 		return sellerService.findPage(seller, page, rows);		
 	}
+	
+	
 	
 }
