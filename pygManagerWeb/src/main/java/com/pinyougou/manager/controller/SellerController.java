@@ -110,4 +110,20 @@ public class SellerController {
 		return sellerService.findPage(seller, page, rows);		
 	}
 	
+	
+	/**
+	 *审核商家
+	 * @param sellerId
+	 * @param status
+	 */
+	@RequestMapping("/updateStatus")
+	public Result updateStatus(String sellerId ,String status) {
+		try {
+			sellerService.updateStatus(sellerId, status);
+			return new Result(true, "成功");
+		} catch (Exception e) {
+			return new Result(false, "失败");
+		}
+	}
+	
 }
