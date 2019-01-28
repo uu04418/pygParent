@@ -1,5 +1,5 @@
  //控制层 
-app.controller('goodsController' ,function($scope,$controller ,goodsService ,uploadService){	
+app.controller('goodsController' ,function($scope,$controller ,goodsService ,uploadService,itemCatService){	
 	
 	$controller('baseController',{$scope:$scope});//继承
 	
@@ -105,7 +105,7 @@ app.controller('goodsController' ,function($scope,$controller ,goodsService ,upl
 			}
 		);
 	}
-	$scope.entity={ goodsDesc:{itemImages:[]}  };
+	$scope.entity={ goodsDesc:{itemImages:[]} ,goods:{category3Id:''} };
 	$scope.add_image_entity = function () {
 		$scope.entity.goodsDesc.itemImages.push($scope.image_entity);
 	}
@@ -114,6 +114,56 @@ app.controller('goodsController' ,function($scope,$controller ,goodsService ,upl
 	$scope.remove_image_entity=function(index){
 		$scope.entity.goodsDesc.itemImages.splice(index,1);
 	}
+	
+	//查询一级商品分类列表
+	$scope.selectItemCat1List=function(){
+		itemCatService.findByParentId(0).success(
+			function(response){
+				$scope.itemCat1List=response;			
+			}
+		);
+		
+	}
+	
+	//查询二级商品分类列表
+	$scope.$watch('entity.goods.category1Id',function(newValue,oldValue){
+		$scope.entity.goods.category3Id = '';
+		if (newValue != undefined) {
+			itemCatService.findByParentId(newValue).success(
+					function(response){
+						$scope.itemCat2List=response;			
+					}
+			);
+			
+		}
+		
+		
+	});
+	
+	//查询三级商品分类列表
+	$scope.$watch('entity.goods.category2Id',function(newValue,oldValue){
+		if (newValue != undefined) {
+			itemCatService.findByParentId(newValue).success(
+					function(response){
+						$scope.itemCat3List=response;			
+					}
+			);
+		}
+	});
+	
+	//读取模板ID
+	$scope.$watch('entity.goods.category3Id',function(newValue,oldValue){
+		
+		if (newValue !=undefined && newValue !='') {
+			itemCatService.findOne(newValue).success(
+					function(response){
+						$scope.entity.goods.typeTemplateId=response.typeId;
+					}
+				);		
+			
+		}
+		
+	});
     
     
 });	
