@@ -3,6 +3,8 @@ app.controller('typeTemplateController' ,function($scope,$controller   ,typeTemp
 	
 	$controller('baseController',{$scope:$scope});//继承
 	
+	
+	
     //读取列表数据绑定到表单中  
 	$scope.findAll=function(){
 		typeTemplateService.findAll().success(
@@ -113,5 +115,7 @@ app.controller('typeTemplateController' ,function($scope,$controller   ,typeTemp
 	$scope.deleTableRow=function(index){
 		$scope.entity.customAttributeItems.splice( index,1);
 	}
+	
+	
 	
 });	

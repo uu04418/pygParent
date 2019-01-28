@@ -5,8 +5,11 @@ import com.alibaba.dubbo.config.annotation.Service;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.pinyougou.common.PageResult;
+import com.pinyougou.datapojo.Goods;
+import com.pinyougou.mapper.TbGoodsDescMapper;
 import com.pinyougou.mapper.TbGoodsMapper;
 import com.pinyougou.pojo.TbGoods;
+import com.pinyougou.pojo.TbGoodsDesc;
 import com.pinyougou.pojo.TbGoodsExample;
 import com.pinyougou.pojo.TbGoodsExample.Criteria;
 import com.pinyougou.sellergoods.service.GoodsService;
@@ -21,6 +24,8 @@ public class GoodsServiceImpl implements GoodsService {
 
 	@Autowired
 	private TbGoodsMapper goodsMapper;
+	@Autowired
+	private TbGoodsDescMapper goodsDescMapper;
 	
 	/**
 	 * 查询全部
@@ -44,8 +49,16 @@ public class GoodsServiceImpl implements GoodsService {
 	 * 增加
 	 */
 	@Override
-	public void add(TbGoods goods) {
-		goodsMapper.insert(goods);		
+	public void add(Goods goods) {
+		
+		TbGoods tbGoods = goods.getGoods();
+		tbGoods.setAuditStatus("0");
+		goodsMapper.insert(tbGoods);
+		
+		TbGoodsDesc goodsDesc = goods.getGoodsDesc();
+		goodsDesc.setGoodsId(tbGoods.getId());
+		goodsDescMapper.insert(goodsDesc);
+				
 	}
 
 	

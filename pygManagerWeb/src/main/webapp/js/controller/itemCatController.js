@@ -1,8 +1,8 @@
  //控制层 
-app.controller('itemCatController' ,function($scope,$controller   ,itemCatService){	
-	
+app.controller('itemCatController' ,function($scope,$controller,itemCatService , typeTemplateService){	
 	$controller('baseController',{$scope:$scope});//继承
-	
+	$scope.searchEntity = {id:0 , name :''}
+	$scope.entity = {name:'', typeId:'' ,parentId:0}
     //读取列表数据绑定到表单中  
 	$scope.findAll=function(){
 		itemCatService.findAll().success(
@@ -37,13 +37,20 @@ app.controller('itemCatController' ,function($scope,$controller   ,itemCatServic
 		if($scope.entity.id!=null){//如果有ID
 			serviceObject=itemCatService.update( $scope.entity ); //修改  
 		}else{
-			serviceObject=itemCatService.add( $scope.entity  );//增加 
+			serviceObject=itemCatService.add( $scope.entity );//增加 
 		}				
 		serviceObject.success(
 			function(response){
 				if(response.success){
 					//重新查询 
-		        	$scope.reloadList();//重新加载
+		        	//$scope.reloadList();//重新加载
+					if ($scope.grade == 2) {
+						$scope.searchEntity = $scope.entity_1;
+					}
+					if ($scope.grade == 3) {
+						$scope.searchEntity = $scope.entity_2;
+					}
+					$scope.selectList($scope.searchEntity);
 				}else{
 					alert(response.message);
 				}
@@ -58,14 +65,21 @@ app.controller('itemCatController' ,function($scope,$controller   ,itemCatServic
 		itemCatService.dele( $scope.selectIds ).success(
 			function(response){
 				if(response.success){
-					$scope.reloadList();//刷新列表
+					//$scope.reloadList();//刷新列表
 					$scope.selectIds=[];
+					if ($scope.grade == 2) {
+						$scope.searchEntity = $scope.entity_1;
+					}
+					if ($scope.grade == 3) {
+						$scope.searchEntity = $scope.entity_2;
+					}
+					$scope.selectList($scope.searchEntity);
 				}						
 			}		
 		);				
 	}
 	
-	$scope.searchEntity={};//定义搜索对象 
+	
 	
 	//搜索
 	$scope.search=function(page,rows){			
@@ -83,11 +97,14 @@ app.controller('itemCatController' ,function($scope,$controller   ,itemCatServic
 		itemCatService.findByParentId(parentId).success(
 			function(response){
 				$scope.list=response;
+				$scope.entity.parentId = parentId;
+				
 			}			
 		);
 	}   
 	
 	$scope.grade = 1;
+	
 	$scope.setGrade = function (value) {
 		$scope.grade = value ;
 	};
@@ -106,6 +123,24 @@ app.controller('itemCatController' ,function($scope,$controller   ,itemCatServic
 		}
 		$scope.findByParentId(p_entity.id);
 		
+	}
+	
+	$scope.templateList=[];//规格列表
+	
+	// 查询模板列表
+	$scope.findTypeTemplateList = function () {
+		typeTemplateService.findTypeTemplateList().success(
+				function (response) {
+					$scope.templateList = response ;
+					
+				}
+		);
+	}
+	
+	$scope.setEntity =function () {
+		$scope.entity.name = '';
+		$scope.entity.typeId = '';
+		$scope.entity.id= null;
 	}
     
 });	
