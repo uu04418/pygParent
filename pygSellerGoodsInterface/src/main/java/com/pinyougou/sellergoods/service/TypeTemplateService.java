@@ -63,4 +63,8 @@ public interface TypeTemplateService {
 	/**查询所有模板的列表**/
 	public List<Map<String, Object>> findTypeTemplateList();
 	
+	/**查询规格参数列表**/
+	@SuppressWarnings("rawtypes")
+	public List<Map> findSpecList (long id) ; 
+	
 }
