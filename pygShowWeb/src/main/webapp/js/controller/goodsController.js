@@ -106,7 +106,7 @@ app.controller('goodsController' ,function($scope,$controller ,goodsService
 			}
 		);
 	}
-	$scope.entity={ goodsDesc:{itemImages:[]} ,goods:{category3Id:''} };
+	$scope.entity={ goodsDesc:{itemImages:[],specificationItems:[]} ,goods:{category3Id:''} };
 	$scope.add_image_entity = function () {
 		$scope.entity.goodsDesc.itemImages.push($scope.image_entity);
 	}
@@ -179,6 +179,34 @@ app.controller('goodsController' ,function($scope,$controller ,goodsService
 		}
 		
 	});
+	
+	
+	$scope.updateSpectAttribute = function  ($event,name,value) {
+		
+		// 先得到需要添加点集合
+		var spectList = $scope.entity.goodsDesc.specificationItems;
+		
+		// 先获取obj
+		var object = $scope.searchObjectByKey(spectList , 'attributeName' , name);
+		
+		if (object !=null) {
+			// 如果点击点是确定
+			if ($event.target.checked) {
+				object.attributeValue.push(value);
+			}else {
+				//如果点击点是取消
+				object.attributeValue.splice(object.attributeValue.indexOf(value ) ,1);
+				//如果选项都取消了，将此条记录移除
+				if(object.attributeValue.length==0){
+					spectList.splice(spectList.indexOf(object),1);
+				}
+				
+			}
+		} else {
+			spectList.push({"attributeName":name,"attributeValue":[value]});
+		}
+		
+	}
     
     
 });	
