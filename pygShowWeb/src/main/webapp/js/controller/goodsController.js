@@ -207,6 +207,32 @@ app.controller('goodsController' ,function($scope,$controller ,goodsService
 		}
 		
 	}
+	
+	
+	$scope.createItemList=function(){
+		// 先拿到原来的集合然后遍历 进行克隆操作
+		var items = $scope.entity.goodsDesc.specificationItems;
+		$scope.entity.itemList=[{spec:{},price:0,num:99999,status:'0',isDefault:'0'} ];//列表初始化
+		for (var i=0;i<items.length;i++) {
+			// 进行深度克隆
+			$scope.entity.itemList = addColumn($scope.entity.itemList , items[i].attributeName , items[i].attributeValue);
+		}
+	}
     
+	addColumn =  function (list ,attributeName  , attributeValue ) {
+		var newList = [];
+		for (var i=0;i<list.length;i++) {
+			// 先拿到初始化点集合
+			var oldRow=  list[i];
+			for (var j=0;j<attributeValue.length;j++) {
+				var newRow=  JSON.parse( JSON.stringify(oldRow)  );//深克隆
+				newRow.spec[attributeName]=attributeValue[j];
+				newList.push(newRow);
+			}
+		}
+		
+		return newList ; 
+		
+	}
     
 });	
