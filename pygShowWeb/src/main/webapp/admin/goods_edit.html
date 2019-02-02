@@ -23,8 +23,10 @@
 	
 	
 	<script type="text/javascript" src="../plugins/angularjs/angular.min.js"></script>
-	
-	
+	<!-- 分页组件开始 -->
+	<script src="../plugins/angularjs/pagination.js"></script>
+	<link rel="stylesheet" href="../plugins/angularjs/pagination.css">
+	<!-- 分页组件结束 -->
 	<script type="text/javascript" src="../js/base.js"></script>
 	<script type="text/javascript" src="../js/service/goodsService.js"></script>
 	<script type="text/javascript" src="../js/service/uploadService.js"></script>
@@ -40,7 +42,7 @@
 </head>
 
 <body class="hold-transition skin-red sidebar-mini"  ng-app="pinyougou" ng-controller="goodsController"
-	ng-init="selectItemCat1List()">
+	ng-init="selectItemCat1List();findOne()">
 
             <!-- 正文区域 -->
             <section class="content">
@@ -88,17 +90,19 @@
 		                           	  				</select>
 		                              			</td>
 		                              			<td>
-		                           	  				<select class="form-control select-sm" ng-model="entity.goods.category3Id"  ng-options="item.id as item.name for item in itemCat3List" >															
+		                           	  				<select ng-value="entity.goods.category3Id" class="form-control select-sm" ng-model="entity.goods.category3Id"  ng-options="item.id as item.name for item in itemCat3List" >															
 		                           	  				</select>
 		                              			</td>
 		                              			<td>
+		                              			    {{entity.goods.category3Id}}
 		                           	  				模板ID:{{entity.goods.typeTemplateId}}
+		                           	  				
 		                              			</td>
 		                           	  		</tr>
 		                           	  	</table>
 		                              	
 		                              </div>	                              
-		                          	  
+
 									
 		                           <div class="col-md-2 title">商品名称</div>
 		                           <div class="col-md-10 data">
@@ -214,7 +218,10 @@
 					                        <div class="col-md-10 data">
 					                               
 					                            <span ng-repeat="option in pojo.options">
-					                            	<input  type="checkbox" ng-click="updateSpectAttribute($event,pojo.text,option.optionName);createItemList()">{{option.optionName}}					                            				                            	
+					                            	<input  type="checkbox" 
+					                            	ng-click="updateSpectAttribute($event,pojo.text,option.optionName);createItemList()"
+					                            	ng-checked ="checkArrtibuteValue(pojo.text,option.optionName)"
+					                            	>{{option.optionName}}					                            				                            	
 					                            </span>  	
 					                        </div>
 		                                </div>   
@@ -271,8 +278,8 @@
                  	
                    </div>
                   <div class="btn-toolbar list-toolbar">
-				      <button ng-click="add()" class="btn btn-primary" ><i class="fa fa-save"></i>保存</button>
-				      <button class="btn btn-default" >返回列表</button>
+				      <button ng-click="save()" class="btn btn-primary" ><i class="fa fa-save"></i>保存</button>
+				      <a href="goods.html" class="btn btn-default" >返回列表</a>
 				  </div>
 			
             </section>

@@ -97,7 +97,7 @@
 
   </dependencies>
   
-  
+ 
     <build>  
 	  <plugins>
 	      <plugin>
@@ -106,12 +106,17 @@
 				<version>2.2</version>
 				<configuration>
 					<!-- 指定端口 -->
-					<port>8081</port>
+					<port>8020</port>
 					<!-- 请求路径 -->
 					<path>/</path>
+					
+					<!-- <url>http://120.79.101.80:8020/manager/text</url>
+					<username>tomcat</username>
+					<password>tomcat</password> -->
 				</configuration>
 	  	  </plugin>
 	  </plugins>  
+	   <finalName>/ROOT</finalName>
     </build>
-  
+    
 </project>

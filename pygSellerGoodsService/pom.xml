@@ -101,9 +101,13 @@
 				<version>2.2</version>
 				<configuration>
 					<!-- 指定端口 -->
-					<port>9001</port>
+					<port>8010</port>
 					<!-- 请求路径 -->
-					<path>/</path>
+					<path>/pygSellerGoodsService</path>
+					
+					<!-- <url>http://120.79.101.80:8010/manager/text</url>
+					<username>tomcat</username>
+					<password>tomcat</password> -->
 				</configuration>
 			</plugin>
 		</plugins>

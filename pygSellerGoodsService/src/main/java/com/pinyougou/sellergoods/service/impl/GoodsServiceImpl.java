@@ -23,6 +23,7 @@ import com.pinyougou.pojo.TbGoodsExample;
 import com.pinyougou.pojo.TbGoodsExample.Criteria;
 import com.pinyougou.pojo.TbItem;
 import com.pinyougou.pojo.TbItemCat;
+import com.pinyougou.pojo.TbItemExample;
 import com.pinyougou.pojo.TbSeller;
 import com.pinyougou.sellergoods.service.GoodsService;
 
@@ -79,8 +80,56 @@ public class GoodsServiceImpl implements GoodsService {
 		goodsDesc.setGoodsId(tbGoods.getId());
 		goodsDescMapper.insert(goodsDesc);
 		
-		// 添加那个itemDesc
-		List<TbItem> itemList = goods.getItemList();
+		saveItemList(goods);
+		
+		
+	}
+	
+	
+	private void setItemValues(TbItem item,Goods goods){
+		//商品分类 
+		item.setCategoryid(goods.getGoods().getCategory3Id());//三级分类ID
+		item.setCreateTime(new Date());//创建日期
+		item.setUpdateTime(new Date());//更新日期 
+		
+		item.setGoodsId(goods.getGoods().getId());//商品ID
+		item.setSellerId(goods.getGoods().getSellerId());//商家ID
+		
+		//分类名称			
+		TbItemCat itemCat = itemCatMapper.selectByPrimaryKey(goods.getGoods().getCategory3Id());
+		item.setCategory(itemCat.getName());
+		//品牌名称
+		TbBrand brand = brandMapper.selectByPrimaryKey(goods.getGoods().getBrandId());
+		item.setBrand(brand.getName());
+		//商家名称(店铺名称)			
+		TbSeller seller = sellerMapper.selectByPrimaryKey(goods.getGoods().getSellerId());
+		item.setSeller(seller.getNickName());
+		
+		//图片
+		@SuppressWarnings("rawtypes")
+		List<Map> imageList = JSON.parseArray( goods.getGoodsDesc().getItemImages(), Map.class) ;
+		if(imageList.size()>0){
+			item.setImage( (String)imageList.get(0).get("url"));
+		}
+		
+	}
+
+	
+	/**
+	 * 修改
+	 */
+	@Override
+	public void update(Goods goods){
+		goodsMapper.updateByPrimaryKey(goods.getGoods());
+		goodsDescMapper.updateByPrimaryKey(goods.getGoodsDesc());
+		TbItemExample example = new TbItemExample();
+		TbItemExample.Criteria criteria = example.createCriteria();
+		criteria.andGoodsIdEqualTo(goods.getGoods().getId());
+		itemMapper.deleteByExample(example);
+		saveItemList(goods);
+	}	
+	
+	private void saveItemList(Goods goods) {
 		if("1".equals(goods.getGoods().getIsEnableSpec())){
 			for(TbItem item:   goods.getItemList()){
 				//构建标题  SPU名称+ 规格选项值
@@ -110,53 +159,30 @@ public class GoodsServiceImpl implements GoodsService {
 			itemMapper.insert(item);
 		}
 				
-	}
-	
-	
-	private void setItemValues(TbItem item,Goods goods){
-		//商品分类 
-		item.setCategoryid(goods.getGoods().getCategory3Id());//三级分类ID
-		item.setCreateTime(new Date());//创建日期
-		item.setUpdateTime(new Date());//更新日期 
-		
-		item.setGoodsId(goods.getGoods().getId());//商品ID
-		item.setSellerId(goods.getGoods().getSellerId());//商家ID
-		
-		//分类名称			
-		TbItemCat itemCat = itemCatMapper.selectByPrimaryKey(goods.getGoods().getCategory3Id());
-		item.setCategory(itemCat.getName());
-		//品牌名称
-		TbBrand brand = brandMapper.selectByPrimaryKey(goods.getGoods().getBrandId());
-		item.setBrand(brand.getName());
-		//商家名称(店铺名称)			
-		TbSeller seller = sellerMapper.selectByPrimaryKey(goods.getGoods().getSellerId());
-		item.setSeller(seller.getNickName());
-		
-		//图片
-		List<Map> imageList = JSON.parseArray( goods.getGoodsDesc().getItemImages(), Map.class) ;
-		if(imageList.size()>0){
-			item.setImage( (String)imageList.get(0).get("url"));
-		}
 		
 	}
 
-	
-	/**
-	 * 修改
-	 */
-	@Override
-	public void update(TbGoods goods){
-		goodsMapper.updateByPrimaryKey(goods);
-	}	
-	
 	/**
 	 * 根据ID获取实体
 	 * @param id
 	 * @return
 	 */
 	@Override
-	public TbGoods findOne(Long id){
-		return goodsMapper.selectByPrimaryKey(id);
+	public Goods findOne(Long id){
+		Goods goods = new Goods();
+		
+		TbGoods tbGoods= goodsMapper.selectByPrimaryKey(id);
+		goods.setGoods(tbGoods);
+		
+		TbGoodsDesc tbGoodsDesc = goodsDescMapper.selectByPrimaryKey(id);
+		goods.setGoodsDesc(tbGoodsDesc);
+		
+		TbItemExample example = new TbItemExample();
+		TbItemExample.Criteria criteria = example.createCriteria();
+		criteria.andGoodsIdEqualTo(id);
+		List<TbItem> itemList = itemMapper.selectByExample(example);
+		goods.setItemList(itemList);
+		return goods;
 	}
 
 	/**
@@ -178,8 +204,9 @@ public class GoodsServiceImpl implements GoodsService {
 		Criteria criteria = example.createCriteria();
 		
 		if(goods!=null){			
-						if(goods.getSellerId()!=null && goods.getSellerId().length()>0){
-				criteria.andSellerIdLike("%"+goods.getSellerId()+"%");
+			if(goods.getSellerId()!=null && goods.getSellerId().length()>0){
+				//criteria.andSellerIdLike("%"+goods.getSellerId()+"%");
+				criteria.andSellerIdEqualTo(goods.getSellerId());
 			}
 			if(goods.getGoodsName()!=null && goods.getGoodsName().length()>0){
 				criteria.andGoodsNameLike("%"+goods.getGoodsName()+"%");
