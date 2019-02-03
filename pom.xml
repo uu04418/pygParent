@@ -284,5 +284,6 @@
 		<module>pygShowWeb</module>
 		<module>pygContentInterface</module>
 		<module>pygContentService</module>
+		<module>pygPortalWeb</module>
 	</modules>
 </project>
