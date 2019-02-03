@@ -282,5 +282,7 @@
 		<module>pygSellerGoodsService</module>
 		<module>pygManagerWeb</module>
 		<module>pygShowWeb</module>
+		<module>pygContentInterface</module>
+		<module>pygContentService</module>
 	</modules>
 </project>
