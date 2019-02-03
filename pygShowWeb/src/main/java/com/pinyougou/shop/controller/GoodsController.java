@@ -14,7 +14,7 @@ import com.pinyougou.sellergoods.service.GoodsService;
 /**
  * controller
  * @author Administrator
- *
+ *1
  */
 @RestController
 @RequestMapping("/goods")
