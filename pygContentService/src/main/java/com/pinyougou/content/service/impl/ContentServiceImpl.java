@@ -52,7 +52,9 @@ public class ContentServiceImpl implements ContentService {
 	 */
 	@Override
 	public void add(TbContent content) {
-		contentMapper.insert(content);		
+		contentMapper.insert(content);	
+		//清除缓存
+		redisTemplate.boundHashOps("content").delete(content.getCategoryId());
 	}
 
 	
@@ -61,7 +63,11 @@ public class ContentServiceImpl implements ContentService {
 	 */
 	@Override
 	public void update(TbContent content){
+		// 查询之前的分组
+		Long oldValue = contentMapper.selectByPrimaryKey(content.getId()).getCategoryId();
+		redisTemplate.boundHashOps("content").delete(oldValue);
 		contentMapper.updateByPrimaryKey(content);
+		redisTemplate.boundHashOps("content").delete(content.getCategoryId());
 	}	
 	
 	/**
@@ -80,7 +86,9 @@ public class ContentServiceImpl implements ContentService {
 	@Override
 	public void delete(Long[] ids) {
 		for(Long id:ids){
+			Long oldValue = contentMapper.selectByPrimaryKey(id).getCategoryId();
 			contentMapper.deleteByPrimaryKey(id);
+			redisTemplate.boundHashOps("content").delete(oldValue);
 		}		
 	}
 	
