@@ -96,4 +96,10 @@ public class GoodsController {
 		return goodsService.findPage(goods, page, rows);		
 	}
 	
+	/**审核商品**/
+	@RequestMapping("/updateStatus")
+	public Result updateStatus (Long [] ids ,String status) {
+		return goodsService.updateStatus(ids ,status);
+	}
+	
 }

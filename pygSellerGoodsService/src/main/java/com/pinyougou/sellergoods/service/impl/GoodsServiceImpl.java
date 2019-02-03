@@ -9,6 +9,7 @@ import com.alibaba.fastjson.JSON;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.pinyougou.common.PageResult;
+import com.pinyougou.common.Result;
 import com.pinyougou.datapojo.Goods;
 import com.pinyougou.mapper.TbBrandMapper;
 import com.pinyougou.mapper.TbGoodsDescMapper;
@@ -235,5 +236,21 @@ public class GoodsServiceImpl implements GoodsService {
 		Page<TbGoods> page= (Page<TbGoods>)goodsMapper.selectByExample(example);		
 		return new PageResult(page.getTotal(), page.getResult());
 	}
+
+		@Override
+		public Result updateStatus(Long[] ids, String status) {
+			
+			try {
+				for (int i=0;i<ids.length;i++) {
+					TbGoods goods = goodsMapper.selectByPrimaryKey(ids[i]);
+					goods.setAuditStatus(status);
+					goodsMapper.updateByPrimaryKeySelective(goods);
+				}
+				return new Result(true, "操作成功");
+			} catch (Exception e) {
+				return new Result(false, "审核失败");
+			}
+			
+		}
 	
 }

@@ -35,4 +35,8 @@ app.service('typeTemplateService',function($http){
 	this.findTypeTemplateList=function(){
 		return $http.post('../typeTemplate/findTypeTemplateList.do');
 	}  
+	// 查询模板下面点规格参数
+	this.findSpecList=function(id){
+		return $http.post('../typeTemplate/findSpecList.do?id='+id);
+	}  
 });

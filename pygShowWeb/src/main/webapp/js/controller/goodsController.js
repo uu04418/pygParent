@@ -54,7 +54,7 @@ app.controller('goodsController' ,function($scope,$controller,$location ,goodsSe
 			function(response){
 				if(response.success){
 					//重新查询 
-		        	alert('新增成功');
+		        	alert('审核成功');
 		        	location.href = "goods.html";
 				}else{
 					alert(response.message);
@@ -169,7 +169,7 @@ app.controller('goodsController' ,function($scope,$controller,$location ,goodsSe
 								
 				$scope.typeTemplate.brandIds= JSON.parse($scope.typeTemplate.brandIds);//品牌列表类型转换
 				var id = $location.search()['id'];
-				if (id !=null) {
+				if (id==null) {
 					//扩展属性
 					$scope.entity.goodsDesc.customAttributeItems= JSON.parse($scope.typeTemplate.customAttributeItems);
 				}
