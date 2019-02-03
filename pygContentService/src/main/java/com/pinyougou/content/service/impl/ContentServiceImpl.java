@@ -1,6 +1,8 @@
 package com.pinyougou.content.service.impl;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
+
 import com.alibaba.dubbo.config.annotation.Service;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
@@ -17,10 +19,15 @@ import com.pinyougou.pojo.TbContentExample.Criteria;
  *
  */
 @Service
+@SuppressWarnings("unchecked")
 public class ContentServiceImpl implements ContentService {
 
 	@Autowired
 	private TbContentMapper contentMapper;
+
+	@SuppressWarnings("rawtypes")
+	@Autowired
+	private RedisTemplate redisTemplate;
 	
 	/**
 	 * 查询全部
@@ -104,5 +111,27 @@ public class ContentServiceImpl implements ContentService {
 		Page<TbContent> page= (Page<TbContent>)contentMapper.selectByExample(example);		
 		return new PageResult(page.getTotal(), page.getResult());
 	}
+
+		
+		@Override
+		public List<TbContent> findByCategoryId(Long categoryId) {
+			
+			// 从缓存中取出数据
+			List<TbContent> object = (List<TbContent>) redisTemplate.boundHashOps("content").get(categoryId);
+			
+			if (object==null) {
+				System.out.println("从数据库中取出广告id:" + categoryId );
+				TbContentExample example = new TbContentExample();
+				TbContentExample.Criteria criteria =example.createCriteria();
+				criteria.andCategoryIdEqualTo(categoryId);
+				criteria.andStatusEqualTo("1");
+				example.setOrderByClause("sort_order asc");
+				object = contentMapper.selectByExample(example);
+				redisTemplate.boundHashOps("content").put(categoryId, object);
+			}
+			
+			
+			return object;
+		}
 	
 }
