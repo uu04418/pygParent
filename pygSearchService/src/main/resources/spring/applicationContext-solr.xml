@@ -11,11 +11,11 @@
 		http://www.springframework.org/schema/context/spring-context.xsd">
 	
 	<!-- solr服务器地址 -->
-	<solr:solr-server id="contentServer" url="http://120.24.43.56/content" />
+	<solr:solr-server id="solrServer" url="http://120.24.43.56:8010/solr/content" />
 
    
 	<!-- solr模板，使用solr模板可对索引库进行CRUD的操作 -->
 	<bean id="solrTemplate" class="org.springframework.data.solr.core.SolrTemplate">
-		<constructor-arg ref="contentServer" />
+		<constructor-arg ref="solrServer" />
 	</bean>
 </beans>

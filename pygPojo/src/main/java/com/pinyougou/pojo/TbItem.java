@@ -90,8 +90,18 @@ public class TbItem implements Serializable {
     @Dynamic
     @Field("item_spec_*")
     private Map<String,String> specMap;
+    
+    
 
-    public Long getId() {
+    public Map<String, String> getSpecMap() {
+		return specMap;
+	}
+
+	public void setSpecMap(Map<String, String> specMap) {
+		this.specMap = specMap;
+	}
+
+	public Long getId() {
         return id;
     }
 
