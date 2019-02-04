@@ -3,6 +3,10 @@ package com.pinyougou.pojo;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.Map;
+
+import org.apache.solr.client.solrj.beans.Field;
+import org.springframework.data.solr.core.mapping.Dynamic;
 
 public class TbItem implements Serializable {
     /**
@@ -11,15 +15,18 @@ public class TbItem implements Serializable {
 	private static final long serialVersionUID = 8148374149256456954L;
 
 	/** 商品id，同时也是商品编号*/
+	@Field
     private Long id;
 
     /** 商品标题*/
+    @Field("item_title")
     private String title;
 
     /** 商品卖点*/
     private String sellPoint;
 
     /** 商品价格，单位为：元*/
+    @Field("item_price")
     private BigDecimal price;
 
     /** */
@@ -32,6 +39,7 @@ public class TbItem implements Serializable {
     private String barcode;
 
     /** 商品图片*/
+    @Field("item_image")
     private String image;
 
     /** 所属类目，叶子类目*/
@@ -58,7 +66,7 @@ public class TbItem implements Serializable {
     /** */
     private String isDefault;
 
-    /** */
+    @Field("item_goodsid")
     private Long goodsId;
 
     /** */
@@ -67,17 +75,21 @@ public class TbItem implements Serializable {
     /** */
     private String cartThumbnail;
 
-    /** */
+    @Field("item_category")
     private String category;
 
-    /** */
+    @Field("item_brand")
     private String brand;
 
     /** */
     private String spec;
 
-    /** */
+    @Field("item_seller")
     private String seller;
+    
+    @Dynamic
+    @Field("item_spec_*")
+    private Map<String,String> specMap;
 
     public Long getId() {
         return id;

@@ -285,5 +285,8 @@
 		<module>pygContentInterface</module>
 		<module>pygContentService</module>
 		<module>pygPortalWeb</module>
+		<module>pygSearchInterface</module>
+		<module>pygSearchService</module>
+		<module>pygSearchWeb</module>
 	</modules>
 </project>
