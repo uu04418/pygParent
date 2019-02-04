@@ -7,6 +7,7 @@ import com.alibaba.dubbo.config.annotation.Service;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.pinyougou.common.PageResult;
+import com.pinyougou.common.RedisCommonKey;
 import com.pinyougou.content.service.ContentService;
 import com.pinyougou.mapper.TbContentMapper;
 import com.pinyougou.pojo.TbContent;
@@ -54,7 +55,7 @@ public class ContentServiceImpl implements ContentService {
 	public void add(TbContent content) {
 		contentMapper.insert(content);	
 		//清除缓存
-		redisTemplate.boundHashOps("content").delete(content.getCategoryId());
+		redisTemplate.boundHashOps(RedisCommonKey.CONTENT_HASH).delete(content.getCategoryId());
 	}
 
 	
@@ -65,9 +66,9 @@ public class ContentServiceImpl implements ContentService {
 	public void update(TbContent content){
 		// 查询之前的分组
 		Long oldValue = contentMapper.selectByPrimaryKey(content.getId()).getCategoryId();
-		redisTemplate.boundHashOps("content").delete(oldValue);
+		redisTemplate.boundHashOps(RedisCommonKey.CONTENT_HASH).delete(oldValue);
 		contentMapper.updateByPrimaryKey(content);
-		redisTemplate.boundHashOps("content").delete(content.getCategoryId());
+		redisTemplate.boundHashOps(RedisCommonKey.CONTENT_HASH).delete(content.getCategoryId());
 	}	
 	
 	/**
@@ -88,7 +89,7 @@ public class ContentServiceImpl implements ContentService {
 		for(Long id:ids){
 			Long oldValue = contentMapper.selectByPrimaryKey(id).getCategoryId();
 			contentMapper.deleteByPrimaryKey(id);
-			redisTemplate.boundHashOps("content").delete(oldValue);
+			redisTemplate.boundHashOps(RedisCommonKey.CONTENT_HASH).delete(oldValue);
 		}		
 	}
 	
@@ -125,7 +126,7 @@ public class ContentServiceImpl implements ContentService {
 		public List<TbContent> findByCategoryId(Long categoryId) {
 			
 			// 从缓存中取出数据
-			List<TbContent> object = (List<TbContent>) redisTemplate.boundHashOps("content").get(categoryId);
+			List<TbContent> object = (List<TbContent>) redisTemplate.boundHashOps(RedisCommonKey.CONTENT_HASH).get(categoryId);
 			
 			if (object==null) {
 				System.out.println("从数据库中取出广告id:" + categoryId );
@@ -135,7 +136,7 @@ public class ContentServiceImpl implements ContentService {
 				criteria.andStatusEqualTo("1");
 				example.setOrderByClause("sort_order asc");
 				object = contentMapper.selectByExample(example);
-				redisTemplate.boundHashOps("content").put(categoryId, object);
+				redisTemplate.boundHashOps(RedisCommonKey.CONTENT_HASH).put(categoryId, object);
 			}
 			
 			

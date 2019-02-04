@@ -105,9 +105,9 @@
 					<!-- 请求路径 -->
 					<path>/pygSellerGoodsService</path>
 					
-					<!-- <url>http://120.79.101.80:8010/manager/text</url>
+					<url>http://192.168.255.130:8010/manager/text</url>
 					<username>tomcat</username>
-					<password>tomcat</password> -->
+					<password>tomcat</password> 
 				</configuration>
 			</plugin>
 		</plugins>

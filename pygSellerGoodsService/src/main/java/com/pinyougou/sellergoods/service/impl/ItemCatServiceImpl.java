@@ -1,10 +1,13 @@
 package com.pinyougou.sellergoods.service.impl;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
+
 import com.alibaba.dubbo.config.annotation.Service;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.pinyougou.common.PageResult;
+import com.pinyougou.common.RedisCommonKey;
 import com.pinyougou.mapper.TbItemCatMapper;
 import com.pinyougou.pojo.TbItemCat;
 import com.pinyougou.pojo.TbItemCatExample;
@@ -16,11 +19,15 @@ import com.pinyougou.sellergoods.service.ItemCatService;
  * @author Administrator
  *
  */
-@Service
+@Service(timeout=10000)
+@SuppressWarnings({"rawtypes"  ,"unchecked"})
 public class ItemCatServiceImpl implements ItemCatService {
 
 	@Autowired
 	private TbItemCatMapper itemCatMapper;
+	
+	@Autowired
+	private RedisTemplate redisTemplate;
 	
 	/**
 	 * 查询全部
@@ -104,6 +111,12 @@ public class ItemCatServiceImpl implements ItemCatService {
 
 		@Override
 		public List<TbItemCat> findByParentId(Long id) {
+			List<TbItemCat> itemCatList = findAll();
+			for (TbItemCat itemCat : itemCatList) {
+				redisTemplate.boundHashOps(RedisCommonKey.ITEMCAT_HASH)
+				.put(itemCat.getName(), itemCat.getTypeId());
+			}
+			System.out.println("把模板ID放入缓存==========================================");
 			TbItemCatExample example = new TbItemCatExample();
 			TbItemCatExample.Criteria criteria = example.createCriteria();
 			criteria.andParentIdEqualTo(id);
