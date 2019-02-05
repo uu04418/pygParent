@@ -96,6 +96,10 @@
 					<port>8040</port>
 					<!-- 请求路径 -->
 					<path>/</path>
+					
+					<url>http://192.168.255.130:8040/manager/text</url>
+					<username>tomcat</username>
+					<password>tomcat</password> 
 				</configuration>
 	  	  </plugin>
 	  </plugins>  

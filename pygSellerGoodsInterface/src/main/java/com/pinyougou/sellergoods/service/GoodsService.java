@@ -5,6 +5,7 @@ import com.pinyougou.common.PageResult;
 import com.pinyougou.common.Result;
 import com.pinyougou.datapojo.Goods;
 import com.pinyougou.pojo.TbGoods;
+import com.pinyougou.pojo.TbItem;
 
 /**
  * 服务层接口
@@ -63,5 +64,8 @@ public interface GoodsService {
 
 	/**审核商品状态**/
 	public Result updateStatus(Long[] ids, String status);
+	
+	/***查询spu*/
+	public List<TbItem> searchItemListByGoodIdAndState(Long [] goodIds ,String state);
 	
 }

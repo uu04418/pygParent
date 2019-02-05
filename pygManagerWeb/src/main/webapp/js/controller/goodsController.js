@@ -2,6 +2,8 @@
 app.controller('goodsController' ,function($scope,$controller,$location ,goodsService 
 		,itemCatService ,typeTemplateService ){	
 	
+	
+	
 	$controller('baseController',{$scope:$scope});//继承
 	
     //读取列表数据绑定到表单中  

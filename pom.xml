@@ -288,5 +288,6 @@
 		<module>pygSearchInterface</module>
 		<module>pygSearchService</module>
 		<module>pygSearchWeb</module>
+		<module>pygPageInterface</module>
 	</modules>
 </project>

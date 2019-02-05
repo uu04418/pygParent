@@ -1,4 +1,5 @@
 package com.pinyougou.manager.controller;
+import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.web.bind.annotation.RequestBody;
@@ -9,6 +10,8 @@ import com.pinyougou.common.PageResult;
 import com.pinyougou.common.Result;
 import com.pinyougou.datapojo.Goods;
 import com.pinyougou.pojo.TbGoods;
+import com.pinyougou.pojo.TbItem;
+import com.pinyougou.search.service.ItemSearchService;
 import com.pinyougou.sellergoods.service.GoodsService;
 /**
  * controller
@@ -21,6 +24,8 @@ public class GoodsController {
 
 	@Reference
 	private GoodsService goodsService;
+	@Reference
+	private ItemSearchService searchService;
 	
 	/**
 	 * 返回全部列表
@@ -77,6 +82,7 @@ public class GoodsController {
 	public Result delete(Long [] ids){
 		try {
 			goodsService.delete(ids);
+			searchService.deleteByGoodsId(Arrays.asList(ids));
 			return new Result(true, "删除成功"); 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -93,12 +99,21 @@ public class GoodsController {
 	 */
 	@RequestMapping("/search")
 	public PageResult search(@RequestBody TbGoods goods, int page, int rows  ){
+		goods.setIsDelete("0"); // 没有删除的
 		return goodsService.findPage(goods, page, rows);		
 	}
 	
 	/**审核商品**/
 	@RequestMapping("/updateStatus")
 	public Result updateStatus (Long [] ids ,String status) {
+		
+		if("1".equals(status)){//如果是审核通过 
+			//得到需要导入的SKU列表
+			List<TbItem> itemList = goodsService.searchItemListByGoodIdAndState(ids, status);
+			//导入到solr
+			searchService.importItemList(itemList);		
+		}		
+		
 		return goodsService.updateStatus(ids ,status);
 	}
 	

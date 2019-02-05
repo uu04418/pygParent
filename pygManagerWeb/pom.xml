@@ -10,6 +10,11 @@
   
   
   <dependencies>
+  	<dependency>
+	  		 <groupId>com.pyg</groupId>
+	   	 	 <artifactId>pygSearchInterface</artifactId>
+	    	 <version>0.0.1-SNAPSHOT</version>
+	  	</dependency>
   
 	  <dependency>
 	  		 <groupId>com.pyg</groupId>

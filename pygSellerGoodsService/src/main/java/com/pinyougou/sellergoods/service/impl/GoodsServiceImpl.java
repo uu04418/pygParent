@@ -1,4 +1,5 @@
 package com.pinyougou.sellergoods.service.impl;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -192,7 +193,10 @@ public class GoodsServiceImpl implements GoodsService {
 	@Override
 	public void delete(Long[] ids) {
 		for(Long id:ids){
-			goodsMapper.deleteByPrimaryKey(id);
+			//goodsMapper.deleteByPrimaryKey(id);
+			TbGoods tbGoods = goodsMapper.selectByPrimaryKey(id);
+			tbGoods.setIsDelete("1");
+			goodsMapper.updateByPrimaryKey(tbGoods);
 		}		
 	}
 	
@@ -251,6 +255,15 @@ public class GoodsServiceImpl implements GoodsService {
 				return new Result(false, "审核失败");
 			}
 			
+		}
+
+		@Override
+		public List<TbItem> searchItemListByGoodIdAndState(Long[] goodIds, String state) {
+			TbItemExample example = new TbItemExample();
+			TbItemExample.Criteria criteria = example.createCriteria();
+			criteria.andStatusEqualTo(state);
+			criteria.andGoodsIdIn( Arrays.asList(goodIds));//指定条件：SPUID集合);
+		    return itemMapper.selectByExample(example);
 		}
 	
 }
