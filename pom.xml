@@ -290,5 +290,8 @@
 		<module>pygSearchWeb</module>
 		<module>pygPageInterface</module>
 		<module>pygPageService</module>
+		<module>pygUserInterface</module>
+		<module>pygUserService</module>
+		<module>pygUserWeb</module>
 	</modules>
 </project>
