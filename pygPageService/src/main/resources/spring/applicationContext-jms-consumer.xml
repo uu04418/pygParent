@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:context="http://www.springframework.org/schema/context" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amq="http://activemq.apache.org/schema/core"
+	xmlns:jms="http://www.springframework.org/schema/jms"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans   
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context   
+		http://www.springframework.org/schema/context/spring-context.xsd">
+	
+    <!-- 1.ActiveMQ的连接工厂 -->
+	<bean id="targetConnectionFactory" class="org.apache.activemq.ActiveMQConnectionFactory">
+		<property name="brokerURL" value="tcp://192.168.255.130:61616" />
+	</bean>
+	<!-- 2.Spring Caching连接工厂 -->
+	<bean id="connectionFactory"
+		class="org.springframework.jms.connection.CachingConnectionFactory">
+		<property name="targetConnectionFactory" ref="targetConnectionFactory"></property>
+		<!-- Session缓存数量 -->
+		<property name="sessionCacheSize" value="50" />
+	</bean>
+	<!-- 3.队列模板 -->
+	<bean id="jmsTemplate" class="org.springframework.jms.core.JmsTemplate">
+		<property name="connectionFactory" ref="connectionFactory" />
+		<property name="receiveTimeout" value="10000" />
+	</bean>
+	
+	
+	
+	<!-- 监听生成静态页面点模板消息-->
+	<bean id="gentHtml" class="org.apache.activemq.command.ActiveMQTopic">  
+	    <constructor-arg value="gentHtml"/>  
+	</bean>  
+	<bean id="gentHtmlMess" class="com.pinyougou.page.mess.GentHtmlMess"></bean>  
+	<bean class="org.springframework.jms.listener.DefaultMessageListenerContainer">
+		<property name="connectionFactory" ref="connectionFactory" />
+		<property name="destination" ref="gentHtml" />
+		<property name="messageListener" ref="gentHtmlMess" />
+	</bean>
+	
+	
+	<!-- 监听生删除静态页面的模板消息-->
+	<bean id="gentHtmlDelete" class="org.apache.activemq.command.ActiveMQTopic">  
+	    <constructor-arg value="gentHtmlDelete"/>  
+	</bean>  
+	<bean id="gentHtmlDeleteMess" class="com.pinyougou.page.mess.GentHtmlDeleteMess"></bean>  
+	<bean class="org.springframework.jms.listener.DefaultMessageListenerContainer">
+		<property name="connectionFactory" ref="connectionFactory" />
+		<property name="destination" ref="gentHtmlDelete" />
+		<property name="messageListener" ref="gentHtmlDeleteMess" />
+	</bean>
+	
+	
+	
+	
+	
+	
+	
+</beans>
