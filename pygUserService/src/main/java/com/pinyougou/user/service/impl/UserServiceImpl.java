@@ -165,13 +165,14 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public void createSmsCode(final String phone) {
 		//1.生成一个6位随机数（验证码）
-		final String smscode=  (long)(Math.random()*1000000)+"";
-		System.out.println("验证码："+smscode);
+		final String smscode=  (long)(Math.random()*10000)+"";
+		System.out.println("发送的手机："+phone + "  验证码 : " + smscode);
 		
 		//2.将验证码放入redis
 		redisTemplate.boundHashOps("smscode").put(phone, smscode);
 		//3.将短信内容发送给activeMQ
 		String sendData = phone + "-" + smscode;
+		//通过模板消息发送出去然后手机可以接收
 		ActiveMqSendMess.sendData(jmsTemplate, smsDestination, sendData);
 		
 		
