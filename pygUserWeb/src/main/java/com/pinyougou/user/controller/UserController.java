@@ -10,6 +10,7 @@ import com.pinyougou.common.PhoneFormatCheckUtils;
 import com.pinyougou.common.Result;
 import com.pinyougou.pojo.TbUser;
 import com.pinyougou.user.service.UserService;
+
 /**
  * controller
  * @author Administrator
@@ -19,7 +20,7 @@ import com.pinyougou.user.service.UserService;
 @RequestMapping("/user")
 public class UserController {
 
-	@Reference
+	@Reference(timeout=5000)
 	private UserService userService;
 	
 	/**

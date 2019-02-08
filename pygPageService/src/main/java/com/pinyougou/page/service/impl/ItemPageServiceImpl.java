@@ -1,6 +1,5 @@
 package com.pinyougou.page.service.impl;
 
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.fileUpload;
 
 import java.io.File;
 import java.io.FileWriter;

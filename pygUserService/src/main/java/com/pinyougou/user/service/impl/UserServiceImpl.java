@@ -1,18 +1,26 @@
 package com.pinyougou.user.service.impl;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.jms.Destination;
+import javax.jms.JMSException;
+import javax.jms.MapMessage;
+import javax.jms.Message;
+import javax.jms.Session;
 
 import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.jms.core.JmsTemplate;
+import org.springframework.jms.core.MessageCreator;
 
 import com.alibaba.dubbo.config.annotation.Service;
+import com.alibaba.fastjson.JSON;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
-import com.pinyougou.common.ActiveMqSendMess;
 import com.pinyougou.common.PageResult;
 import com.pinyougou.mapper.TbUserMapper;
 import com.pinyougou.pojo.TbUser;
@@ -27,22 +35,10 @@ import com.pinyougou.user.service.UserService;
  *
  */
 @Service
-@SuppressWarnings({"rawtypes","unchecked"})
 public class UserServiceImpl implements UserService {
 
 	@Autowired
 	private TbUserMapper userMapper;
-	
-	
-	@Autowired
-	private RedisTemplate redisTemplate;
-	
-	@Autowired
-	private JmsTemplate jmsTemplate;
-	
-	@Autowired
-	private Destination smsDestination;
-	
 	
 	/**
 	 * 查询全部
@@ -160,20 +156,27 @@ public class UserServiceImpl implements UserService {
 		return new PageResult(page.getTotal(), page.getResult());
 	}
 
+	@SuppressWarnings("rawtypes")
+	@Autowired
+	private RedisTemplate redisTemplate;
+	
+	@Autowired
+	private JmsTemplate jmsTemplate;
+	
+	@Autowired
+	private Destination smsDestination;
+	
 	
 	
 	@Override
 	public void createSmsCode(final String phone) {
 		//1.生成一个6位随机数（验证码）
-		final String smscode=  (long)(Math.random()*10000)+"";
-		System.out.println("发送的手机："+phone + "  验证码 : " + smscode);
+		final String smscode=  (long)(Math.random()*1000000)+"";
+		System.out.println("验证码："+smscode);
 		
 		//2.将验证码放入redis
 		redisTemplate.boundHashOps("smscode").put(phone, smscode);
 		//3.将短信内容发送给activeMQ
-		String sendData = phone + "-" + smscode;
-		//通过模板消息发送出去然后手机可以接收
-		ActiveMqSendMess.sendData(jmsTemplate, smsDestination, sendData);
 		
 		
 		
