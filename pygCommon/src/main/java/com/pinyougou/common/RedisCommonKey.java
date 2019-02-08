@@ -14,5 +14,8 @@ public class RedisCommonKey {
 	
 	/**广告位**/
 	public static final String CONTENT_HASH = "content";
+	
+	/**购物车**/
+	public static final String MYCART_SHASH = "mycart";
 
 }
